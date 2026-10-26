@@ -1,0 +1,825 @@
+<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Enterprise School Revision Lessons</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<style>:root{--bg:#EDE7DC;--fg:#1E2A38;--mute:#5B6573;--card:#FFFDF9;--accent:#B4500E}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Nunito Sans",Arial,sans-serif}
+header{position:sticky;top:0;z-index:5;background:#1E2A38;color:#FAF7F2;padding:12px max(16px,env(safe-area-inset-left,0px));display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+header b{font-family:Domine,Georgia,serif;font-size:18px;margin-right:auto}
+header select{max-width:60vw}header select,header button{font:inherit;font-size:15px;padding:6px 10px;border-radius:8px;border:1px solid #3B4A5C;background:#2C3B4D;color:#FAF7F2}
+main{max-width:1100px;margin:0 auto;padding:16px max(16px,env(safe-area-inset-right,0px)) 48px max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:22px}
+.wrap{background:var(--card);border-radius:12px;box-shadow:0 2px 10px rgba(30,42,56,.12);overflow:hidden}
+.slide{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden}
+.slide section{position:absolute;left:0;top:0;transform-origin:0 0}
+.slide section{width:1920px;height:1080px;box-sizing:border-box;position:relative;overflow:hidden}
+.slide section *{margin:0;box-sizing:border-box}
+.slide section ul,.slide section ol{padding-left:1.2em}
+.slide section table{border-collapse:collapse;width:100%}
+.slide section th,.slide section td{border:1px solid #D8D0C2;padding:.35em .6em;text-align:left;vertical-align:top}
+.slide section th{background:#EFE8DD;font-weight:800}
+.slide section pre{white-space:pre-wrap}
+details{padding:10px 16px;border-top:1px solid #E4DDD2;font-size:16px;line-height:1.5}
+summary{cursor:pointer;font-weight:800;color:var(--accent)}
+.sec{font-family:Domine,Georgia,serif;font-size:20px;margin:18px 2px -6px}
+body.present{background:#000;overflow:hidden}body.present header,body.present main>*:not(.on){display:none}body.present main{max-width:none;padding:0;height:100vh;justify-content:center}
+body.present .wrap.on{border-radius:0;box-shadow:none;width:min(100vw,177.78vh);margin:0 auto}body.present details{display:none}
+.hint{color:#C9D3DD;font-size:13px}
+</style></head><body>
+<header><b>Enterprise School Revision Lessons</b><select id="jump" aria-label="Jump to lesson"></select><button id="pres">Present</button><span class="hint">Arrow keys or swipe in Present</span></header><main>
+<p class="sec" id="sec-cover">How the six Enterprise School revision lessons run and where the practice sets are.</p>
+<div class="wrap" id="cover"><div class="slide"><section id="cover" style="background:#1E2A38;color:#FAF7F2;font-family:'Nunito Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between">
+<p style="font-size:28px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#F28C3A">HSC Enterprise Computing · Peer revision</p>
+<div style="display:flex;flex-direction:column;gap:32px">
+<h1 style="font-family:'Domine', Georgia, serif;font-size:120px;font-weight:700;line-height:1.05;color:#FAF7F2">Enterprise School</h1>
+<p style="font-size:44px;line-height:1.3;color:#C9D3DD">Six 45-minute lessons on the topics examined most often, each with its own practice set in the exam browser.</p>
+</div>
+<div style="display:flex;gap:24px">
+<p style="font-size:28px;font-weight:700;background:#2C3B4D;color:#FAF7F2;padding:16px 28px;border-radius:999px">Databases</p>
+<p style="font-size:28px;font-weight:700;background:#2C3B4D;color:#FAF7F2;padding:16px 28px;border-radius:999px">Security</p>
+<p style="font-size:28px;font-weight:700;background:#2C3B4D;color:#FAF7F2;padding:16px 28px;border-radius:999px">Diagrams</p>
+<p style="font-size:28px;font-weight:700;background:#2C3B4D;color:#FAF7F2;padding:16px 28px;border-radius:999px">Intelligent systems</p>
+<p style="font-size:28px;font-weight:700;background:#2C3B4D;color:#FAF7F2;padding:16px 28px;border-radius:999px">Visualisation</p>
+<p style="font-size:28px;font-weight:700;background:#2C3B4D;color:#FAF7F2;padding:16px 28px;border-radius:999px">8-mark responses</p>
+</div>
+
+</section></div>
+<details><summary>Notes</summary><p>Welcome. These six lessons cover the topics that appeared most often across six trial and HSC papers. Each lesson runs the same way and ends with a practice set in the exam browser.</p></details>
+</div>
+<div class="wrap" id="how"><div class="slide"><section id="how" style="background:#FAF7F2;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="font-size:24px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#B4500E">How each lesson runs</p>
+<h2 style="font-family:'Domine', Georgia, serif;font-size:64px;font-weight:700;line-height:1.15;color:#1E2A38">45 minutes, the same four steps every time</h2>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:36px">
+<p style="font-family:'Domine', Georgia, serif;font-size:72px;font-weight:700;color:#B4500E">10</p>
+<h3 style="font-size:36px;font-weight:800">Teach</h3>
+<p style="font-size:28px;color:#4A5568">The key ideas on two slides</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:36px">
+<p style="font-family:'Domine', Georgia, serif;font-size:72px;font-weight:700;color:#B4500E">20</p>
+<h3 style="font-size:36px;font-weight:800">Practise</h3>
+<p style="font-size:28px;color:#4A5568">The lesson’s practice set in the exam browser</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:36px">
+<p style="font-family:'Domine', Georgia, serif;font-size:72px;font-weight:700;color:#B4500E">10</p>
+<h3 style="font-size:36px;font-weight:800">Go over answers</h3>
+<p style="font-size:28px;color:#4A5568">Auto-marks plus the marking guides</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:36px">
+<p style="font-family:'Domine', Georgia, serif;font-size:72px;font-weight:700;color:#B4500E">5</p>
+<h3 style="font-size:36px;font-weight:800">Exit check</h3>
+<p style="font-size:28px;color:#4A5568">Two questions, answered out loud</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#1E2A38;border-radius:16px;padding:36px 44px">
+<p style="font-size:32px;color:#FAF7F2"><b>Practice sets:</b> chaosontoast.github.io/ec-exam-practice → Practice sets → <span style="color:#F28C3A">Enterprise School practice set 1 to 6</span></p>
+<p style="font-size:26px;color:#C9D3DD">Works on phones and laptops. Progress saves in that browser. No account needed.</p>
+</div>
+
+</section></div>
+<details><summary>Notes</summary><p>Each lesson follows the same rhythm, so nobody wastes time working out what happens next. Open the practice page on your phone or laptop before the lesson starts. Objective questions mark themselves; for written answers, compare against the marking guide in the review screen after you finish.</p></details>
+</div>
+<p class="sec" id="sec-l1">Lesson 1: relational databases, data dictionaries and SQL.</p>
+<div class="wrap" id="l1"><div class="slide"><section id="l1" style="background:#1E2A38;color:#FAF7F2;font-family:'Nunito Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:40px">
+<p style="font-size:28px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:#F28C3A">Lesson 1 · in all 6 papers · 6 to 13 marks</p>
+<h1 style="font-family:'Domine', Georgia, serif;font-size:96px;font-weight:700;line-height:1.1;color:#FAF7F2">Relational databases and SQL</h1>
+<p style="font-size:40px;line-height:1.35;color:#C9D3DD">Goal: read a schema, fill in a data dictionary and write a three-table query that runs first time.</p>
+
+</section></div>
+<details><summary>Notes</summary><p>Databases and SQL appeared in every paper we looked at, worth 6 to 13 marks each time, so this lesson comes first.</p></details>
+</div>
+<div class="wrap" id="l1-teach"><div class="slide"><section id="l1-teach" style="background:#FAF7F2;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:64px;font-weight:700;line-height:1.15">Keys link tables, joins go in WHERE</h2>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:40px">
+<h3 style="font-size:36px;font-weight:800;color:#B4500E">Keys</h3>
+<p style="font-size:30px;line-height:1.4"><b>Primary key</b> identifies each record in its table.</p>
+<p style="font-size:30px;line-height:1.4"><b>Foreign key</b> holds a primary key from another table, which links them.</p>
+<p style="font-size:30px;line-height:1.4">One-to-many runs from the PK side (one member) to the FK side (many bookings).</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:40px">
+<h3 style="font-size:36px;font-weight:800;color:#B4500E">The SQL you need</h3>
+<p style="font-size:30px;line-height:1.4">Only SELECT, FROM, WHERE and ORDER BY are in the course.</p>
+<p style="font-size:30px;line-height:1.4">One join condition in WHERE <b>per link</b>: three tables need two.</p>
+<p style="font-size:26px;line-height:1.5;font-family:'Courier New', monospace;background:#1E2A38;color:#FAF7F2;padding:20px 24px;border-radius:10px">WHERE M.memberID = B.memberID<br>AND C.classID = B.classID</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 1 · Relational databases and SQL</p>
+
+</section></div>
+<details><summary>Notes</summary><p>Use the gym tables from practice set 1 as the example: Members, Classes and Bookings. Bookings holds two foreign keys, memberID and classID, so a query across all three tables needs two join conditions.</p></details>
+</div>
+<div class="wrap" id="l1-schema"><div class="slide"><section id="l1-schema" style="background:#FAF7F2;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:60px;font-weight:700;line-height:1.15">Reading a schema: one-to-many links</h2>
+<svg aria-label="Reading a schema: one-to-many links" width="1664" height="600" viewBox="0 0 1664 600" xmlns="http://www.w3.org/2000/svg"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1E2A38"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E36414"/></marker></defs><rect x="40" y="80" width="360" height="248" rx="10" fill="#FFFDF9" stroke="#1E2A38" stroke-width="2.5"/><rect x="40" y="80" width="360" height="56" rx="10" fill="#1E2A38"/><rect x="40" y="126" width="360" height="12" fill="#1E2A38"/><text x="220" y="118" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#FAF7F2">Members</text><text x="64" y="178" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="400" text-anchor="start" fill="#1E2A38">memberID</text><text x="380" y="178" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" text-anchor="end" fill="#2E7D8C">PK</text><text x="64" y="224" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="400" text-anchor="start" fill="#1E2A38">firstName</text><text x="64" y="270" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="400" text-anchor="start" fill="#1E2A38">suburb</text><text x="64" y="316" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="400" text-anchor="start" fill="#1E2A38">postcode</text><rect x="652" y="80" width="360" height="248" rx="10" fill="#FFFDF9" stroke="#1E2A38" stroke-width="2.5"/><rect x="652" y="80" width="360" height="56" rx="10" fill="#1E2A38"/><rect x="652" y="126" width="360" height="12" fill="#1E2A38"/><text x="832" y="118" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#FAF7F2">Bookings</text><text x="676" y="178" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="400" text-anchor="start" fill="#1E2A38">bookingID</text><text x="992" y="178" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" text-anchor="end" fill="#2E7D8C">PK</text><text x="676" y="224" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="400" text-anchor="start" fill="#1E2A38">memberID</text><text x="992" y="224" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" text-anchor="end" fill="#E36414">FK</text><text x="676" y="270" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="400" text-anchor="start" fill="#1E2A38">classID</text><text x="992" y="270" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" text-anchor="end" fill="#E36414">FK</text><text x="676" y="316" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="400" text-anchor="start" fill="#1E2A38">bookingDate</text><rect x="1264" y="80" width="360" height="248" rx="10" fill="#FFFDF9" stroke="#1E2A38" stroke-width="2.5"/><rect x="1264" y="80" width="360" height="56" rx="10" fill="#1E2A38"/><rect x="1264" y="126" width="360" height="12" fill="#1E2A38"/><text x="1444" y="118" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#FAF7F2">Classes</text><text x="1288" y="178" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="400" text-anchor="start" fill="#1E2A38">classID</text><text x="1604" y="178" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" text-anchor="end" fill="#2E7D8C">PK</text><text x="1288" y="224" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="400" text-anchor="start" fill="#1E2A38">className</text><text x="1288" y="270" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="400" text-anchor="start" fill="#1E2A38">level</text><text x="1288" y="316" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="400" text-anchor="start" fill="#1E2A38">fee</text><path d="M400,169 L520,169 L520,215 L652,215" fill="none" stroke="#1E2A38" stroke-width="3"/><path d="M1264,169 L1140,169 L1140,261 L1012,261" fill="none" stroke="#1E2A38" stroke-width="3"/><text x="420" y="166" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800" text-anchor="middle" fill="#1E2A38">1</text><text x="632" y="212" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="800" text-anchor="middle" fill="#1E2A38">∞</text><text x="1244" y="166" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800" text-anchor="middle" fill="#1E2A38">1</text><text x="1032" y="258" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="800" text-anchor="middle" fill="#1E2A38">∞</text><rect x="240" y="420" width="1184" height="150" rx="14" fill="#1E2A38" stroke="#1E2A38" stroke-width="2.5"/><text x="832" y="470" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="800" text-anchor="middle" fill="#F28C3A">Three tables = two links = two join conditions</text><text x="832" y="520" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="400" text-anchor="middle" fill="#FAF7F2">WHERE Members.memberID = Bookings.memberID AND Classes.classID = Bookings.classID</text></svg>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 1 · Relational databases and SQL</p>
+
+</section></div>
+<details><summary>Notes</summary><p>Point at each FK: memberID in Bookings points back to the PK of Members, so one member has many bookings (1 to many). Same for classID. Every link between two tables becomes one join condition in WHERE.</p></details>
+</div>
+<div class="wrap" id="l1-dict"><div class="slide"><section id="l1-dict" style="background:#FAF7F2;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:64px;font-weight:700;line-height:1.15">A data dictionary describes every field</h2>
+<table style="font-size:28px;color:#1E2A38;background:#FFFDF9">
+<tr><th style="width:22%">Field</th><th style="width:18%">Data type</th><th style="width:22%">Format</th><th style="width:12%">Size</th><th style="width:26%">Why</th></tr>
+<tr><td>memberID</td><td>Text</td><td>X##</td><td>3</td><td>Letter plus digits</td></tr>
+<tr><td>mobile</td><td>Text</td><td>##########</td><td>10</td><td>Keeps the leading 0</td></tr>
+<tr><td>fee</td><td>Currency</td><td>$##.##</td><td>6</td><td>Money</td></tr>
+<tr><td>bookingDate</td><td>Date/Time</td><td>dd/mm/yyyy</td><td>10</td><td>A date</td></tr>
+<tr><td>paidUp</td><td>Boolean</td><td>Y/N</td><td>1</td><td>Yes or no only</td></tr>
+</table>
+<p style="font-size:32px;line-height:1.4"><b>Field size = count the characters in the format.</b> Digits that are labels (phones, postcodes, IDs) are Text.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 1 · Relational databases and SQL</p>
+
+</section></div>
+<details><summary>Notes</summary><p>Field sizes are a common lost mark: in one trial, XX####XX needed a size of 8 and X##### a size of 6. Count every character, including the dollar sign and the decimal point in a currency format.</p></details>
+</div>
+<div class="wrap" id="l1-practise"><div class="slide"><section id="l1-practise" style="background:#F1ECE4;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<p style="font-size:24px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#B4500E">Practise · 20 minutes</p>
+<h2 style="font-family:'Domine', Georgia, serif;font-size:64px;font-weight:700;line-height:1.15">Enterprise School practice set 1</h2>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#1E2A38;border-radius:16px;padding:40px">
+<h3 style="font-size:36px;font-weight:800;color:#F28C3A">Open</h3>
+<p style="font-size:30px;line-height:1.4;color:#FAF7F2">chaosontoast.github.io/ec-exam-practice</p>
+<p style="font-size:30px;line-height:1.4;color:#FAF7F2">Practice sets → Enterprise School practice set 1 → Start</p>
+<p style="font-size:26px;line-height:1.4;color:#C9D3DD">Run each query until its output matches the question.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:40px">
+<h3 style="font-size:36px;font-weight:800">13 marks</h3>
+<p style="font-size:28px;line-height:1.4">Q1–3 · keys, postcodes, missing joins</p>
+<p style="font-size:28px;line-height:1.4">Q4 · data types (drop-downs)</p>
+<p style="font-size:28px;line-height:1.4">Q5 · describe the relationship</p>
+<p style="font-size:28px;line-height:1.4">Q6 · three-table query with a date range</p>
+<p style="font-size:28px;line-height:1.4">Q7 · OR with brackets</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 1 · Relational databases and SQL</p>
+
+</section></div>
+<details><summary>Answers and notes</summary><p>Answers for going over: Q1 foreign key linking each booking to one member. Q2 Text, keeps the leading zero. Q3 every booking paired with every class (too many rows, no error). Q4 Text, Currency, Date/Time, Boolean, Text. Q5 one-to-many, linked by memberID (PK in Members, FK in Bookings). Q6 should return Ava (Boxing, 3 Oct), Ben (HIIT, 20 Oct) and Dev (Boxing, 31 Oct): both joins, level = 'Advanced', the two date conditions, ORDER BY bookingDate. Q7 should return Boxing 25 then Spin 15: WHERE (level = 'Beginner' OR fee > 22) AND fee >= 13 ORDER BY fee DESC. Without the brackets Yoga ($12) sneaks in.</p></details>
+</div>
+<div class="wrap" id="l1-mistakes"><div class="slide"><section id="l1-mistakes" style="background:#FAF7F2;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:64px;font-weight:700;line-height:1.15">Mistakes that cost SQL marks</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border-left:8px solid #E36414;border-radius:12px;padding:32px">
+<h3 style="font-size:34px;font-weight:800">A missing join</h3>
+<p style="font-size:28px;line-height:1.4">Returns every combination of rows, with no error to warn you.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border-left:8px solid #E36414;border-radius:12px;padding:32px">
+<h3 style="font-size:34px;font-weight:800">OR without brackets</h3>
+<p style="font-size:28px;line-height:1.4">AND is applied first. Write (a OR b) AND c.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border-left:8px solid #E36414;border-radius:12px;padding:32px">
+<h3 style="font-size:34px;font-weight:800">Date ranges</h3>
+<p style="font-size:28px;line-height:1.4">Two conditions: date &gt;= '2026-10-01' AND date &lt;= '2026-10-31'.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border-left:8px solid #E36414;border-radius:12px;padding:32px">
+<h3 style="font-size:34px;font-weight:800">Quotes</h3>
+<p style="font-size:28px;line-height:1.4">Text in single quotes, matching the data’s capitals. Numbers without quotes.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 1 · Relational databases and SQL</p>
+
+</section></div>
+<details><summary>Notes</summary><p>Ask who hit any of these in the practice set. Most people will have hit at least one, usually the brackets in question 7.</p></details>
+</div>
+<div class="wrap" id="l1-exit"><div class="slide"><section id="l1-exit" style="background:#E36414;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:56px">
+<p style="font-size:28px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:#1E2A38">Exit check · out loud</p>
+<h2 style="font-family:'Domine', Georgia, serif;font-size:60px;font-weight:700;line-height:1.2">1. Why is a mobile number stored as text?</h2>
+<h2 style="font-family:'Domine', Georgia, serif;font-size:60px;font-weight:700;line-height:1.2">2. A query uses three tables but only one join condition. What does it return?</h2>
+
+</section></div>
+<details><summary>Answers and notes</summary><p>1. It keeps the leading zero and is never used in calculations. 2. Every combination of rows for the unjoined table (a cross join), so far too many rows. Anyone who misses one starts the next lesson with that question.</p></details>
+</div>
+<p class="sec" id="sec-l2">Lesson 2: matching security threats to measures, and backups.</p>
+<div class="wrap" id="l2"><div class="slide"><section id="l2" style="background:#1E2A38;color:#FAF7F2;font-family:'Nunito Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:40px">
+<p style="font-size:28px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:#F28C3A">Lesson 2 · in all 6 papers · 3 to 8 marks</p>
+<h1 style="font-family:'Domine', Georgia, serif;font-size:96px;font-weight:700;line-height:1.1;color:#FAF7F2">Data security and backup</h1>
+<p style="font-size:40px;line-height:1.35;color:#C9D3DD">Goal: match a threat to the measure that actually stops it, and justify two measures for a scenario.</p>
+
+</section></div>
+<details><summary>Notes</summary><p>Security also appeared in every paper. The marks go to people who link each measure to the specific threat in the scenario, not to people who list measures.</p></details>
+</div>
+<div class="wrap" id="l2-teach"><div class="slide"><section id="l2-teach" style="background:#FAF7F2;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:64px;font-weight:700;line-height:1.15">Each threat has a measure that targets it</h2>
+<table style="font-size:28px;color:#1E2A38;background:#FFFDF9">
+<tr><th style="width:48%">Threat</th><th style="width:52%">Measure that targets it</th></tr>
+<tr><td>Stolen or guessed password</td><td>Multi-factor authentication, strong passwords</td></tr>
+<tr><td>Staff seeing data they don’t need</td><td>Access levels (least privilege)</td></tr>
+<tr><td>Intercepted data, stolen laptop</td><td>Encryption in transit and at rest</td></tr>
+<tr><td>Phishing, social engineering</td><td>Ongoing staff training</td></tr>
+<tr><td>Ransomware, hardware failure, disaster</td><td>Tested offsite backups, recovery plan</td></tr>
+<tr><td>Malware, unauthorised network access</td><td>Antivirus, firewalls, updates</td></tr>
+</table>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 2 · Data security and backup</p>
+
+</section></div>
+<details><summary>Notes</summary><p>Read the threat column first and ask the room for the measure before revealing it. The point is that each measure stops a specific threat: encryption does nothing about phishing, and training does nothing about a failed hard drive.</p></details>
+</div>
+<div class="wrap" id="l2-backup"><div class="slide"><section id="l2-backup" style="background:#FAF7F2;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:64px;font-weight:700;line-height:1.15">Backups: what a restore needs</h2>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:36px">
+<h3 style="font-size:34px;font-weight:800;color:#B4500E">Full</h3>
+<p style="font-size:28px;line-height:1.4">Copies everything. Slowest to make, simplest to restore.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:36px">
+<h3 style="font-size:34px;font-weight:800;color:#B4500E">Incremental</h3>
+<p style="font-size:28px;line-height:1.4">Changes since the <b>last backup of any kind</b>. Restore = full + every incremental after it.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:36px">
+<h3 style="font-size:34px;font-weight:800;color:#B4500E">Differential</h3>
+<p style="font-size:28px;line-height:1.4">Changes since the <b>last full backup</b>. Restore = full + the latest differential.</p>
+</div>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#1E2A38;border-radius:16px;padding:32px 36px">
+<h3 style="font-size:32px;font-weight:800;color:#F28C3A">3-2-1 rule</h3>
+<p style="font-size:28px;line-height:1.4;color:#FAF7F2">3 copies, on 2 types of media, 1 offsite. Test that restores work.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#1E2A38;border-radius:16px;padding:32px 36px">
+<h3 style="font-size:32px;font-weight:800;color:#F28C3A">Risk matrix</h3>
+<p style="font-size:28px;line-height:1.4;color:#FAF7F2">Rate each threat by likelihood × impact. Deal with high-high first.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 2 · Data security and backup</p>
+
+</section></div>
+<details><summary>Notes</summary><p>Quick check before the practice set: with a Sunday full backup and nightly incrementals, a Thursday lunchtime failure needs Sunday, Monday, Tuesday and Wednesday. With differentials it would need only Sunday and Wednesday.</p></details>
+</div>
+<div class="wrap" id="l2-timeline"><div class="slide"><section id="l2-timeline" style="background:#FAF7F2;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:60px;font-weight:700;line-height:1.15">Which backups does a restore need?</h2>
+<svg aria-label="Which backups does a restore need?" width="1664" height="540" viewBox="0 0 1664 540" xmlns="http://www.w3.org/2000/svg"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1E2A38"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E36414"/></marker></defs><text x="20" y="92" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="800" text-anchor="start" fill="#1E2A38">Incremental</text><rect x="300" y="40" width="210" height="90" rx="12" fill="#E36414" stroke="#E36414" stroke-width="3"/><text x="405" y="80" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" text-anchor="middle" fill="#1E2A38">Sun</text><text x="405" y="114" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" text-anchor="middle" fill="#1E2A38">Full</text><rect x="550" y="40" width="210" height="90" rx="12" fill="#E36414" stroke="#E36414" stroke-width="3"/><text x="655" y="80" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" text-anchor="middle" fill="#1E2A38">Mon</text><text x="655" y="114" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" text-anchor="middle" fill="#1E2A38">since Sun</text><rect x="800" y="40" width="210" height="90" rx="12" fill="#E36414" stroke="#E36414" stroke-width="3"/><text x="905" y="80" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" text-anchor="middle" fill="#1E2A38">Tue</text><text x="905" y="114" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" text-anchor="middle" fill="#1E2A38">since Mon</text><rect x="1050" y="40" width="210" height="90" rx="12" fill="#E36414" stroke="#E36414" stroke-width="3"/><text x="1155" y="80" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" text-anchor="middle" fill="#1E2A38">Wed</text><text x="1155" y="114" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" text-anchor="middle" fill="#1E2A38">since Tue</text><rect x="1300" y="40" width="210" height="90" rx="12" fill="#E36414" stroke="#E36414" stroke-width="3"/><text x="1405" y="80" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" text-anchor="middle" fill="#1E2A38">Thu</text><text x="1405" y="114" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" text-anchor="middle" fill="#1E2A38">since Wed</text><text x="20" y="252" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="800" text-anchor="start" fill="#1E2A38">Differential</text><rect x="300" y="200" width="210" height="90" rx="12" fill="#E36414" stroke="#E36414" stroke-width="3"/><text x="405" y="240" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" text-anchor="middle" fill="#1E2A38">Sun</text><text x="405" y="274" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" text-anchor="middle" fill="#1E2A38">Full</text><rect x="550" y="200" width="210" height="90" rx="12" fill="#FFFDF9" stroke="#C9BFAF" stroke-width="3"/><text x="655" y="240" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" text-anchor="middle" fill="#1E2A38">Mon</text><text x="655" y="274" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" text-anchor="middle" fill="#1E2A38">since Sun</text><rect x="800" y="200" width="210" height="90" rx="12" fill="#FFFDF9" stroke="#C9BFAF" stroke-width="3"/><text x="905" y="240" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" text-anchor="middle" fill="#1E2A38">Tue</text><text x="905" y="274" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" text-anchor="middle" fill="#1E2A38">since Sun</text><rect x="1050" y="200" width="210" height="90" rx="12" fill="#FFFDF9" stroke="#C9BFAF" stroke-width="3"/><text x="1155" y="240" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" text-anchor="middle" fill="#1E2A38">Wed</text><text x="1155" y="274" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" text-anchor="middle" fill="#1E2A38">since Sun</text><rect x="1300" y="200" width="210" height="90" rx="12" fill="#E36414" stroke="#E36414" stroke-width="3"/><text x="1405" y="240" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" text-anchor="middle" fill="#1E2A38">Thu</text><text x="1405" y="274" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" text-anchor="middle" fill="#1E2A38">since Sun</text><line x1="1560" y1="20" x2="1560" y2="320" stroke="#1E2A38" stroke-width="4" stroke-dasharray="10 8"/><text x="1570" y="170" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800" text-anchor="start" fill="#1E2A38">Fri</text><text x="1570" y="205" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="400" text-anchor="start" fill="#1E2A38">failure</text><rect x="300" y="360" width="26" height="26" rx="4" fill="#E36414" stroke="#E36414" stroke-width="2.5"/><text x="340" y="382" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="400" text-anchor="start" fill="#1E2A38">needed to restore Thursday night’s data</text><text x="300" y="450" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" text-anchor="start" fill="#1E2A38">Incremental: full + EVERY incremental after it (smaller, faster backups; slower restore)</text><text x="300" y="500" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" text-anchor="start" fill="#1E2A38">Differential: full + ONLY the latest differential (bigger backups each night; faster restore)</text></svg>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 2 · Data security and backup</p>
+
+</section></div>
+<details><summary>Notes</summary><p>Walk the two rows left to right. With incrementals, every night only copies what changed since the night before, so restoring Thursday needs the full backup plus all four. A differential copies everything since the last full backup, so only Sunday plus Thursday are needed.</p></details>
+</div>
+<div class="wrap" id="l2-practise"><div class="slide"><section id="l2-practise" style="background:#F1ECE4;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<p style="font-size:24px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#B4500E">Practise · 20 minutes</p>
+<h2 style="font-family:'Domine', Georgia, serif;font-size:64px;font-weight:700;line-height:1.15">Enterprise School practice set 2</h2>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#1E2A38;border-radius:16px;padding:40px">
+<h3 style="font-size:36px;font-weight:800;color:#F28C3A">Open</h3>
+<p style="font-size:30px;line-height:1.4;color:#FAF7F2">chaosontoast.github.io/ec-exam-practice</p>
+<p style="font-size:30px;line-height:1.4;color:#FAF7F2">Practice sets → Enterprise School practice set 2 → Start</p>
+<p style="font-size:26px;line-height:1.4;color:#C9D3DD">Every measure you write must name the threat it stops.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:40px">
+<h3 style="font-size:36px;font-weight:800">13 marks</h3>
+<p style="font-size:28px;line-height:1.4">Q1–3 · phishing, compromised accounts, differentials</p>
+<p style="font-size:28px;line-height:1.4">Q4 · threat → measure (drop-downs)</p>
+<p style="font-size:28px;line-height:1.4">Q5 · put the restore in order</p>
+<p style="font-size:28px;line-height:1.4">Q6 · justify two measures (3)</p>
+<p style="font-size:28px;line-height:1.4">Q7 · use a risk matrix (3)</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 2 · Data security and backup</p>
+
+</section></div>
+<details><summary>Answers and notes</summary><p>Answers for going over: Q1 staff training. Q2 access levels. Q3 Sunday full plus Thursday’s differential. Q4 MFA, encryption at rest, tested offsite backups, access levels, antivirus. Q5 Sunday full, Monday, Tuesday, Wednesday (Saturday is before the full backup; Thursday night has not happened). Q6 e.g. MFA because assessors log in from home to a cloud system; encryption because claims hold medical and bank details. Q7 phishing is likely and high impact, so training and MFA first; the data centre fire is unlikely but severe, so backups and a recovery plan; the USB drive is handled by encryption and a no-USB rule.</p></details>
+</div>
+<div class="wrap" id="l2-mistakes"><div class="slide"><section id="l2-mistakes" style="background:#FAF7F2;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:64px;font-weight:700;line-height:1.15">Mistakes that cost security marks</h2>
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border-left:8px solid #E36414;border-radius:12px;padding:32px">
+<h3 style="font-size:34px;font-weight:800">Listing without linking</h3>
+<p style="font-size:28px;line-height:1.4">“Use encryption and a firewall” earns little. Say which threat in the scenario each one stops and how.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border-left:8px solid #E36414;border-radius:12px;padding:32px">
+<h3 style="font-size:34px;font-weight:800">Technology for a people problem</h3>
+<p style="font-size:28px;line-height:1.4">Encryption and firewalls do not stop phishing. Phishing targets people, so training is the direct defence.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border-left:8px solid #E36414;border-radius:12px;padding:32px">
+<h3 style="font-size:34px;font-weight:800">Answering half the question</h3>
+<p style="font-size:28px;line-height:1.4">“Implement and investigate” needs both: how it was set up, and how you checked it worked (logs, test restores, audits).</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 2 · Data security and backup</p>
+
+</section></div>
+<details><summary>Notes</summary><p>The third mistake cost marks in a recent trial: the question asked how security was implemented and investigated, and answers that only covered implementing lost a mark.</p></details>
+</div>
+<div class="wrap" id="l2-exit"><div class="slide"><section id="l2-exit" style="background:#E36414;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:56px">
+<p style="font-size:28px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:#1E2A38">Exit check · out loud</p>
+<h2 style="font-family:'Domine', Georgia, serif;font-size:60px;font-weight:700;line-height:1.2">1. Sunday full backup, nightly incrementals, failure on Friday morning. Which backups restore Thursday’s data?</h2>
+<h2 style="font-family:'Domine', Georgia, serif;font-size:60px;font-weight:700;line-height:1.2">2. Which measure limits the damage if one staff account is compromised?</h2>
+
+</section></div>
+<details><summary>Answers and notes</summary><p>1. Sunday full, then Monday, Tuesday, Wednesday and Thursday incrementals, in that order. 2. Access levels (least privilege), so the account can reach only what its job needs.</p></details>
+</div>
+<p class="sec" id="sec-l3">Lesson 3: DFDs, flowcharts, decision trees and UI design.</p>
+<div class="wrap" id="l3"><div class="slide"><section id="l3" style="background:#1E2A38;color:#FAF7F2;font-family:'Nunito Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:40px">
+<p style="font-size:28px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:#F28C3A">Lesson 3 · in 4 of 6 papers · 10+ marks</p>
+<h1 style="font-family:'Domine', Georgia, serif;font-size:96px;font-weight:700;line-height:1.1;color:#FAF7F2">Diagrams</h1>
+<p style="font-size:40px;line-height:1.35;color:#C9D3DD">Goal: draw a correct DFD, system flowchart and decision tree from a short scenario.</p>
+
+</section></div>
+<details><summary>Notes</summary><p>Diagrams are worth 10 or more marks in most papers, and most lost marks come from breaking a small rule rather than from not knowing the topic.</p></details>
+</div>
+<div class="wrap" id="l3-teach"><div class="slide"><section id="l3-teach" style="background:#FAF7F2;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:36px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:64px;font-weight:700;line-height:1.15">The rules that cost marks when broken</h2>
+<table style="font-size:26px;color:#1E2A38;background:#FFFDF9">
+<tr><th style="width:24%">Diagram</th><th style="width:76%">Rules</th></tr>
+<tr><td>Context (level 0)</td><td>One process for the whole system, every entity, every flow labelled, no data stores</td></tr>
+<tr><td>Level 1 DFD</td><td>Processes named with verbs, data stores reached only through a process</td></tr>
+<tr><td>System flowchart</td><td>Exam symbols: online input, display, process, document, direct access storage</td></tr>
+<tr><td>Algorithm flowchart</td><td>Start and end terminators, Yes/No on every decision, loops drawn back</td></tr>
+<tr><td>Decision tree</td><td>Conditions in order, every branch labelled, every path ends in an action</td></tr>
+<tr><td>UI design</td><td>Every field from the stimulus, the right control, labelled with why</td></tr>
+</table>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 3 · Diagrams</p>
+
+</section></div>
+<details><summary>Notes</summary><p>Go through the table quickly, then sketch the library decision tree from practice set question 1 on the board: overdue? then student? then the fine. Point out that every path ends in an action.</p></details>
+</div>
+<div class="wrap" id="l3-dfd"><div class="slide"><section id="l3-dfd" style="background:#FAF7F2;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:60px;font-weight:700;line-height:1.15">Context diagram vs level 1 DFD</h2>
+<p style="font-size:28px;line-height:1.4;color:#4A5568">Same library system, two levels of detail</p>
+<svg aria-label="Context diagram vs level 1 DFD" width="1664" height="600" viewBox="0 0 1664 600" xmlns="http://www.w3.org/2000/svg"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1E2A38"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E36414"/></marker></defs><rect x="0" y="0" width="790" height="600" rx="16" fill="#F1ECE4" stroke="#F1ECE4" stroke-width="2.5"/><rect x="874" y="0" width="790" height="600" rx="16" fill="#F1ECE4" stroke="#F1ECE4" stroke-width="2.5"/><text x="395" y="50" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="800" text-anchor="middle" fill="#1E2A38">Context diagram (level 0)</text><text x="1269" y="50" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="800" text-anchor="middle" fill="#1E2A38">Level 1 DFD</text><circle cx="395" cy="330" r="110" fill="#FFFDF9" stroke="#1E2A38" stroke-width="3"/><text x="395" y="322" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800" text-anchor="middle" fill="#1E2A38">Library</text><text x="395" y="356" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800" text-anchor="middle" fill="#1E2A38">system</text><rect x="20" y="290" width="150" height="70" rx="10" fill="#FFFDF9" stroke="#1E2A38" stroke-width="2.5"/><text x="95" y="335" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#1E2A38">Member</text><rect x="620" y="290" width="150" height="70" rx="10" fill="#FFFDF9" stroke="#1E2A38" stroke-width="2.5"/><text x="695" y="335" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#1E2A38">Supplier</text><rect x="295" y="500" width="200" height="70" rx="10" fill="#FFFDF9" stroke="#1E2A38" stroke-width="2.5"/><text x="395" y="545" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" text-anchor="middle" fill="#1E2A38">Librarian</text><line x1="170" y1="305" x2="287" y2="305" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><text x="228" y="293" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" text-anchor="middle" fill="#1E2A38">loan request</text><line x1="287" y1="350" x2="170" y2="350" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><text x="228" y="380" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" text-anchor="middle" fill="#1E2A38">due date</text><line x1="505" y1="325" x2="618" y2="325" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><text x="560" y="312" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" text-anchor="middle" fill="#1E2A38">book order</text><line x1="395" y1="440" x2="395" y2="498" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><text x="410" y="478" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" text-anchor="start" fill="#1E2A38">overdue list</text><rect x="900" y="170" width="150" height="60" rx="10" fill="#FFFDF9" stroke="#1E2A38" stroke-width="2.5"/><text x="975" y="210" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" text-anchor="middle" fill="#1E2A38">Member</text><circle cx="1250" cy="200" r="75" fill="#FFFDF9" stroke="#1E2A38" stroke-width="3"/><text x="1250" y="192" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="800" text-anchor="middle" fill="#1E2A38">1 Record</text><text x="1250" y="222" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="800" text-anchor="middle" fill="#1E2A38">loan</text><line x1="1050" y1="200" x2="1173" y2="200" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><text x="1112" y="188" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" text-anchor="middle" fill="#1E2A38">loan request</text><path d="M1150,380 L1340,380 M1150,440 L1340,440 M1150,380 L1150,440" fill="none" stroke="#1E2A38" stroke-width="3"/><text x="1245" y="420" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" text-anchor="middle" fill="#1E2A38">D1 Loans</text><line x1="1250" y1="275" x2="1250" y2="378" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><text x="1262" y="335" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" text-anchor="start" fill="#1E2A38">loan details</text><circle cx="1530" cy="410" r="75" fill="#FFFDF9" stroke="#1E2A38" stroke-width="3"/><text x="1530" y="402" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="800" text-anchor="middle" fill="#1E2A38">2 Check</text><text x="1530" y="432" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="800" text-anchor="middle" fill="#1E2A38">overdue</text><line x1="1342" y1="410" x2="1453" y2="410" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><text x="1398" y="398" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" text-anchor="middle" fill="#1E2A38">loans</text><rect x="1440" y="520" width="180" height="56" rx="10" fill="#FFFDF9" stroke="#1E2A38" stroke-width="2.5"/><text x="1530" y="557" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" text-anchor="middle" fill="#1E2A38">Librarian</text><line x1="1530" y1="485" x2="1530" y2="518" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><text x="1518" y="507" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" text-anchor="end" fill="#1E2A38">overdue list</text></svg>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 3 · Diagrams</p>
+
+</section></div>
+<details><summary>Notes</summary><p>Left: one process for the whole system, every external entity, labelled flows, no data stores. Right: the same system split into numbered processes, with a data store (open-ended rectangle) reached only through a process. Never draw an arrow straight from an entity to a data store.</p></details>
+</div>
+<div class="wrap" id="l3-flow"><div class="slide"><section id="l3-flow" style="background:#FAF7F2;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:60px;font-weight:700;line-height:1.15">Flowchart rules in one picture</h2>
+<p style="font-size:28px;line-height:1.4;color:#4A5568">A vending machine: terminators, processes, labelled decisions and a loop</p>
+<svg aria-label="Flowchart rules in one picture" width="1664" height="600" viewBox="0 0 1664 600" xmlns="http://www.w3.org/2000/svg"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1E2A38"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E36414"/></marker></defs><rect x="140" y="18" width="220" height="64" rx="32" fill="#FFFDF9" stroke="#1E2A38" stroke-width="3"/><text x="250" y="59" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#1E2A38">Start</text><line x1="250" y1="82" x2="250" y2="118" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><rect x="100" y="118" width="300" height="68" rx="10" fill="#FFFDF9" stroke="#1E2A38" stroke-width="2.5"/><text x="250" y="161" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="400" text-anchor="middle" fill="#1E2A38">Read coin inserted</text><line x1="250" y1="186" x2="250" y2="228" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><polygon points="250,228 400,298 250,368 100,298" fill="#FFFDF9" stroke="#1E2A38" stroke-width="3"/><text x="250" y="307" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" text-anchor="middle" fill="#1E2A38">Total ≥ price?</text><line x1="400" y1="298" x2="560" y2="298" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><text x="480" y="285" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" text-anchor="middle" fill="#2E7D8C">Yes</text><path d="M100,298 L40,298 L40,152 L98,152" fill="none" stroke="#1E2A38" stroke-width="3" marker-end="url(#a)"/><text x="60" y="285" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" text-anchor="middle" fill="#E36414">No</text><rect x="570" y="264" width="300" height="68" rx="10" fill="#FFFDF9" stroke="#1E2A38" stroke-width="2.5"/><text x="720" y="307" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="400" text-anchor="middle" fill="#1E2A38">Release drink</text><line x1="870" y1="298" x2="960" y2="298" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><polygon points="1110,228 1260,298 1110,368 960,298" fill="#FFFDF9" stroke="#1E2A38" stroke-width="3"/><text x="1110" y="294" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" text-anchor="middle" fill="#1E2A38">Change</text><text x="1110" y="324" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" text-anchor="middle" fill="#1E2A38">owed?</text><line x1="1260" y1="298" x2="1380" y2="298" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><text x="1320" y="285" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" text-anchor="middle" fill="#2E7D8C">Yes</text><rect x="1390" y="264" width="260" height="68" rx="10" fill="#FFFDF9" stroke="#1E2A38" stroke-width="2.5"/><text x="1520" y="307" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="400" text-anchor="middle" fill="#1E2A38">Return change</text><line x1="1520" y1="332" x2="1520" y2="480" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><line x1="1110" y1="368" x2="1110" y2="480" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><text x="1130" y="430" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" text-anchor="start" fill="#E36414">No</text><path d="M1110,480 L1520,480" fill="none" stroke="#1E2A38" stroke-width="3"/><line x1="1315" y1="480" x2="1315" y2="528" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><rect x="1205" y="528" width="220" height="64" rx="32" fill="#FFFDF9" stroke="#1E2A38" stroke-width="3"/><text x="1315" y="569" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#1E2A38">End</text><text x="250" y="470" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="400" text-anchor="middle" fill="#6B7684">The loop goes back to</text><text x="250" y="500" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="400" text-anchor="middle" fill="#6B7684">the step that repeats</text></svg>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 3 · Diagrams</p>
+
+</section></div>
+<details><summary>Notes</summary><p>Point out: rounded terminators for start and end, rectangles for processes, diamonds for decisions with BOTH branches labelled, and the No branch looping back to read another coin, which is how “keep checking until” is drawn.</p></details>
+</div>
+<div class="wrap" id="l3-practise"><div class="slide"><section id="l3-practise" style="background:#F1ECE4;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<p style="font-size:24px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#B4500E">Practise · 20 minutes</p>
+<h2 style="font-family:'Domine', Georgia, serif;font-size:64px;font-weight:700;line-height:1.15">Enterprise School practice set 3</h2>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#1E2A38;border-radius:16px;padding:40px">
+<h3 style="font-size:36px;font-weight:800;color:#F28C3A">Open</h3>
+<p style="font-size:30px;line-height:1.4;color:#FAF7F2">chaosontoast.github.io/ec-exam-practice</p>
+<p style="font-size:30px;line-height:1.4;color:#FAF7F2">Practice sets → Enterprise School practice set 3 → Start</p>
+<p style="font-size:26px;line-height:1.4;color:#C9D3DD">Then swap screens and mark each other’s diagrams against the rules.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:40px">
+<h3 style="font-size:36px;font-weight:800">10 marks</h3>
+<p style="font-size:28px;line-height:1.4">Q1 · label the decision tree</p>
+<p style="font-size:28px;line-height:1.4">Q2–3 · DFD rules</p>
+<p style="font-size:28px;line-height:1.4">Q4 · context diagram: food delivery app (3)</p>
+<p style="font-size:28px;line-height:1.4">Q5 · flowchart: car park boom gate (3)</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 3 · Diagrams</p>
+
+</section></div>
+<details><summary>Answers and notes</summary><p>Answers for going over: Q1 root “Is the book overdue?”, No to “No fine”, Yes to “Is the borrower a student?”, then Yes 20c and No 50c. Q2 data stores and separate processes. Q3 data reaches a store only through a process. Q4 one process with customer, restaurant, driver and bank; flows such as order and payment details in, confirmation and delivery status out, order to the restaurant, job to the driver, payment request to the bank and approval back; no data stores. Q5 terminators, a valid-ticket decision with an error branch, raise gate, a has-the-car-passed decision that loops back on No, lower gate, every branch labelled.</p></details>
+</div>
+<div class="wrap" id="l3-mistakes"><div class="slide"><section id="l3-mistakes" style="background:#FAF7F2;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:64px;font-weight:700;line-height:1.15">Mistakes that cost diagram marks</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border-left:8px solid #E36414;border-radius:12px;padding:32px">
+<h3 style="font-size:34px;font-weight:800">Entity to data store</h3>
+<p style="font-size:28px;line-height:1.4">A process must sit between them.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border-left:8px solid #E36414;border-radius:12px;padding:32px">
+<h3 style="font-size:34px;font-weight:800">Unlabelled flows</h3>
+<p style="font-size:28px;line-height:1.4">Every arrow and branch carries a label.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border-left:8px solid #E36414;border-radius:12px;padding:32px">
+<h3 style="font-size:34px;font-weight:800">No loop back</h3>
+<p style="font-size:28px;line-height:1.4">“Wait until” means a decision that loops to itself.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border-left:8px solid #E36414;border-radius:12px;padding:32px">
+<h3 style="font-size:34px;font-weight:800">Missing outcomes</h3>
+<p style="font-size:28px;line-height:1.4">Every outcome in the scenario appears, e.g. save AND send confirmation.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 3 · Diagrams</p>
+
+</section></div>
+<details><summary>Notes</summary><p>The last one cost a mark in a recent trial: the decision tree ended in “order saved” but the scenario also said a confirmation email is sent, and the error branch should also ask the user to try again.</p></details>
+</div>
+<div class="wrap" id="l3-exit"><div class="slide"><section id="l3-exit" style="background:#E36414;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:56px">
+<p style="font-size:28px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:#1E2A38">Exit check · out loud</p>
+<h2 style="font-family:'Domine', Georgia, serif;font-size:60px;font-weight:700;line-height:1.2">1. What is the difference between a context diagram and a level 1 DFD?</h2>
+<h2 style="font-family:'Domine', Georgia, serif;font-size:60px;font-weight:700;line-height:1.2">2. Which flowchart symbol shows a decision, and what must its branches carry?</h2>
+
+</section></div>
+<details><summary>Answers and notes</summary><p>1. A context diagram shows the whole system as one process with its external entities and no data stores; a level 1 DFD splits it into processes and adds data stores. 2. A diamond, with every branch labelled (Yes and No).</p></details>
+</div>
+<p class="sec" id="sec-l4">Lesson 4: decision categories, expert systems and hardware.</p>
+<div class="wrap" id="l4"><div class="slide"><section id="l4" style="background:#1E2A38;color:#FAF7F2;font-family:'Nunito Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:40px">
+<p style="font-size:28px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:#F28C3A">Lesson 4 · in 4 of 6 papers · includes an 8-marker</p>
+<h1 style="font-family:'Domine', Georgia, serif;font-size:96px;font-weight:700;line-height:1.1;color:#FAF7F2">Expert systems, decision support and hardware</h1>
+<p style="font-size:40px;line-height:1.35;color:#C9D3DD">Goal: explain how intelligent systems support each category of decision, and name the parts and hardware.</p>
+
+</section></div>
+<details><summary>Notes</summary><p>This topic produced the 8-mark decision-making question in the 2025 HSC, so it is worth practising the structure: one paragraph per category, each with its own example.</p></details>
+</div>
+<div class="wrap" id="l4-spectrum"><div class="slide"><section id="l4-spectrum" style="background:#FAF7F2;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:60px;font-weight:700;line-height:1.15">Decision categories are a spectrum</h2>
+<svg aria-label="Decision categories are a spectrum" width="1664" height="560" viewBox="0 0 1664 560" xmlns="http://www.w3.org/2000/svg"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1E2A38"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E36414"/></marker></defs><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#2E7D8C"/><stop offset="1" stop-color="#E36414"/></linearGradient></defs><rect x="0" y="60" width="1664" height="40" rx="20" fill="url(#g)" stroke="url(#g)" stroke-width="0"/><text x="0" y="40" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800" text-anchor="start" fill="#2E7D8C">System decides</text><text x="1664" y="40" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800" text-anchor="end" fill="#B4500E">Person decides</text><rect x="0" y="150" width="520" height="330" rx="16" fill="#FFFDF9" stroke="#C9BFAF" stroke-width="2.5"/><text x="260" y="210" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="#1E2A38">Structured</text><text x="260" y="280" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="400" text-anchor="middle" fill="#1E2A38">Fixed rules, the system decides</text><text x="260" y="360" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="400" text-anchor="middle" fill="#6B7684" font-style="italic">e.g.</text><text x="260" y="400" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#1E2A38">Reorder stock below the minimum</text><rect x="572" y="150" width="520" height="330" rx="16" fill="#FFFDF9" stroke="#C9BFAF" stroke-width="2.5"/><text x="832" y="210" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="#1E2A38">Semi-structured</text><text x="832" y="280" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="400" text-anchor="middle" fill="#1E2A38">System flags, a person decides</text><text x="832" y="360" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="400" text-anchor="middle" fill="#6B7684" font-style="italic">e.g.</text><text x="832" y="400" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#1E2A38">Analyst reviews fraud alerts</text><rect x="1144" y="150" width="520" height="330" rx="16" fill="#FFFDF9" stroke="#C9BFAF" stroke-width="2.5"/><text x="1404" y="210" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="800" text-anchor="middle" fill="#1E2A38">Unstructured</text><text x="1404" y="280" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="400" text-anchor="middle" fill="#1E2A38">No procedure, system suggests</text><text x="1404" y="360" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="400" text-anchor="middle" fill="#6B7684" font-style="italic">e.g.</text><text x="1404" y="400" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#1E2A38">Board picks a new market</text><text x="832" y="545" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" text-anchor="middle" fill="#6B7684">More human judgement as you move right</text></svg>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 4 · Expert systems, decision support and hardware</p>
+
+</section></div>
+<details><summary>Notes</summary><p>Use this to frame any decision question: how much of the decision is fixed rules, and how much is judgement? Each category gets its own paragraph and its own stimulus example in a written answer.</p></details>
+</div>
+<div class="wrap" id="l4-teach"><div class="slide"><section id="l4-teach" style="background:#FAF7F2;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:36px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:64px;font-weight:700;line-height:1.15">Three categories of decision</h2>
+<table style="font-size:28px;color:#1E2A38;background:#FFFDF9">
+<tr><th style="width:22%">Category</th><th style="width:38%">What the system does</th><th style="width:40%">Example</th></tr>
+<tr><td>Structured</td><td>Applies fixed rules and decides</td><td>Automatic stock reordering</td></tr>
+<tr><td>Semi-structured</td><td>Analyses and flags, a person decides</td><td>Fraud alerts reviewed by an analyst</td></tr>
+<tr><td>Unstructured</td><td>Suggests options, no fixed procedure</td><td>A board choosing a new market</td></tr>
+</table>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:32px">
+<h3 style="font-size:32px;font-weight:800;color:#B4500E">DSS vs expert system</h3>
+<p style="font-size:28px;line-height:1.4">A DSS presents analysis so a person decides. An expert system concludes itself: knowledge base, inference engine, user interface.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:32px">
+<h3 style="font-size:32px;font-weight:800;color:#B4500E">Reasoning</h3>
+<p style="font-size:28px;line-height:1.4">Forward chaining starts from facts (monitoring). Backward chaining starts from a goal (testing one suspected cause).</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 4 · Expert systems, decision support and hardware</p>
+
+</section></div>
+<details><summary>Notes</summary><p>Other inference techniques to mention briefly: truth maintenance (withdraws a conclusion when a fact changes), hypothetical reasoning (explores assumed alternatives), fuzzy logic (degrees of truth), ontology classification (“is a kind of”, so rules are inherited) and certainty factors.</p></details>
+</div>
+<div class="wrap" id="l4-chaining"><div class="slide"><section id="l4-chaining" style="background:#FAF7F2;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:60px;font-weight:700;line-height:1.15">Forward vs backward chaining</h2>
+<svg aria-label="Forward vs backward chaining" width="1664" height="570" viewBox="0 0 1664 570" xmlns="http://www.w3.org/2000/svg"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1E2A38"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E36414"/></marker></defs><text x="0" y="40" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="800" text-anchor="start" fill="#1E2A38">Forward chaining (data-driven): start from the facts</text><rect x="0" y="70" width="300" height="70" rx="12" fill="#FFFDF9" stroke="#1E2A38" stroke-width="2.5"/><text x="150" y="115" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#1E2A38">Fact: fever</text><rect x="0" y="160" width="300" height="70" rx="12" fill="#FFFDF9" stroke="#1E2A38" stroke-width="2.5"/><text x="150" y="205" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#1E2A38">Fact: rash</text><line x1="300" y1="105" x2="520" y2="140" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><line x1="300" y1="195" x2="520" y2="160" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><rect x="520" y="110" width="300" height="70" rx="12" fill="#F1ECE4" stroke="#1E2A38" stroke-width="2.5"/><text x="670" y="155" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#1E2A38">Rule fires</text><line x1="820" y1="145" x2="960" y2="145" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><rect x="960" y="110" width="340" height="70" rx="12" fill="#F1ECE4" stroke="#1E2A38" stroke-width="2.5"/><text x="1130" y="155" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#1E2A38">New fact: measles?</text><line x1="1300" y1="145" x2="1400" y2="145" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><rect x="1400" y="110" width="260" height="70" rx="12" fill="#F9D9C4" stroke="#1E2A38" stroke-width="2.5"/><text x="1530" y="155" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#1E2A38">Conclusion</text><text x="0" y="340" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="800" text-anchor="start" fill="#1E2A38">Backward chaining (goal-driven): start from the hypothesis</text><rect x="0" y="380" width="340" height="70" rx="12" fill="#F9D9C4" stroke="#1E2A38" stroke-width="2.5"/><text x="170" y="425" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#1E2A38">Goal: is it measles?</text><line x1="340" y1="415" x2="500" y2="415" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><rect x="500" y="380" width="360" height="70" rx="12" fill="#F1ECE4" stroke="#1E2A38" stroke-width="2.5"/><text x="680" y="425" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#1E2A38">Which rules prove it?</text><line x1="860" y1="415" x2="1000" y2="415" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><rect x="1000" y="380" width="420" height="70" rx="12" fill="#FFFDF9" stroke="#1E2A38" stroke-width="2.5"/><text x="1210" y="425" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#1E2A38">Check facts: fever? rash?</text><text x="0" y="540" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" text-anchor="start" fill="#B4500E">Suits monitoring and streams of data → forward.   Testing one suspected cause → backward.</text></svg>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 4 · Expert systems, decision support and hardware</p>
+
+</section></div>
+<details><summary>Notes</summary><p>Forward chaining keeps applying rules to whatever facts arrive until a conclusion appears, so it suits monitoring. Backward chaining starts with a guess and looks for the facts that would prove it, so it suits testing one suspected fault or diagnosis.</p></details>
+</div>
+<div class="wrap" id="l4-hw"><div class="slide"><section id="l4-hw" style="background:#FAF7F2;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:64px;font-weight:700;line-height:1.15">Hardware: sense, decide, act</h2>
+<div style="display:flex;align-items:center;gap:20px">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#1E2A38;border-radius:16px;padding:36px">
+<h3 style="font-size:36px;font-weight:800;color:#F28C3A">Sense</h3>
+<p style="font-size:28px;line-height:1.4;color:#FAF7F2">Sensors measure: temperature, proximity, light, moisture, cameras</p>
+</div>
+<svg width="72" height="40" viewBox="0 0 100 50" preserveAspectRatio="none" style="flex:none" aria-hidden="true"><path d="M0,15 L60,15 L60,0 L100,25 L60,50 L60,35 L0,35 z" fill="#E36414"/></svg>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#1E2A38;border-radius:16px;padding:36px">
+<h3 style="font-size:36px;font-weight:800;color:#F28C3A">Decide</h3>
+<p style="font-size:28px;line-height:1.4;color:#FAF7F2">Microcontroller or PLC compares readings with set limits</p>
+</div>
+<svg width="72" height="40" viewBox="0 0 100 50" preserveAspectRatio="none" style="flex:none" aria-hidden="true"><path d="M0,15 L60,15 L60,0 L100,25 L60,50 L60,35 L0,35 z" fill="#E36414"/></svg>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#1E2A38;border-radius:16px;padding:36px">
+<h3 style="font-size:36px;font-weight:800;color:#F28C3A">Act</h3>
+<p style="font-size:28px;line-height:1.4;color:#FAF7F2">Actuators and motors move: valves, vents, robotic arms</p>
+</div>
+</div>
+<p style="font-size:32px;line-height:1.4">The sensor then reports the new reading, so the loop repeats. Other hardware: biometrics, haptics, touch and gesture, voice, VR and AR.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 4 · Expert systems, decision support and hardware</p>
+
+</section></div>
+<details><summary>Notes</summary><p>In written answers, name specific sensors, not just “sensors”: a proximity sensor detects parts on a conveyor, a camera checks for defects, a vibration sensor warns of a failing motor.</p></details>
+</div>
+<div class="wrap" id="l4-practise"><div class="slide"><section id="l4-practise" style="background:#F1ECE4;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<p style="font-size:24px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#B4500E">Practise · 25 minutes</p>
+<h2 style="font-family:'Domine', Georgia, serif;font-size:64px;font-weight:700;line-height:1.15">Enterprise School practice set 4</h2>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#1E2A38;border-radius:16px;padding:40px">
+<h3 style="font-size:36px;font-weight:800;color:#F28C3A">Open</h3>
+<p style="font-size:30px;line-height:1.4;color:#FAF7F2">chaosontoast.github.io/ec-exam-practice</p>
+<p style="font-size:30px;line-height:1.4;color:#FAF7F2">Practice sets → Enterprise School practice set 4 → Start</p>
+<p style="font-size:26px;line-height:1.4;color:#C9D3DD">Follow-up: the 8-mark hospital question at the end of the Peer revision set.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:40px">
+<h3 style="font-size:36px;font-weight:800">17 marks</h3>
+<p style="font-size:28px;line-height:1.4">Q1–3 · DSS, backward chaining, actuators</p>
+<p style="font-size:28px;line-height:1.4">Q4 · decision categories (drop-downs)</p>
+<p style="font-size:28px;line-height:1.4">Q5 · order the greenhouse steps</p>
+<p style="font-size:28px;line-height:1.4">Q6 · production line hardware (4)</p>
+<p style="font-size:28px;line-height:1.4">Q7 · airline decisions (6)</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 4 · Expert systems, decision support and hardware</p>
+
+</section></div>
+<details><summary>Answers and notes</summary><p>Answers for going over: Q1 a DSS presents analysis so a person decides. Q2 backward chaining. Q3 the actuator that opens the vents. Q4 structured, semi-structured, unstructured, structured, semi-structured. Q5 sensor measures 34 °C, compare with the limit, signal to the actuator, vents open, sensor reports the drop. Q6 specific sensors (proximity, camera, vibration), a controller, actuators and motors, as a sense-decide-act sequence. Q7 one paragraph each: check-in is structured (automatic rules), delay management is semi-structured (system suggests, controller approves), route planning is unstructured (system models options, executives decide).</p></details>
+</div>
+<div class="wrap" id="l4-mistakes"><div class="slide"><section id="l4-mistakes" style="background:#FAF7F2;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:64px;font-weight:700;line-height:1.15">Mistakes that cost intelligent systems marks</h2>
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border-left:8px solid #E36414;border-radius:12px;padding:32px">
+<h3 style="font-size:34px;font-weight:800">One paragraph for all three categories</h3>
+<p style="font-size:28px;line-height:1.4">Give each category its own paragraph and its own example from the stimulus.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border-left:8px solid #E36414;border-radius:12px;padding:32px">
+<h3 style="font-size:34px;font-weight:800">Categories only for expert systems</h3>
+<p style="font-size:28px;line-height:1.4">The syllabus places the three categories under decision support.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border-left:8px solid #E36414;border-radius:12px;padding:32px">
+<h3 style="font-size:34px;font-weight:800">Mixing up inference techniques</h3>
+<p style="font-size:28px;line-height:1.4">“Is a kind of” = ontology. A conclusion withdrawn when a fact changes = truth maintenance.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 4 · Expert systems, decision support and hardware</p>
+
+</section></div>
+<details><summary>Notes</summary><p>Ontology versus truth maintenance is the most commonly confused pair. Truth maintenance needs something to change; if nothing changes in the scenario, it is not truth maintenance.</p></details>
+</div>
+<div class="wrap" id="l4-exit"><div class="slide"><section id="l4-exit" style="background:#E36414;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:56px">
+<p style="font-size:28px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:#1E2A38">Exit check · out loud</p>
+<h2 style="font-family:'Domine', Georgia, serif;font-size:60px;font-weight:700;line-height:1.2">1. Which reasoning method suits a system watching a stream of sensor readings?</h2>
+<h2 style="font-family:'Domine', Georgia, serif;font-size:60px;font-weight:700;line-height:1.2">2. Which component turns the controller’s signal into movement?</h2>
+
+</section></div>
+<details><summary>Answers and notes</summary><p>1. Forward chaining, because it starts from incoming facts. 2. An actuator (or motor).</p></details>
+</div>
+<p class="sec" id="sec-l5">Lesson 5: chart choice, UX, bias, integrity and dashboards.</p>
+<div class="wrap" id="l5"><div class="slide"><section id="l5" style="background:#1E2A38;color:#FAF7F2;font-family:'Nunito Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:40px">
+<p style="font-size:28px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:#F28C3A">Lesson 5 · in 4 to 5 papers · 6 to 8-mark dashboards</p>
+<h1 style="font-family:'Domine', Georgia, serif;font-size:96px;font-weight:700;line-height:1.1;color:#FAF7F2">Visualisation, UX, bias and dashboards</h1>
+<p style="font-size:40px;line-height:1.35;color:#C9D3DD">Goal: assess a dashboard, choose the right chart and explain how a visualisation can mislead.</p>
+
+</section></div>
+<details><summary>Notes</summary><p>Dashboard questions are usually 6 to 8 marks. The top band needs specific figures from the dashboard, not a general description of its charts.</p></details>
+</div>
+<div class="wrap" id="l5-teach"><div class="slide"><section id="l5-teach" style="background:#FAF7F2;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:64px;font-weight:700;line-height:1.15">Pick the chart for the job</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:20px">
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:28px">
+<h3 style="font-size:34px;font-weight:800;color:#B4500E">Line</h3>
+<p style="font-size:28px;line-height:1.4">Change over time</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:28px">
+<h3 style="font-size:34px;font-weight:800;color:#B4500E">Bar</h3>
+<p style="font-size:28px;line-height:1.4">Compare categories</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:28px">
+<h3 style="font-size:34px;font-weight:800;color:#B4500E">Scatter</h3>
+<p style="font-size:28px;line-height:1.4">Relationship between two numbers</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:28px">
+<h3 style="font-size:34px;font-weight:800;color:#B4500E">Heat map</h3>
+<p style="font-size:28px;line-height:1.4">Two categories by intensity</p>
+</div>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#1E2A38;border-radius:16px;padding:32px">
+<h3 style="font-size:32px;font-weight:800;color:#F28C3A">UX judges the user</h3>
+<p style="font-size:28px;line-height:1.4;color:#FAF7F2">Time to find a figure, consistency, accessibility (not colour alone), filters, relevance, customisation, live data.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#1E2A38;border-radius:16px;padding:32px">
+<h3 style="font-size:32px;font-weight:800;color:#F28C3A">How charts mislead</h3>
+<p style="font-size:28px;line-height:1.4;color:#FAF7F2">A truncated axis, missing units, cherry-picked data, colours that are hard to tell apart.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 5 · Visualisation, UX, bias and dashboards</p>
+
+</section></div>
+<details><summary>Notes</summary><p>Purposes of visualisation to name in answers: simplify understanding, tell a story, highlight significant results. Interrogating a visualisation: aggregation (totals and averages hide detail), filtering, and outliers (check, flag rather than delete, the median is less affected).</p></details>
+</div>
+<div class="wrap" id="l5-charts"><div class="slide"><section id="l5-charts" style="background:#FAF7F2;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:60px;font-weight:700;line-height:1.15">Pick the chart, then check the axis</h2>
+<svg aria-label="Pick the chart, then check the axis" width="1664" height="650" viewBox="0 0 1664 650" xmlns="http://www.w3.org/2000/svg"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1E2A38"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E36414"/></marker></defs><rect x="0" y="0" width="380" height="380" rx="16" fill="#FFFDF9" stroke="#C9BFAF" stroke-width="2.5"/><path d="M40,260 L110,220 L180,235 L250,150 L330,110" fill="none" stroke="#2E7D8C" stroke-width="6"/><line x1="30" y1="280" x2="350" y2="280" stroke="#6B7684" stroke-width="2"/><line x1="30" y1="280" x2="30" y2="60" stroke="#6B7684" stroke-width="2"/><text x="190" y="340" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="800" text-anchor="middle" fill="#1E2A38">Line: over time</text><rect x="428" y="0" width="380" height="380" rx="16" fill="#FFFDF9" stroke="#C9BFAF" stroke-width="2.5"/><rect x="440" y="160" width="56" height="120" fill="#2E7D8C"/><rect x="516" y="100" width="56" height="180" fill="#2E7D8C"/><rect x="592" y="70" width="56" height="210" fill="#E36414"/><rect x="668" y="190" width="56" height="90" fill="#2E7D8C"/><line x1="430" y1="280" x2="750" y2="280" stroke="#6B7684" stroke-width="2"/><text x="618" y="340" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="800" text-anchor="middle" fill="#1E2A38">Bar: compare</text><rect x="856" y="0" width="380" height="380" rx="16" fill="#FFFDF9" stroke="#C9BFAF" stroke-width="2.5"/><circle cx="890" cy="240" r="9" fill="#2E7D8C"/><circle cx="920" cy="220" r="9" fill="#2E7D8C"/><circle cx="950" cy="200" r="9" fill="#2E7D8C"/><circle cx="980" cy="190" r="9" fill="#2E7D8C"/><circle cx="1010" cy="150" r="9" fill="#2E7D8C"/><circle cx="1040" cy="140" r="9" fill="#2E7D8C"/><circle cx="1070" cy="110" r="9" fill="#2E7D8C"/><circle cx="1100" cy="90" r="9" fill="#2E7D8C"/><circle cx="1130" cy="70" r="9" fill="#2E7D8C"/><circle cx="940" cy="230" r="9" fill="#2E7D8C"/><circle cx="1050" cy="120" r="9" fill="#2E7D8C"/><line x1="860" y1="280" x2="1180" y2="280" stroke="#6B7684" stroke-width="2"/><line x1="860" y1="280" x2="860" y2="60" stroke="#6B7684" stroke-width="2"/><text x="1046" y="340" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="800" text-anchor="middle" fill="#1E2A38">Scatter: relationship</text><rect x="1284" y="0" width="380" height="380" rx="16" fill="#FFFDF9" stroke="#C9BFAF" stroke-width="2.5"/><rect x="1310" y="60" width="58" height="52" fill="#E36414" fill-opacity="0.15"/><rect x="1310" y="114" width="58" height="52" fill="#E36414" fill-opacity="0.6"/><rect x="1310" y="168" width="58" height="52" fill="#E36414" fill-opacity="0.15"/><rect x="1310" y="222" width="58" height="52" fill="#E36414" fill-opacity="0.6"/><rect x="1370" y="60" width="58" height="52" fill="#E36414" fill-opacity="0.35"/><rect x="1370" y="114" width="58" height="52" fill="#E36414" fill-opacity="0.9"/><rect x="1370" y="168" width="58" height="52" fill="#E36414" fill-opacity="0.35"/><rect x="1370" y="222" width="58" height="52" fill="#E36414" fill-opacity="0.9"/><rect x="1430" y="60" width="58" height="52" fill="#E36414" fill-opacity="0.6"/><rect x="1430" y="114" width="58" height="52" fill="#E36414" fill-opacity="0.15"/><rect x="1430" y="168" width="58" height="52" fill="#E36414" fill-opacity="0.6"/><rect x="1430" y="222" width="58" height="52" fill="#E36414" fill-opacity="0.15"/><rect x="1490" y="60" width="58" height="52" fill="#E36414" fill-opacity="0.9"/><rect x="1490" y="114" width="58" height="52" fill="#E36414" fill-opacity="0.35"/><rect x="1490" y="168" width="58" height="52" fill="#E36414" fill-opacity="0.9"/><rect x="1490" y="222" width="58" height="52" fill="#E36414" fill-opacity="0.35"/><rect x="1550" y="60" width="58" height="52" fill="#E36414" fill-opacity="0.15"/><rect x="1550" y="114" width="58" height="52" fill="#E36414" fill-opacity="0.6"/><rect x="1550" y="168" width="58" height="52" fill="#E36414" fill-opacity="0.15"/><rect x="1550" y="222" width="58" height="52" fill="#E36414" fill-opacity="0.6"/><text x="1474" y="340" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="800" text-anchor="middle" fill="#1E2A38">Heat map: intensity</text><rect x="0" y="410" width="790" height="230" rx="16" fill="#FFFDF9" stroke="#C9BFAF" stroke-width="2.5"/><text x="395" y="450" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" text-anchor="middle" fill="#1E2A38">Axis from 0%: gaps look small (true)</text><rect x="180" y="477.784" width="110" height="147.216" fill="#2E7D8C"/><text x="235" y="471.784" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" text-anchor="middle" fill="#1E2A38">95.2</text><rect x="340" y="476.546" width="110" height="148.454" fill="#2E7D8C"/><text x="395" y="470.546" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" text-anchor="middle" fill="#1E2A38">96.0</text><rect x="500" y="478.711" width="110" height="146.289" fill="#2E7D8C"/><text x="555" y="472.711" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" text-anchor="middle" fill="#1E2A38">94.6</text><line x1="150" y1="625" x2="650" y2="625" stroke="#6B7684" stroke-width="2"/><rect x="874" y="410" width="790" height="230" rx="16" fill="#FFFDF9" stroke="#C9BFAF" stroke-width="2.5"/><text x="1269" y="450" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" text-anchor="middle" fill="#1E2A38">Axis from 94%: gaps look huge (misleading)</text><rect x="1054" y="565" width="110" height="60" fill="#2E7D8C"/><text x="1109" y="559" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" text-anchor="middle" fill="#1E2A38">95.2</text><rect x="1214" y="525" width="110" height="100" fill="#2E7D8C"/><text x="1269" y="519" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" text-anchor="middle" fill="#1E2A38">96.0</text><rect x="1374" y="595" width="110" height="30" fill="#2E7D8C"/><text x="1429" y="589" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" text-anchor="middle" fill="#1E2A38">94.6</text><line x1="1024" y1="625" x2="1524" y2="625" stroke="#6B7684" stroke-width="2"/></svg>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 5 · Visualisation, UX, bias and dashboards</p>
+
+</section></div>
+<details><summary>Notes</summary><p>Top row: match the chart to the job. Bottom row: the same three satisfaction scores (95.2, 96.0 and 94.6 per cent) drawn twice. Starting the axis at 94 makes a 1.4 point gap look like a huge difference, a classic way visualisations mislead.</p></details>
+</div>
+<div class="wrap" id="l5-integrity"><div class="slide"><section id="l5-integrity" style="background:#FAF7F2;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:64px;font-weight:700;line-height:1.15">Data integrity and bias</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:20px">
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:28px">
+<h3 style="font-size:32px;font-weight:800;color:#B4500E">Ownership</h3>
+<p style="font-size:26px;line-height:1.4">Who is accountable and approves changes</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:28px">
+<h3 style="font-size:32px;font-weight:800;color:#B4500E">Source</h3>
+<p style="font-size:26px;line-height:1.4">Where the data came from and if it is credible</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:28px">
+<h3 style="font-size:32px;font-weight:800;color:#B4500E">Validation</h3>
+<p style="font-size:26px;line-height:1.4">Checks that values are sensible</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:28px">
+<h3 style="font-size:32px;font-weight:800;color:#B4500E">Risk</h3>
+<p style="font-size:26px;line-height:1.4">What could go wrong and its impact</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#1E2A38;border-radius:16px;padding:36px 40px">
+<h3 style="font-size:32px;font-weight:800;color:#F28C3A">Bias can enter at three points</h3>
+<p style="font-size:28px;line-height:1.4;color:#FAF7F2"><b>Collection:</b> who is sampled (use random or stratified sampling, neutral questions)</p>
+<p style="font-size:28px;line-height:1.4;color:#FAF7F2"><b>Storage:</b> what is kept or dropped (validation, no selective deletion)</p>
+<p style="font-size:28px;line-height:1.4;color:#FAF7F2"><b>Analysis:</b> unconscious bias, truncated axes, cherry-picking</p>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 5 · Visualisation, UX, bias and dashboards</p>
+
+</section></div>
+<details><summary>Notes</summary><p>When a question says “in data visualisations”, include at least one visual technique, such as axes starting at zero, alongside the collection and storage points.</p></details>
+</div>
+<div class="wrap" id="l5-practise"><div class="slide"><section id="l5-practise" style="background:#F1ECE4;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<p style="font-size:24px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#B4500E">Practise · 20 minutes</p>
+<h2 style="font-family:'Domine', Georgia, serif;font-size:64px;font-weight:700;line-height:1.15">Enterprise School practice set 5</h2>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#1E2A38;border-radius:16px;padding:40px">
+<h3 style="font-size:36px;font-weight:800;color:#F28C3A">Open</h3>
+<p style="font-size:30px;line-height:1.4;color:#FAF7F2">chaosontoast.github.io/ec-exam-practice</p>
+<p style="font-size:30px;line-height:1.4;color:#FAF7F2">Practice sets → Enterprise School practice set 5 → Start</p>
+<p style="font-size:26px;line-height:1.4;color:#C9D3DD">Quote a figure from the dashboard in every written answer.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:40px">
+<h3 style="font-size:36px;font-weight:800">15 marks</h3>
+<p style="font-size:28px;line-height:1.4">Q1–3 · chart choice, axes, outliers</p>
+<p style="font-size:28px;line-height:1.4">Q4 · data integrity (drop-downs)</p>
+<p style="font-size:28px;line-height:1.4">Q5 · read the bike share dashboard (2)</p>
+<p style="font-size:28px;line-height:1.4">Q6 · UX strengths and limitations (4)</p>
+<p style="font-size:28px;line-height:1.4">Q7 · PDF tables vs a dashboard (4)</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 5 · Visualisation, UX, bias and dashboards</p>
+
+</section></div>
+<details><summary>Answers and notes</summary><p>Answers for going over: Q1 scatter plot. Q2 small differences look much larger. Q3 check the record, then correct or flag it. Q4 validation, ownership, source, risk. Q5 Bondi, about 3.6 thousand trips in January down to 2.6 thousand in June, likely because of the cooler months. Q6 strengths such as the clear trend lines and the suburb and month filters; limitations such as the bar axis starting at 10 with no units (Parramatta’s 11 looks tiny next to Bondi’s 24), six similar blues in the pie chart, and no forecast. Q7 filters let each manager see their region, charts show trends at a glance, more frequent data speeds decisions, but managers need some training.</p></details>
+</div>
+<div class="wrap" id="l5-mistakes"><div class="slide"><section id="l5-mistakes" style="background:#FAF7F2;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:64px;font-weight:700;line-height:1.15">Mistakes that cost dashboard marks</h2>
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border-left:8px solid #E36414;border-radius:12px;padding:32px">
+<h3 style="font-size:34px;font-weight:800">Describing instead of using the data</h3>
+<p style="font-size:28px;line-height:1.4">“The line chart shows trips” earns little. “Parramatta rose from 1.2k to 3.4k” earns the mark.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border-left:8px solid #E36414;border-radius:12px;padding:32px">
+<h3 style="font-size:34px;font-weight:800">UX words with no user</h3>
+<p style="font-size:28px;line-height:1.4">Say what the user can now do faster or better because of the feature.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border-left:8px solid #E36414;border-radius:12px;padding:32px">
+<h3 style="font-size:34px;font-weight:800">Answering half the question</h3>
+<p style="font-size:28px;line-height:1.4">“UX and forecasting” means a full paragraph on each, not one line at the end.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 5 · Visualisation, UX, bias and dashboards</p>
+
+</section></div>
+<details><summary>Notes</summary><p>These three are the most common reasons dashboard answers stop at 5 or 6 out of 8. Before writing, underline every task word in the question and plan one paragraph per part.</p></details>
+</div>
+<div class="wrap" id="l5-exit"><div class="slide"><section id="l5-exit" style="background:#E36414;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:56px">
+<p style="font-size:28px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:#1E2A38">Exit check · out loud</p>
+<h2 style="font-family:'Domine', Georgia, serif;font-size:60px;font-weight:700;line-height:1.2">1. A chart’s axis starts at 94%. What is the problem?</h2>
+<h2 style="font-family:'Domine', Georgia, serif;font-size:60px;font-weight:700;line-height:1.2">2. Name the four aspects of data integrity.</h2>
+
+</section></div>
+<details><summary>Answers and notes</summary><p>1. It exaggerates small differences, so a 1% gap looks huge. 2. Ownership, source, validation and risk.</p></details>
+</div>
+<p class="sec" id="sec-l6">Lesson 6: big data, ethics and writing the 8-mark response.</p>
+<div class="wrap" id="l6"><div class="slide"><section id="l6" style="background:#1E2A38;color:#FAF7F2;font-family:'Nunito Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:40px">
+<p style="font-size:28px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:#F28C3A">Lesson 6 · in 4 to 6 papers · 8-mark ethics questions</p>
+<h1 style="font-family:'Domine', Georgia, serif;font-size:96px;font-weight:700;line-height:1.1;color:#FAF7F2">Big data, ethics and the 8-mark response</h1>
+<p style="font-size:40px;line-height:1.35;color:#C9D3DD">Goal: plan and write an extended response that reaches the top band.</p>
+
+</section></div>
+<details><summary>Notes</summary><p>This lesson is as much about how to write as about the content. The same answer structure works for any extended response.</p></details>
+</div>
+<div class="wrap" id="l6-teach"><div class="slide"><section id="l6-teach" style="background:#FAF7F2;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:64px;font-weight:700;line-height:1.15">Big data and the issues it raises</h2>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:36px">
+<h3 style="font-size:34px;font-weight:800;color:#B4500E">The three Vs</h3>
+<p style="font-size:28px;line-height:1.4"><b>Volume</b> how much · <b>Velocity</b> how fast it arrives · <b>Variety</b> how many types</p>
+<p style="font-size:28px;line-height:1.4"><b>Warehouse</b> cleaned, structured history · <b>Lake</b> raw data · <b>Swamp</b> a lake with no governance</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:36px">
+<h3 style="font-size:34px;font-weight:800;color:#B4500E">Social, ethical, legal</h3>
+<p style="font-size:28px;line-height:1.4">Consent and permissions, privacy (Privacy Act 1988, APPs, the OAIC), bias, accuracy, security, copyright, ICIP and Indigenous data sovereignty</p>
+</div>
+</div>
+<p style="font-size:32px;line-height:1.4">An “evaluate” question wants a judgement: weigh benefits against issues and say which wins.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 6 · Big data, ethics and the 8-mark response</p>
+
+</section></div>
+<details><summary>Notes</summary><p>The OAIC enforces the Privacy Act and handles breach notifications; the ACSC gives cyber security advice. ICIP means a community keeps authority over its cultural knowledge, so publishing it needs that community’s agreement.</p></details>
+</div>
+<div class="wrap" id="l6-storage"><div class="slide"><section id="l6-storage" style="background:#FAF7F2;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:60px;font-weight:700;line-height:1.15">Warehouse, lake or swamp</h2>
+<svg aria-label="Warehouse, lake or swamp" width="1664" height="580" viewBox="0 0 1664 580" xmlns="http://www.w3.org/2000/svg"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1E2A38"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E36414"/></marker></defs><rect x="0" y="30" width="240" height="80" rx="10" fill="#FFFDF9" stroke="#1E2A38" stroke-width="2.5"/><text x="120" y="80" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" text-anchor="middle" fill="#1E2A38">Sales</text><line x1="240" y1="70" x2="300" y2="70" stroke="#1E2A38" stroke-width="2.5"/><rect x="0" y="150" width="240" height="80" rx="10" fill="#FFFDF9" stroke="#1E2A38" stroke-width="2.5"/><text x="120" y="200" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" text-anchor="middle" fill="#1E2A38">Website</text><line x1="240" y1="190" x2="300" y2="190" stroke="#1E2A38" stroke-width="2.5"/><rect x="0" y="270" width="240" height="80" rx="10" fill="#FFFDF9" stroke="#1E2A38" stroke-width="2.5"/><text x="120" y="320" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" text-anchor="middle" fill="#1E2A38">Sensors</text><line x1="240" y1="310" x2="300" y2="310" stroke="#1E2A38" stroke-width="2.5"/><rect x="0" y="390" width="240" height="80" rx="10" fill="#FFFDF9" stroke="#1E2A38" stroke-width="2.5"/><text x="120" y="440" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" text-anchor="middle" fill="#1E2A38">Social media</text><line x1="240" y1="430" x2="300" y2="430" stroke="#1E2A38" stroke-width="2.5"/><line x1="300" y1="70" x2="300" y2="430" stroke="#1E2A38" stroke-width="2.5"/><line x1="300" y1="120" x2="418" y2="120" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><line x1="300" y1="400" x2="418" y2="400" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><rect x="420" y="70" width="260" height="100" rx="12" fill="#F1ECE4" stroke="#1E2A38" stroke-width="2.5"/><text x="550" y="112" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#1E2A38">ETL: clean,</text><text x="550" y="146" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#1E2A38">structure</text><line x1="680" y1="120" x2="820" y2="120" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><rect x="820" y="50" width="360" height="140" rx="16" fill="#D7ECEF" stroke="#2E7D8C" stroke-width="3"/><text x="1000" y="110" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="800" text-anchor="middle" fill="#1E2A38">Data warehouse</text><text x="1000" y="152" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="400" text-anchor="middle" fill="#1E2A38">cleaned, structured history</text><line x1="1180" y1="120" x2="1300" y2="120" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><rect x="1300" y="70" width="364" height="100" rx="12" fill="#FFFDF9" stroke="#C9BFAF" stroke-width="2.5"/><text x="1482" y="112" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#1E2A38">Reports, OLAP,</text><text x="1482" y="146" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#1E2A38">trend analysis</text><rect x="420" y="350" width="260" height="100" rx="12" fill="#F1ECE4" stroke="#1E2A38" stroke-width="2.5"/><text x="550" y="392" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#1E2A38">Store raw,</text><text x="550" y="426" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#1E2A38">any format</text><line x1="680" y1="400" x2="820" y2="400" stroke="#1E2A38" stroke-width="2.5" marker-end="url(#a)"/><rect x="820" y="330" width="360" height="140" rx="16" fill="#E3EEF8" stroke="#4A78A8" stroke-width="3"/><text x="1000" y="390" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="800" text-anchor="middle" fill="#1E2A38">Data lake</text><text x="1000" y="432" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="400" text-anchor="middle" fill="#1E2A38">raw data for later use, ML</text><line x1="1180" y1="400" x2="1300" y2="400" stroke="#E36414" stroke-width="2.5" marker-end="url(#ao)"/><text x="1240" y="385" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="middle" fill="#B4500E">no rules</text><rect x="1300" y="330" width="364" height="140" rx="16" fill="#F9D9C4" stroke="#E36414" stroke-width="3"/><text x="1482" y="390" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="800" text-anchor="middle" fill="#1E2A38">Data swamp</text><text x="1482" y="432" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="400" text-anchor="middle" fill="#1E2A38">no metadata or owners</text><text x="832" y="560" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" text-anchor="middle" fill="#6B7684">Velocity, volume and variety are why the lake exists; governance stops it becoming a swamp.</text></svg>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 6 · Big data, ethics and the 8-mark response</p>
+
+</section></div>
+<details><summary>Notes</summary><p>A warehouse is fed through ETL so its data is cleaned and structured for reporting and OLAP. A lake keeps raw data of any type for later analysis or machine learning. Without metadata, owners and rules (governance) a lake becomes a swamp where data cannot be found or trusted.</p></details>
+</div>
+<div class="wrap" id="l6-chain"><div class="slide"><section id="l6-chain" style="background:#FAF7F2;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:64px;font-weight:700;line-height:1.15">Every point follows the same chain</h2>
+<div style="display:flex;align-items:center;gap:16px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#1E2A38;border-radius:16px;padding:32px">
+<h3 style="font-size:32px;font-weight:800;color:#F28C3A">Feature</h3>
+<p style="font-size:26px;line-height:1.4;color:#FAF7F2">The precise term</p>
+</div>
+<svg width="56" height="32" viewBox="0 0 100 50" preserveAspectRatio="none" style="flex:none" aria-hidden="true"><path d="M0,15 L60,15 L60,0 L100,25 L60,50 L60,35 L0,35 z" fill="#E36414"/></svg>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#1E2A38;border-radius:16px;padding:32px">
+<h3 style="font-size:32px;font-weight:800;color:#F28C3A">How</h3>
+<p style="font-size:26px;line-height:1.4;color:#FAF7F2">How it works here</p>
+</div>
+<svg width="56" height="32" viewBox="0 0 100 50" preserveAspectRatio="none" style="flex:none" aria-hidden="true"><path d="M0,15 L60,15 L60,0 L100,25 L60,50 L60,35 L0,35 z" fill="#E36414"/></svg>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#1E2A38;border-radius:16px;padding:32px">
+<h3 style="font-size:32px;font-weight:800;color:#F28C3A">Outcome</h3>
+<p style="font-size:26px;line-height:1.4;color:#FAF7F2">What the enterprise or user gains or loses</p>
+</div>
+<svg width="56" height="32" viewBox="0 0 100 50" preserveAspectRatio="none" style="flex:none" aria-hidden="true"><path d="M0,15 L60,15 L60,0 L100,25 L60,50 L60,35 L0,35 z" fill="#E36414"/></svg>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#1E2A38;border-radius:16px;padding:32px">
+<h3 style="font-size:32px;font-weight:800;color:#F28C3A">Stimulus</h3>
+<p style="font-size:26px;line-height:1.4;color:#FAF7F2">A detail from the question</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:36px">
+<h3 style="font-size:32px;font-weight:800;color:#B4500E">Two minutes of planning first</h3>
+<p style="font-size:28px;line-height:1.4">Underline every task word. Pick at least three stimulus details. One paragraph per part of the question. End with a judgement.</p>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 6 · Big data, ethics and the 8-mark response</p>
+
+</section></div>
+<details><summary>Notes</summary><p>Every 8-mark rubric has a separate criterion for using the stimulus, so a generic answer is capped below the top band no matter how much it knows.</p></details>
+</div>
+<div class="wrap" id="l6-practise"><div class="slide"><section id="l6-practise" style="background:#F1ECE4;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<p style="font-size:24px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#B4500E">Practise · 20 minutes</p>
+<h2 style="font-family:'Domine', Georgia, serif;font-size:64px;font-weight:700;line-height:1.15">Enterprise School practice set 6</h2>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#1E2A38;border-radius:16px;padding:40px">
+<h3 style="font-size:36px;font-weight:800;color:#F28C3A">Open</h3>
+<p style="font-size:30px;line-height:1.4;color:#FAF7F2">chaosontoast.github.io/ec-exam-practice</p>
+<p style="font-size:30px;line-height:1.4;color:#FAF7F2">Practice sets → Enterprise School practice set 6 → Start</p>
+<p style="font-size:26px;line-height:1.4;color:#C9D3DD">Then swap answers and highlight every stimulus detail used. Fewer than three means the answer is capped.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border:1px solid #E4DDD2;border-radius:16px;padding:40px">
+<h3 style="font-size:36px;font-weight:800">13 marks</h3>
+<p style="font-size:28px;line-height:1.4">Q1–3 · velocity, warehouse vs lake, the OAIC</p>
+<p style="font-size:28px;line-height:1.4">Q4 · name the issue (drop-downs)</p>
+<p style="font-size:28px;line-height:1.4">Q5 · evaluate a supermarket loyalty app (8)</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 6 · Big data, ethics and the 8-mark response</p>
+
+</section></div>
+<details><summary>Answers and notes</summary><p>Answers for going over: Q1 velocity. Q2 a warehouse holds cleaned, structured data; a lake holds raw data. Q3 the OAIC. Q4 consent and privacy, bias, copyright, ICIP, accuracy. Q5 a judgement supported by several issues, each tied to the stimulus: tracking purchases and in-store location with consent buried in the terms (privacy, Privacy Act and APPs), a large data store as a breach target (security), personalised pricing and sensitive inferences from purchases (ethics), sharing with “partner companies”, and the benefits of savings and convenience weighed against them.</p></details>
+</div>
+<div class="wrap" id="l6-mistakes"><div class="slide"><section id="l6-mistakes" style="background:#FAF7F2;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<h2 style="font-family:'Domine', Georgia, serif;font-size:64px;font-weight:700;line-height:1.15">Mistakes that cap extended responses</h2>
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border-left:8px solid #E36414;border-radius:12px;padding:32px">
+<h3 style="font-size:34px;font-weight:800">Writing everything you know</h3>
+<p style="font-size:28px;line-height:1.4">Answer the question asked. Content that is not linked to it earns nothing.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border-left:8px solid #E36414;border-radius:12px;padding:32px">
+<h3 style="font-size:34px;font-weight:800">Stopping before the outcome</h3>
+<p style="font-size:28px;line-height:1.4">End every point with what the company or user gains or loses.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFDF9;border-left:8px solid #E36414;border-radius:12px;padding:32px">
+<h3 style="font-size:34px;font-weight:800">Only one level</h3>
+<p style="font-size:28px;line-height:1.4">“Individuals or society” questions reward both: one person’s job, then the wider effect.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7684">Lesson 6 · Big data, ethics and the 8-mark response</p>
+
+</section></div>
+<details><summary>Notes</summary><p>Writing everything you know was the most common feedback on our trial. The fix is the two-minute plan: task words, three stimulus details, one paragraph per part.</p></details>
+</div>
+<div class="wrap" id="l6-exit"><div class="slide"><section id="l6-exit" style="background:#E36414;color:#1E2A38;font-family:'Nunito Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:56px">
+<p style="font-size:28px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:#1E2A38">Exit check · out loud</p>
+<h2 style="font-family:'Domine', Georgia, serif;font-size:60px;font-weight:700;line-height:1.2">1. What separates the top band from the next one in an 8-mark rubric?</h2>
+<h2 style="font-family:'Domine', Georgia, serif;font-size:60px;font-weight:700;line-height:1.2">2. Which characteristic of big data is the speed data arrives?</h2>
+
+</section></div>
+<details><summary>Answers and notes</summary><p>1. Specific, relevant examples from the stimulus and a clear judgement, with every part of the question answered. 2. Velocity.</p></details>
+</div>
+<div class="wrap" id="close"><div class="slide"><section id="close" style="background:#1E2A38;color:#FAF7F2;font-family:'Nunito Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:48px">
+<h1 style="font-family:'Domine', Georgia, serif;font-size:96px;font-weight:700;line-height:1.1;color:#FAF7F2">Short on time?</h1>
+<p style="font-size:44px;line-height:1.35;color:#C9D3DD">Run lessons 1, 3 and 6. Together they cover databases, diagrams and extended responses, the biggest sources of marks.</p>
+<div style="display:flex;flex-direction:column;gap:12px;background:#2C3B4D;border-radius:16px;padding:36px 44px">
+<p style="font-size:32px;color:#FAF7F2">Keep practising after the lessons:</p>
+<p style="font-size:32px;color:#F28C3A">chaosontoast.github.io/ec-exam-practice</p>
+<p style="font-size:28px;color:#C9D3DD">Peer revision set, Peer set 2 and trial papers with built-in marking</p>
+</div>
+
+</section></div>
+<details><summary>Notes</summary><p>Finish by pointing people to the other sets on the practice page and the Anki cram deck on the shared Notion page.</p></details>
+</div>
+<p style="text-align:center;color:var(--mute);font-size:15px">Practice sets: <a href="https://chaosontoast.github.io/ec-exam-practice/">chaosontoast.github.io/ec-exam-practice</a></p></main>
+<script>
+(function(){
+  function fit(){document.querySelectorAll('.slide').forEach(function(s){var k=s.clientWidth/1920;s.firstElementChild.style.transform='scale('+k+')';});}
+  window.addEventListener('resize',fit);fit();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+  var jump=document.getElementById('jump');var secs=document.querySelectorAll('.sec');
+  var o=document.createElement('option');o.textContent='Jump to…';o.value='';jump.appendChild(o);
+  secs.forEach(function(p){var op=document.createElement('option');op.value=p.id;op.textContent=p.textContent.indexOf(':')>0?p.textContent.split(':')[0]:'Start';jump.appendChild(op);});
+  jump.addEventListener('change',function(){if(jump.value)document.getElementById(jump.value).scrollIntoView({behavior:'smooth'});});
+  var wraps=[].slice.call(document.querySelectorAll('.wrap')),cur=0;
+  function show(i){cur=Math.max(0,Math.min(wraps.length-1,i));wraps.forEach(function(w,j){w.classList.toggle('on',j===cur);});fit();}
+  document.getElementById('pres').addEventListener('click',function(){
+    var top=0;wraps.forEach(function(w,j){if(w.getBoundingClientRect().top<120)top=j;});
+    document.body.classList.add('present');show(top);
+    try{document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen().catch(function(){});}catch(e){}
+  });
+  function exit(){document.body.classList.remove('present');wraps.forEach(function(w){w.classList.remove('on');});fit();wraps[cur].scrollIntoView();}
+  document.addEventListener('keydown',function(e){if(!document.body.classList.contains('present'))return;
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();show(cur+1);}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(cur-1);}
+    else if(e.key==='Escape'){exit();}});
+  document.addEventListener('fullscreenchange',function(){if(!document.fullscreenElement&&document.body.classList.contains('present'))exit();});
+  var x0=null;document.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+  document.addEventListener('touchend',function(e){if(x0===null||!document.body.classList.contains('present'))return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)show(cur+(dx<0?1:-1));x0=null;});
+  document.addEventListener('click',function(e){if(document.body.classList.contains('present')&&!e.target.closest('header'))show(cur+1);});
+})();
+</script></body></html>
