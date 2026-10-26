@@ -2139,6 +2139,1057 @@ window.EC_PRACTICE = [{
    ]
   }
  ]
+},/*school*/
+{
+ "id": "school-1",
+ "format": "ec-practice-set",
+ "version": 1,
+ "title": "Enterprise School practice set 1: Relational databases and SQL",
+ "notice": "<p>Lesson 1 of the Enterprise School revision lessons. Keys, data dictionaries and SQL queries in the practice SQL tool. Run each query until its output matches what the question asks for. 13 marks.</p>",
+ "timing": {
+  "reading": 2,
+  "working": 18
+ },
+ "questions": [
+  {
+   "number": 1,
+   "parts": [
+    {
+     "type": "mcq",
+     "marks": 1,
+     "syllabus": "DS3.11",
+     "question": "In a gym database, the Bookings table stores memberID and classID. What is the role of memberID in the Bookings table?",
+     "options": [
+      "The primary key that identifies each booking uniquely",
+      "A composite key made with bookingDate and classID",
+      "A calculated field that counts each member’s bookings",
+      "A foreign key that links each booking to one member"
+     ],
+     "answer": 3,
+     "markingGuide": "D. memberID is the primary key of Members; stored in Bookings it is a foreign key, linking many bookings to one member (one-to-many). bookingID is the primary key of Bookings."
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "parts": [
+    {
+     "type": "mcq",
+     "marks": 1,
+     "syllabus": "DS3.10",
+     "question": "Which data type should a postcode such as 0800 be given in a data dictionary?",
+     "options": [
+      "Text, so the leading zero is kept",
+      "Integer, because it is all digits",
+      "Real, so it can store decimals",
+      "Currency, so it lines up neatly"
+     ],
+     "answer": 0,
+     "markingGuide": "A. Postcodes are labels, never used in calculations, and a number type would drop the leading zero of NT postcodes such as 0800."
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "parts": [
+    {
+     "type": "mcq",
+     "marks": 1,
+     "syllabus": "DS3.12",
+     "question": "A query lists data from Members, Classes and Bookings but its WHERE clause only contains Members.memberID = Bookings.memberID. What happens?",
+     "options": [
+      "Only the members who have no bookings are returned in the results",
+      "The query returns an error because one join condition is missing",
+      "Every booking is paired with every class, giving far too many rows",
+      "The results are correct but they are not sorted in any order"
+     ],
+     "answer": 2,
+     "markingGuide": "C. Each link between tables needs its own join condition. Without Bookings.classID = Classes.classID, every row is combined with every class (a cross join), so the output has far too many rows. SQL does not raise an error."
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "parts": [
+    {
+     "type": "dropdown",
+     "marks": 2,
+     "syllabus": "DS3.10",
+     "question": "Select the best data type for each field in the gym’s data dictionary.",
+     "body": "<table><tr><th>Field</th><th>Data type</th></tr><tr><td>memberID (M01)</td><td>[[0]]</td></tr><tr><td>fee ($15)</td><td>[[1]]</td></tr><tr><td>bookingDate</td><td>[[2]]</td></tr><tr><td>paidUp (yes or no)</td><td>[[3]]</td></tr><tr><td>mobile (0412 345 678)</td><td>[[4]]</td></tr></table>",
+     "blanks": [
+      [
+       "Text",
+       "Integer",
+       "Currency",
+       "Date/Time",
+       "Boolean"
+      ],
+      [
+       "Text",
+       "Integer",
+       "Currency",
+       "Date/Time",
+       "Boolean"
+      ],
+      [
+       "Text",
+       "Integer",
+       "Currency",
+       "Date/Time",
+       "Boolean"
+      ],
+      [
+       "Text",
+       "Integer",
+       "Currency",
+       "Date/Time",
+       "Boolean"
+      ],
+      [
+       "Text",
+       "Integer",
+       "Currency",
+       "Date/Time",
+       "Boolean"
+      ]
+     ],
+     "answer": [
+      0,
+      2,
+      3,
+      4,
+      0
+     ],
+     "scoreBands": [
+      [
+       5,
+       2
+      ],
+      [
+       4,
+       1
+      ]
+     ],
+     "markingGuide": "1 Text (an ID with a letter), 2 Currency, 3 Date/Time, 4 Boolean, 5 Text (keeps the leading zero, never calculated). 2 marks all five, 1 mark four."
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "parts": [
+    {
+     "type": "short",
+     "marks": 2,
+     "syllabus": "DS3.11",
+     "question": "Using the tables in the stimulus, describe the relationship between Members and Bookings and how the tables are linked.",
+     "words": 60,
+     "markingGuide": "2 marks: one-to-many (one member can make many bookings, each booking belongs to one member), linked by memberID, the primary key of Members and a foreign key in Bookings. 1 mark: identifies the link field or the relationship type."
+    }
+   ],
+   "stimulus": "<p>A gym stores its data in three tables.</p><p><b>Members</b></p><table><tr><th>memberID</th><th>firstName</th><th>suburb</th><th>postcode</th></tr><tr><td>M01</td><td>Ava</td><td>Penrith</td><td>2750</td></tr><tr><td>M02</td><td>Ben</td><td>Parramatta</td><td>2150</td></tr><tr><td>M03</td><td>Chloe</td><td>Penrith</td><td>2750</td></tr><tr><td>M04</td><td>Dev</td><td>Ryde</td><td>2112</td></tr></table><p><b>Classes</b></p><table><tr><th>classID</th><th>className</th><th>level</th><th>fee</th></tr><tr><td>C1</td><td>Spin</td><td>Beginner</td><td>15</td></tr><tr><td>C2</td><td>Boxing</td><td>Advanced</td><td>25</td></tr><tr><td>C3</td><td>Yoga</td><td>Beginner</td><td>12</td></tr><tr><td>C4</td><td>HIIT</td><td>Advanced</td><td>20</td></tr></table><p><b>Bookings</b></p><table><tr><th>bookingID</th><th>memberID</th><th>classID</th><th>bookingDate</th></tr><tr><td>1</td><td>M01</td><td>C2</td><td>2026-10-03</td></tr><tr><td>2</td><td>M02</td><td>C1</td><td>2026-10-05</td></tr><tr><td>3</td><td>M03</td><td>C4</td><td>2026-09-29</td></tr><tr><td>4</td><td>M01</td><td>C3</td><td>2026-10-12</td></tr><tr><td>5</td><td>M04</td><td>C2</td><td>2026-10-31</td></tr><tr><td>6</td><td>M03</td><td>C2</td><td>2026-11-02</td></tr><tr><td>7</td><td>M02</td><td>C4</td><td>2026-10-20</td></tr></table>"
+  },
+  {
+   "number": 6,
+   "parts": [
+    {
+     "type": "sql",
+     "marks": 3,
+     "syllabus": "DS3.12",
+     "question": "List the <b>first name</b>, <b>class name</b> and <b>booking date</b> for every booking made in <b>October 2026</b> for an <b>Advanced</b> class. Sort by booking date, earliest first.",
+     "sql": {
+      "setup": "CREATE TABLE Members (memberID TEXT, firstName TEXT, suburb TEXT, postcode TEXT);INSERT INTO Members VALUES ('M01','Ava','Penrith','2750');INSERT INTO Members VALUES ('M02','Ben','Parramatta','2150');INSERT INTO Members VALUES ('M03','Chloe','Penrith','2750');INSERT INTO Members VALUES ('M04','Dev','Ryde','2112');CREATE TABLE Classes (classID TEXT, className TEXT, level TEXT, fee INTEGER);INSERT INTO Classes VALUES ('C1','Spin','Beginner',15);INSERT INTO Classes VALUES ('C2','Boxing','Advanced',25);INSERT INTO Classes VALUES ('C3','Yoga','Beginner',12);INSERT INTO Classes VALUES ('C4','HIIT','Advanced',20);CREATE TABLE Bookings (bookingID INTEGER, memberID TEXT, classID TEXT, bookingDate TEXT);INSERT INTO Bookings VALUES (1,'M01','C2','2026-10-03');INSERT INTO Bookings VALUES (2,'M02','C1','2026-10-05');INSERT INTO Bookings VALUES (3,'M03','C4','2026-09-29');INSERT INTO Bookings VALUES (4,'M01','C3','2026-10-12');INSERT INTO Bookings VALUES (5,'M04','C2','2026-10-31');INSERT INTO Bookings VALUES (6,'M03','C2','2026-11-02');INSERT INTO Bookings VALUES (7,'M02','C4','2026-10-20');",
+      "showTables": [],
+      "solution": "SELECT Members.firstName, Classes.className, Bookings.bookingDate FROM Members, Classes, Bookings WHERE Members.memberID = Bookings.memberID AND Classes.classID = Bookings.classID AND Classes.level = 'Advanced' AND Bookings.bookingDate >= '2026-10-01' AND Bookings.bookingDate <= '2026-10-31' ORDER BY Bookings.bookingDate ASC;"
+     },
+     "markingGuide": "3 marks, one each: the three columns with both join conditions; level = 'Advanced' AND bookingDate >= '2026-10-01' AND bookingDate <= '2026-10-31'; ORDER BY bookingDate ASC. Ava (3 Oct), Ben (20 Oct, HIIT) and Dev (31 Oct) should appear; the 29 Sep and 2 Nov bookings must not."
+    }
+   ],
+   "stimulus": "<p>A gym stores its data in three tables. Dates are stored as YYYY-MM-DD.</p><p><b>Members</b></p><table><tr><th>memberID</th><th>firstName</th><th>suburb</th><th>postcode</th></tr><tr><td>M01</td><td>Ava</td><td>Penrith</td><td>2750</td></tr><tr><td>M02</td><td>Ben</td><td>Parramatta</td><td>2150</td></tr><tr><td>M03</td><td>Chloe</td><td>Penrith</td><td>2750</td></tr><tr><td>M04</td><td>Dev</td><td>Ryde</td><td>2112</td></tr></table><p><b>Classes</b></p><table><tr><th>classID</th><th>className</th><th>level</th><th>fee</th></tr><tr><td>C1</td><td>Spin</td><td>Beginner</td><td>15</td></tr><tr><td>C2</td><td>Boxing</td><td>Advanced</td><td>25</td></tr><tr><td>C3</td><td>Yoga</td><td>Beginner</td><td>12</td></tr><tr><td>C4</td><td>HIIT</td><td>Advanced</td><td>20</td></tr></table><p><b>Bookings</b></p><table><tr><th>bookingID</th><th>memberID</th><th>classID</th><th>bookingDate</th></tr><tr><td>1</td><td>M01</td><td>C2</td><td>2026-10-03</td></tr><tr><td>2</td><td>M02</td><td>C1</td><td>2026-10-05</td></tr><tr><td>3</td><td>M03</td><td>C4</td><td>2026-09-29</td></tr><tr><td>4</td><td>M01</td><td>C3</td><td>2026-10-12</td></tr><tr><td>5</td><td>M04</td><td>C2</td><td>2026-10-31</td></tr><tr><td>6</td><td>M03</td><td>C2</td><td>2026-11-02</td></tr><tr><td>7</td><td>M02</td><td>C4</td><td>2026-10-20</td></tr></table>"
+  },
+  {
+   "number": 7,
+   "parts": [
+    {
+     "type": "sql",
+     "marks": 3,
+     "syllabus": "DS3.12",
+     "question": "List the <b>class name</b> and <b>fee</b> of every class that is either <b>Beginner</b> or costs <b>more than $22</b>, as long as the fee is <b>at least $13</b>. Sort by fee, highest first.",
+     "sql": {
+      "setup": "CREATE TABLE Members (memberID TEXT, firstName TEXT, suburb TEXT, postcode TEXT);INSERT INTO Members VALUES ('M01','Ava','Penrith','2750');INSERT INTO Members VALUES ('M02','Ben','Parramatta','2150');INSERT INTO Members VALUES ('M03','Chloe','Penrith','2750');INSERT INTO Members VALUES ('M04','Dev','Ryde','2112');CREATE TABLE Classes (classID TEXT, className TEXT, level TEXT, fee INTEGER);INSERT INTO Classes VALUES ('C1','Spin','Beginner',15);INSERT INTO Classes VALUES ('C2','Boxing','Advanced',25);INSERT INTO Classes VALUES ('C3','Yoga','Beginner',12);INSERT INTO Classes VALUES ('C4','HIIT','Advanced',20);",
+      "showTables": [],
+      "solution": "SELECT className, fee FROM Classes WHERE (level = 'Beginner' OR fee > 22) AND fee >= 13 ORDER BY fee DESC;"
+     },
+     "markingGuide": "3 marks, one each: SELECT className, fee FROM Classes; WHERE (level = 'Beginner' OR fee > 22) AND fee >= 13 with the brackets; ORDER BY fee DESC. Boxing ($25) and Spin ($15) should appear; Yoga ($12) must not, which is what the brackets control."
+    }
+   ],
+   "stimulus": "<p>The same gym database. Fees are stored in dollars.</p><p><b>Members</b></p><table><tr><th>memberID</th><th>firstName</th><th>suburb</th><th>postcode</th></tr><tr><td>M01</td><td>Ava</td><td>Penrith</td><td>2750</td></tr><tr><td>M02</td><td>Ben</td><td>Parramatta</td><td>2150</td></tr><tr><td>M03</td><td>Chloe</td><td>Penrith</td><td>2750</td></tr><tr><td>M04</td><td>Dev</td><td>Ryde</td><td>2112</td></tr></table><p><b>Classes</b></p><table><tr><th>classID</th><th>className</th><th>level</th><th>fee</th></tr><tr><td>C1</td><td>Spin</td><td>Beginner</td><td>15</td></tr><tr><td>C2</td><td>Boxing</td><td>Advanced</td><td>25</td></tr><tr><td>C3</td><td>Yoga</td><td>Beginner</td><td>12</td></tr><tr><td>C4</td><td>HIIT</td><td>Advanced</td><td>20</td></tr></table>"
+  }
+ ]
+},
+{
+ "id": "school-2",
+ "format": "ec-practice-set",
+ "version": 1,
+ "title": "Enterprise School practice set 2: Data security and backup",
+ "notice": "<p>Lesson 2 of the Enterprise School revision lessons. Match each threat to the measure that actually stops it, work out which backups a restore needs, and justify security measures for a scenario. 13 marks.</p>",
+ "timing": {
+  "reading": 2,
+  "working": 18
+ },
+ "questions": [
+  {
+   "number": 1,
+   "parts": [
+    {
+     "type": "mcq",
+     "marks": 1,
+     "syllabus": "DV4.3",
+     "question": "Staff at a law firm keep clicking links in fake emails that ask them to reset their passwords. Which measure most directly targets this threat?",
+     "options": [
+      "Ongoing training to recognise phishing emails",
+      "Encrypting all files on the firm’s file server",
+      "A stronger firewall at the firm’s network edge",
+      "Daily backups of every client document stored"
+     ],
+     "answer": 0,
+     "markingGuide": "A. Phishing targets people, so training (plus verifying unusual requests) is the direct defence. Encryption, firewalls and backups protect data and networks but do not stop a person handing over a password."
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "parts": [
+    {
+     "type": "mcq",
+     "marks": 1,
+     "syllabus": "DV4.3",
+     "question": "One staff account in a hospital is compromised. Which measure most limits the damage?",
+     "options": [
+      "A longer password expiry period for every account",
+      "Storing all patient records in a single database",
+      "Access levels so each account sees only what it needs",
+      "Daily full backups of the hospital’s whole network"
+     ],
+     "answer": 2,
+     "markingGuide": "C. Least-privilege access levels mean a compromised account can only reach a small part of the data. Backups help recovery, not limiting access; a single database and longer expiry periods increase risk."
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "parts": [
+    {
+     "type": "mcq",
+     "marks": 1,
+     "syllabus": "DV4.4",
+     "question": "A business makes a full backup on Sunday night and differential backups every other night. Its server fails on Friday morning. Which backups restore Thursday night’s data?",
+     "options": [
+      "Sunday’s full backup and every differential since",
+      "Only Thursday night’s differential backup",
+      "Sunday’s full backup and Thursday’s differential",
+      "Only Sunday night’s full backup"
+     ],
+     "answer": 2,
+     "markingGuide": "C. A differential copies everything changed since the last full backup, so only the full backup plus the latest differential are needed. With incrementals, every incremental since the full backup would be needed."
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "parts": [
+    {
+     "type": "dropdown",
+     "marks": 2,
+     "syllabus": "DV4.3",
+     "question": "For each threat, select the measure that targets it most directly.",
+     "body": "<table><tr><th>Threat</th><th>Measure</th></tr><tr><td>A staff password is guessed</td><td>[[0]]</td></tr><tr><td>A laptop with client files is stolen from a car</td><td>[[1]]</td></tr><tr><td>Ransomware encrypts the office file server</td><td>[[2]]</td></tr><tr><td>An intern can open payroll records</td><td>[[3]]</td></tr><tr><td>Malware arrives in a downloaded program</td><td>[[4]]</td></tr></table>",
+     "blanks": [
+      [
+       "Access levels",
+       "Staff training",
+       "Encryption at rest",
+       "Antivirus software",
+       "Multi-factor authentication",
+       "Tested offsite backups"
+      ],
+      [
+       "Access levels",
+       "Staff training",
+       "Encryption at rest",
+       "Antivirus software",
+       "Multi-factor authentication",
+       "Tested offsite backups"
+      ],
+      [
+       "Access levels",
+       "Staff training",
+       "Encryption at rest",
+       "Antivirus software",
+       "Multi-factor authentication",
+       "Tested offsite backups"
+      ],
+      [
+       "Access levels",
+       "Staff training",
+       "Encryption at rest",
+       "Antivirus software",
+       "Multi-factor authentication",
+       "Tested offsite backups"
+      ],
+      [
+       "Access levels",
+       "Staff training",
+       "Encryption at rest",
+       "Antivirus software",
+       "Multi-factor authentication",
+       "Tested offsite backups"
+      ]
+     ],
+     "answer": [
+      4,
+      2,
+      5,
+      0,
+      3
+     ],
+     "scoreBands": [
+      [
+       5,
+       2
+      ],
+      [
+       4,
+       1
+      ]
+     ],
+     "markingGuide": "1 MFA (a guessed password alone is not enough), 2 encryption at rest (the data is unreadable without the key), 3 tested offsite backups (restore without paying), 4 access levels (least privilege), 5 antivirus. Staff training is not used. 2 marks all five, 1 mark four."
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "parts": [
+    {
+     "type": "order",
+     "marks": 2,
+     "syllabus": "DV4.4",
+     "question": "A shop makes a full backup every Sunday night and an incremental backup every other night. Its server fails on Thursday at lunchtime. Drag the backups needed into the order they are restored. Two are not needed, so leave them out.",
+     "tokens": [
+      "Tuesday night incremental",
+      "Previous Saturday night incremental",
+      "Sunday night full backup",
+      "Wednesday night incremental",
+      "Thursday night incremental",
+      "Monday night incremental"
+     ],
+     "zones": 4,
+     "answer": [
+      2,
+      5,
+      0,
+      3
+     ],
+     "scoreBands": [
+      [
+       4,
+       2
+      ],
+      [
+       3,
+       1
+      ]
+     ],
+     "markingGuide": "Sunday full → Monday → Tuesday → Wednesday incrementals. Each incremental only holds changes since the previous backup, so all of them are restored in order after the full backup. Saturday’s incremental is older than the full backup and Thursday night’s backup has not happened yet. 2 marks all four, 1 mark three in place."
+    }
+   ]
+  },
+  {
+   "number": 6,
+   "parts": [
+    {
+     "type": "short",
+     "marks": 3,
+     "syllabus": "DV4.3",
+     "question": "Justify TWO security measures for this system.",
+     "words": 90,
+     "markingGuide": "3 marks: two measures, each linked to a specific risk in the scenario with a reason, e.g. MFA for staff logins because accounts on a cloud system can be reached from anywhere; encryption in transit and at rest because claims include medical and bank details; role-based access so assessors see only their claims. 2 marks: two measures with a general justification, or one well justified. 1 mark: names a measure."
+    }
+   ],
+   "stimulus": "<p>An insurance company is moving its claims system to the cloud. Assessors work from home and log in through a web browser. Claims include customers’ medical reports and bank details.</p>"
+  },
+  {
+   "number": 7,
+   "parts": [
+    {
+     "type": "short",
+     "marks": 3,
+     "syllabus": "EP3.13",
+     "question": "Explain how the company could use a risk matrix to decide which threat to deal with first.",
+     "words": 90,
+     "markingGuide": "3 marks: a risk matrix rates each threat by likelihood and impact; threats high on both are treated first; applied to the stimulus, e.g. phishing is likely and high impact (access to claims), so training and MFA come first, while a data centre fire is unlikely though severe, so it is handled by backups and a recovery plan. 2 marks: explains the matrix without applying it. 1 mark: mentions likelihood or impact."
+    }
+   ],
+   "stimulus": "<p>An insurance company lists three threats: phishing emails sent to assessors, a fire at its cloud provider’s data centre, and an assessor losing an unencrypted USB drive.</p>"
+  }
+ ]
+},
+{
+ "id": "school-3",
+ "format": "ec-practice-set",
+ "version": 1,
+ "title": "Enterprise School practice set 3: Diagrams",
+ "notice": "<p>Lesson 3 of the Enterprise School revision lessons. Decision trees, context diagrams and flowcharts. Use the drawing tool for the diagrams, then swap with a partner and mark them against the rules in the marking guide. 10 marks.</p>",
+ "timing": {
+  "reading": 2,
+  "working": 15
+ },
+ "questions": [
+  {
+   "number": 1,
+   "parts": [
+    {
+     "type": "label",
+     "marks": 2,
+     "syllabus": "EP2.7",
+     "question": "A library uses this rule for returned books: no fine if the book is on time; students pay 20c per late day; everyone else pays 50c per late day. Drag a label into each box of the decision tree. Two labels are not used.",
+     "diagram": "<svg viewBox=\"0 0 640 300\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" font-family=\"Public Sans, Arial, sans-serif\" font-size=\"13\"><defs><marker id=\"ah\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#22272b\"/></marker></defs><rect x=\"220\" y=\"14\" width=\"200\" height=\"44\" rx=\"4\" fill=\"#f2f4f7\" stroke=\"#22272b\" stroke-width=\"1.4\" stroke-dasharray=\"4 3\"/><rect x=\"20\" y=\"118\" width=\"170\" height=\"40\" rx=\"4\" fill=\"#f2f4f7\" stroke=\"#22272b\" stroke-width=\"1.4\" stroke-dasharray=\"4 3\"/><rect x=\"330\" y=\"118\" width=\"200\" height=\"44\" rx=\"4\" fill=\"#f2f4f7\" stroke=\"#22272b\" stroke-width=\"1.4\" stroke-dasharray=\"4 3\"/><rect x=\"210\" y=\"232\" width=\"170\" height=\"40\" rx=\"4\" fill=\"#f2f4f7\" stroke=\"#22272b\" stroke-width=\"1.4\" stroke-dasharray=\"4 3\"/><rect x=\"450\" y=\"232\" width=\"170\" height=\"40\" rx=\"4\" fill=\"#f2f4f7\" stroke=\"#22272b\" stroke-width=\"1.4\" stroke-dasharray=\"4 3\"/><line x1=\"270\" y1=\"58\" x2=\"130\" y2=\"118\" stroke=\"#22272b\" stroke-width=\"1.6\" marker-end=\"url(#ah)\"/><text x=\"180\" y=\"86\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"#22272b\">No</text><line x1=\"370\" y1=\"58\" x2=\"430\" y2=\"118\" stroke=\"#22272b\" stroke-width=\"1.6\" marker-end=\"url(#ah)\"/><text x=\"415\" y=\"86\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"#22272b\">Yes</text><line x1=\"390\" y1=\"162\" x2=\"300\" y2=\"232\" stroke=\"#22272b\" stroke-width=\"1.6\" marker-end=\"url(#ah)\"/><text x=\"330\" y=\"196\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"#22272b\">Yes</text><line x1=\"470\" y1=\"162\" x2=\"530\" y2=\"232\" stroke=\"#22272b\" stroke-width=\"1.6\" marker-end=\"url(#ah)\"/><text x=\"520\" y=\"196\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"#22272b\">No</text></svg>",
+     "tokens": [
+      "Fine 20c per day",
+      "Is the fine over $10?",
+      "No fine",
+      "Is the book overdue?",
+      "Fine 50c per day",
+      "Send a reminder email",
+      "Is the borrower a student?"
+     ],
+     "zones": [
+      {
+       "x": 34.38,
+       "y": 4.67,
+       "w": 31.25,
+       "h": 14.67
+      },
+      {
+       "x": 3.12,
+       "y": 39.33,
+       "w": 26.56,
+       "h": 13.33
+      },
+      {
+       "x": 51.56,
+       "y": 39.33,
+       "w": 31.25,
+       "h": 14.67
+      },
+      {
+       "x": 32.81,
+       "y": 77.33,
+       "w": 26.56,
+       "h": 13.33
+      },
+      {
+       "x": 70.31,
+       "y": 77.33,
+       "w": 26.56,
+       "h": 13.33
+      }
+     ],
+     "answer": [
+      3,
+      2,
+      6,
+      0,
+      4
+     ],
+     "scoreBands": [
+      [
+       5,
+       2
+      ],
+      [
+       4,
+       1
+      ]
+     ],
+     "markingGuide": "The first condition (overdue?) sits at the root; its No branch ends in No fine; its Yes branch leads to the student condition, whose Yes branch is 20c and No branch is 50c. Every path ends in an action. 2 marks all five, 1 mark four."
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "parts": [
+    {
+     "type": "mcq",
+     "marks": 1,
+     "syllabus": "EP2.6",
+     "question": "Which feature belongs on a level 1 DFD but not on a context diagram?",
+     "options": [
+      "External entities shown as rectangles",
+      "Labelled data flows between components",
+      "Data stores and the separate processes",
+      "The name of the whole system as a process"
+     ],
+     "answer": 2,
+     "markingGuide": "C. A context diagram (level 0) shows the whole system as one process with its external entities and flows, and no data stores. A level 1 DFD breaks it into processes and adds data stores."
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "parts": [
+    {
+     "type": "mcq",
+     "marks": 1,
+     "syllabus": "EP2.6",
+     "question": "A student’s level 1 DFD draws an arrow straight from the Customer entity to the Orders data store. Why does this lose marks?",
+     "options": [
+      "Entities may only appear on a context diagram",
+      "Data stores must be drawn as closed rectangles",
+      "Data can only reach a store through a process",
+      "Every arrow must point away from a data store"
+     ],
+     "answer": 2,
+     "markingGuide": "C. An external entity cannot read or write a data store directly; a process must handle the data. Entities appear on both levels, stores are open-ended rectangles, and flows can go in either direction."
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "parts": [
+    {
+     "type": "draw",
+     "marks": 3,
+     "syllabus": "EP2.6",
+     "question": "Draw a context diagram for the food delivery app.",
+     "markingGuide": "3 marks: one process (the delivery app) with all four entities (customer, restaurant, driver, bank) and correctly labelled flows in the right directions, e.g. order details and payment details in from the customer; order confirmation and delivery status out; order to the restaurant and food ready back; delivery job to the driver and pickup/delivery confirmation back; payment request to the bank and payment approval back; no data stores. 2 marks: most entities and flows. 1 mark: some correct elements."
+    }
+   ],
+   "stimulus": "<p>A food delivery app lets customers order from restaurants. The restaurant confirms the order and prepares it, a driver is assigned to pick it up and deliver it, and the customer’s card payment is processed by their bank.</p>"
+  },
+  {
+   "number": 5,
+   "parts": [
+    {
+     "type": "draw",
+     "marks": 3,
+     "syllabus": "IS1.36",
+     "question": "Draw a flowchart for the boom gate.",
+     "markingGuide": "3 marks: start and end terminators; detect a car → read ticket or plate → decision “valid?” (No → show error and stay closed, loop back); Yes → raise gate → decision “has the car passed the sensor?” with a No branch looping back to the same check (wait) → lower gate; all branches labelled Yes/No. 2 marks: logical sequence with one missing loop or unlabelled branch. 1 mark: some correct steps."
+    }
+   ],
+   "stimulus": "<p>A car park boom gate reads a car’s ticket. If the ticket is valid it raises the gate, then keeps checking a sensor until the car has passed, then lowers the gate. An invalid ticket shows an error and the gate stays closed.</p>"
+  }
+ ]
+},
+{
+ "id": "school-4",
+ "format": "ec-practice-set",
+ "version": 1,
+ "title": "Enterprise School practice set 4: Expert systems, decision support and hardware",
+ "notice": "<p>Lesson 4 of the Enterprise School revision lessons. Decision categories, expert system parts, reasoning methods and the hardware of an automated system, then a 6-mark response. The 8-mark hospital question in the Peer revision set is the follow-up. 17 marks.</p>",
+ "timing": {
+  "reading": 2,
+  "working": 24
+ },
+ "questions": [
+  {
+   "number": 1,
+   "parts": [
+    {
+     "type": "mcq",
+     "marks": 1,
+     "syllabus": "IS1.1",
+     "question": "What best separates a decision support system from an expert system?",
+     "options": [
+      "A DSS uses an inference engine to conclude",
+      "A DSS stores an expert’s rules in a knowledge base",
+      "A DSS presents analysis so a person decides",
+      "A DSS is only used for fully structured decisions"
+     ],
+     "answer": 2,
+     "markingGuide": "C. A DSS analyses data and presents options for a person to decide. An expert system reaches a conclusion itself using a knowledge base and inference engine."
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "parts": [
+    {
+     "type": "mcq",
+     "marks": 1,
+     "syllabus": "IS1.10",
+     "question": "A technician’s expert system starts from one suspected cause, “the pump has failed”, and looks for facts that would confirm it. Which reasoning method is this?",
+     "options": [
+      "Backward chaining",
+      "Forward chaining",
+      "Fuzzy logic",
+      "Truth maintenance"
+     ],
+     "answer": 0,
+     "markingGuide": "A. Backward chaining is goal-driven: it starts from a hypothesis and works back to supporting facts. Forward chaining starts from incoming facts."
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "parts": [
+    {
+     "type": "mcq",
+     "marks": 1,
+     "syllabus": "IS1.31",
+     "question": "In an automated greenhouse, which component turns the microcontroller’s signal into physical movement?",
+     "options": [
+      "The temperature sensor in the roof space",
+      "The wireless gateway linking to the cloud",
+      "The dashboard that shows the temperature",
+      "The actuator that opens the roof vents"
+     ],
+     "answer": 3,
+     "markingGuide": "D. Sensors measure, the microcontroller decides, and actuators or motors act. The gateway transmits data and the dashboard displays it."
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "parts": [
+    {
+     "type": "dropdown",
+     "marks": 2,
+     "syllabus": "IS1.3",
+     "question": "For each decision, select its category.",
+     "body": "<table><tr><th>Decision</th><th>Category</th></tr><tr><td>Reordering stock automatically when it falls below a set level</td><td>[[0]]</td></tr><tr><td>An analyst reviewing transactions the system flagged as possible fraud</td><td>[[1]]</td></tr><tr><td>A board deciding whether to expand into a new country</td><td>[[2]]</td></tr><tr><td>Approving a loan that meets every fixed criterion</td><td>[[3]]</td></tr><tr><td>A doctor confirming a diagnosis the system suggested</td><td>[[4]]</td></tr></table>",
+     "blanks": [
+      [
+       "Structured",
+       "Semi-structured",
+       "Unstructured"
+      ],
+      [
+       "Structured",
+       "Semi-structured",
+       "Unstructured"
+      ],
+      [
+       "Structured",
+       "Semi-structured",
+       "Unstructured"
+      ],
+      [
+       "Structured",
+       "Semi-structured",
+       "Unstructured"
+      ],
+      [
+       "Structured",
+       "Semi-structured",
+       "Unstructured"
+      ]
+     ],
+     "answer": [
+      0,
+      1,
+      2,
+      0,
+      1
+     ],
+     "scoreBands": [
+      [
+       5,
+       2
+      ],
+      [
+       4,
+       1
+      ]
+     ],
+     "markingGuide": "1 structured (fixed rule, automatic), 2 semi-structured (system flags, person decides), 3 unstructured (no set procedure, judgement), 4 structured, 5 semi-structured. 2 marks all five, 1 mark four."
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "parts": [
+    {
+     "type": "order",
+     "marks": 2,
+     "syllabus": "IS1.31",
+     "question": "Drag the steps of the automated greenhouse into the order they happen.",
+     "tokens": [
+      "The roof vent actuator opens the vents",
+      "The microcontroller compares the reading with the set limit",
+      "The temperature sensor measures 34 °C",
+      "The sensor reports the temperature has dropped below the limit",
+      "The microcontroller sends a signal to the actuator"
+     ],
+     "zones": 5,
+     "answer": [
+      2,
+      1,
+      4,
+      0,
+      3
+     ],
+     "scoreBands": [
+      [
+       5,
+       2
+      ],
+      [
+       4,
+       1
+      ]
+     ],
+     "markingGuide": "Sense → compare with the threshold → signal the actuator → act → feedback from the sensor (the loop continues). 2 marks all five, 1 mark four in place."
+    }
+   ]
+  },
+  {
+   "number": 6,
+   "parts": [
+    {
+     "type": "short",
+     "marks": 4,
+     "syllabus": "IS1.31",
+     "question": "Describe the hardware an intelligent production line would use. Name specific sensors in your answer.",
+     "words": 120,
+     "markingGuide": "4 marks: specific sensors with their purpose (e.g. proximity or optical sensors detect parts on the conveyor, cameras for machine-vision defect checks, temperature and vibration sensors for predictive maintenance), a controller (PLC or microcontroller) that processes readings, and actuators or motors (robotic arms, conveyor motors, reject gates), linked into a sense, decide, act sequence. 3 marks: most components, less specific. 2 marks: sensors and actuators named generally. 1 mark: one component."
+    }
+   ]
+  },
+  {
+   "number": 7,
+   "parts": [
+    {
+     "type": "short",
+     "marks": 6,
+     "syllabus": "IS1.4",
+     "question": "Explain how intelligent systems can assist each category of decision at this airline. Use examples from the stimulus.",
+     "words": 200,
+     "markingGuide": "6 marks: all three categories, each with its own stimulus example and how the system helps. Structured: check-in and seat allocation follow fixed rules, so the system decides automatically, quickly and consistently. Semi-structured: the delay system predicts disruption and suggests crew and aircraft swaps, and an operations controller approves them, combining analysis with judgement. Unstructured: route planning has no fixed procedure; the system models demand and competitors so executives can compare options, but they decide. 4–5 marks: all three with less detail or a missing example. 2–3 marks: describes the categories generally. 1 mark: relevant information."
+    }
+   ],
+   "stimulus": "<p>An airline uses intelligent systems for: <b>check-in and seat allocation</b> using fixed rules; <b>delay management</b>, which predicts disruptions and suggests crew and aircraft swaps for an operations controller to approve; and <b>route planning</b>, where executives decide whether to open new routes.</p>"
+  }
+ ]
+},
+{
+ "id": "school-5",
+ "format": "ec-practice-set",
+ "version": 1,
+ "title": "Enterprise School practice set 5: Visualisation, UX, bias and dashboards",
+ "notice": "<p>Lesson 5 of the Enterprise School revision lessons. Choosing charts, spotting misleading visuals, data integrity and assessing a dashboard. In every written answer, quote figures from the dashboard. 15 marks.</p>",
+ "timing": {
+  "reading": 2,
+  "working": 21
+ },
+ "questions": [
+  {
+   "number": 1,
+   "parts": [
+    {
+     "type": "mcq",
+     "marks": 1,
+     "syllabus": "DS1.7",
+     "question": "Which chart best shows whether students who study more hours tend to get higher marks?",
+     "options": [
+      "Scatter plot",
+      "Pie chart",
+      "Line graph",
+      "Stacked bar chart"
+     ],
+     "answer": 0,
+     "markingGuide": "A. A scatter plot shows the relationship between two numeric variables. Pie charts show parts of a whole, line graphs show change over time and stacked bars show how parts make up category totals."
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "parts": [
+    {
+     "type": "mcq",
+     "marks": 1,
+     "syllabus": "DV1.19",
+     "question": "A bar chart of customer satisfaction has its vertical axis starting at 94%. What is the main problem?",
+     "options": [
+      "The chart cannot display any value below 94%",
+      "Bar charts should never be used for percentages",
+      "The colours of the bars will be harder to read",
+      "Small differences look much larger than they are"
+     ],
+     "answer": 3,
+     "markingGuide": "D. A truncated axis exaggerates differences, so a 1% gap can look like a huge one. This is a common form of bias in visualisations."
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "parts": [
+    {
+     "type": "mcq",
+     "marks": 1,
+     "syllabus": "DV2.8",
+     "question": "One store’s weekly sales are ten times higher than any other store’s because of a data entry error. What should the analyst do?",
+     "options": [
+      "Delete the record so it no longer affects the average",
+      "Check the record, then correct or flag it before analysis",
+      "Keep the record and report the mean as the main figure",
+      "Remove that store from every chart on the dashboard"
+     ],
+     "answer": 1,
+     "markingGuide": "B. Outliers are investigated first, and an error is corrected or flagged before analysis (the median is also less affected by extreme values). Deleting data without checking or hiding the store loses information."
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "parts": [
+    {
+     "type": "dropdown",
+     "marks": 2,
+     "syllabus": "DV1.10",
+     "question": "A council publishes a dashboard of water quality data. For each action, select the aspect of data integrity it addresses.",
+     "body": "<table><tr><th>Action</th><th>Aspect</th></tr><tr><td>Readings outside the range 0–14 pH are rejected</td><td>[[0]]</td></tr><tr><td>Each dataset has a named officer accountable for it</td><td>[[1]]</td></tr><tr><td>Analysts confirm readings came from the council’s own sensors</td><td>[[2]]</td></tr><tr><td>The team assesses what could go wrong if readings were wrong</td><td>[[3]]</td></tr></table>",
+     "blanks": [
+      [
+       "Ownership",
+       "Source",
+       "Validation",
+       "Risk"
+      ],
+      [
+       "Ownership",
+       "Source",
+       "Validation",
+       "Risk"
+      ],
+      [
+       "Ownership",
+       "Source",
+       "Validation",
+       "Risk"
+      ],
+      [
+       "Ownership",
+       "Source",
+       "Validation",
+       "Risk"
+      ]
+     ],
+     "answer": [
+      2,
+      0,
+      1,
+      3
+     ],
+     "scoreBands": [
+      [
+       4,
+       2
+      ],
+      [
+       3,
+       1
+      ]
+     ],
+     "markingGuide": "1 validation, 2 ownership, 3 source, 4 risk. 2 marks all four, 1 mark three."
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "parts": [
+    {
+     "type": "short",
+     "marks": 2,
+     "syllabus": "DV2.9",
+     "question": "Using figures from the dashboard, identify the suburb whose use is falling and suggest a reason.",
+     "words": 60,
+     "markingGuide": "2 marks: Bondi, with figures (about 3.6 thousand trips in January down to 2.6 thousand in June) and a reasonable reason (cooler months reduce beach trips). 1 mark: Bondi without figures, or figures without a reason."
+    }
+   ],
+   "stimulus": "<p>TideRide Bikes runs a bike share service in three Sydney suburbs. The operations manager uses this interactive dashboard to track usage and plan where to place bikes and staff for the rest of the year.</p><div style=\"max-width:100%;overflow-x:auto\"><svg viewBox=\"0 0 760 500\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" font-family=\"Public Sans, Arial, sans-serif\" font-size=\"13\"><defs><marker id=\"ah\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#22272b\"/></marker></defs><rect x=\"0.5\" y=\"0.5\" width=\"759\" height=\"499\" rx=\"0\" fill=\"#f6f7f9\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"16\" y=\"28\" text-anchor=\"start\" font-size=\"16\" font-weight=\"700\" fill=\"#22272b\">TideRide Bikes · Operations dashboard · Jan–Jun 2026</text><rect x=\"470\" y=\"12\" width=\"120\" height=\"26\" rx=\"4\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"480\" y=\"30\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">Suburb: All ▾</text><rect x=\"600\" y=\"12\" width=\"144\" height=\"26\" rx=\"4\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"610\" y=\"30\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">Month: Jan ◀━━▶ Jun</text><rect x=\"16\" y=\"50\" width=\"232\" height=\"62\" rx=\"6\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"28\" y=\"72\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">Total trips</text><text x=\"28\" y=\"100\" text-anchor=\"start\" font-size=\"22\" font-weight=\"700\" fill=\"#22272b\">46,200</text><rect x=\"264\" y=\"50\" width=\"232\" height=\"62\" rx=\"6\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"276\" y=\"72\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">Bikes out of service</text><text x=\"276\" y=\"100\" text-anchor=\"start\" font-size=\"22\" font-weight=\"700\" fill=\"#22272b\">14%</text><rect x=\"512\" y=\"50\" width=\"232\" height=\"62\" rx=\"6\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"524\" y=\"72\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">Average rider rating</text><text x=\"524\" y=\"100\" text-anchor=\"start\" font-size=\"22\" font-weight=\"700\" fill=\"#22272b\">3.9 / 5</text><rect x=\"16\" y=\"124\" width=\"372\" height=\"214\" rx=\"6\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"28\" y=\"144\" text-anchor=\"start\" font-size=\"13\" font-weight=\"700\" fill=\"#22272b\">Monthly trips by suburb (thousands)</text><line x1=\"50\" y1=\"302\" x2=\"370\" y2=\"302\" stroke=\"#22272b\" stroke-width=\"1.6\"/><line x1=\"50\" y1=\"302\" x2=\"50\" y2=\"166\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"42\" y=\"306\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">0</text><line x1=\"50\" y1=\"302\" x2=\"370\" y2=\"302\" stroke=\"#d9dce0\" stroke-width=\"1\"/><text x=\"42\" y=\"272\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">1</text><line x1=\"50\" y1=\"268\" x2=\"370\" y2=\"268\" stroke=\"#d9dce0\" stroke-width=\"1\"/><text x=\"42\" y=\"238\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">2</text><line x1=\"50\" y1=\"234\" x2=\"370\" y2=\"234\" stroke=\"#d9dce0\" stroke-width=\"1\"/><text x=\"42\" y=\"204\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">3</text><line x1=\"50\" y1=\"200\" x2=\"370\" y2=\"200\" stroke=\"#d9dce0\" stroke-width=\"1\"/><text x=\"42\" y=\"170\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">4</text><line x1=\"50\" y1=\"166\" x2=\"370\" y2=\"166\" stroke=\"#d9dce0\" stroke-width=\"1\"/><text x=\"70\" y=\"318\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Jan</text><text x=\"126\" y=\"318\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Feb</text><text x=\"182\" y=\"318\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Mar</text><text x=\"238\" y=\"318\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Apr</text><text x=\"294\" y=\"318\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">May</text><text x=\"350\" y=\"318\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Jun</text><polyline points=\"70,230.6 126,223.8 182,234 238,220.4 294,213.6 350,203.4\" fill=\"none\" stroke=\"#002664\" stroke-width=\"2.4\"/><circle cx=\"70\" cy=\"230.6\" r=\"3\" fill=\"#002664\"/><circle cx=\"126\" cy=\"223.8\" r=\"3\" fill=\"#002664\"/><circle cx=\"182\" cy=\"234\" r=\"3\" fill=\"#002664\"/><circle cx=\"238\" cy=\"220.4\" r=\"3\" fill=\"#002664\"/><circle cx=\"294\" cy=\"213.6\" r=\"3\" fill=\"#002664\"/><circle cx=\"350\" cy=\"203.4\" r=\"3\" fill=\"#002664\"/><rect x=\"60\" y=\"326\" width=\"10\" height=\"10\" fill=\"#002664\"/><text x=\"74\" y=\"335\" text-anchor=\"start\" font-size=\"11\" fill=\"#22272b\">Manly</text><polyline points=\"70,261.2 126,251 182,237.4 238,223.8 294,206.8 350,186.4\" fill=\"none\" stroke=\"#d7153a\" stroke-width=\"2.4\"/><circle cx=\"70\" cy=\"261.2\" r=\"3\" fill=\"#d7153a\"/><circle cx=\"126\" cy=\"251\" r=\"3\" fill=\"#d7153a\"/><circle cx=\"182\" cy=\"237.4\" r=\"3\" fill=\"#d7153a\"/><circle cx=\"238\" cy=\"223.8\" r=\"3\" fill=\"#d7153a\"/><circle cx=\"294\" cy=\"206.8\" r=\"3\" fill=\"#d7153a\"/><circle cx=\"350\" cy=\"186.4\" r=\"3\" fill=\"#d7153a\"/><rect x=\"160\" y=\"326\" width=\"10\" height=\"10\" fill=\"#d7153a\"/><text x=\"174\" y=\"335\" text-anchor=\"start\" font-size=\"11\" fill=\"#22272b\">Parramatta</text><polyline points=\"70,179.6 126,183 182,189.8 238,200 294,206.8 350,213.6\" fill=\"none\" stroke=\"#2e808e\" stroke-width=\"2.4\"/><circle cx=\"70\" cy=\"179.6\" r=\"3\" fill=\"#2e808e\"/><circle cx=\"126\" cy=\"183\" r=\"3\" fill=\"#2e808e\"/><circle cx=\"182\" cy=\"189.8\" r=\"3\" fill=\"#2e808e\"/><circle cx=\"238\" cy=\"200\" r=\"3\" fill=\"#2e808e\"/><circle cx=\"294\" cy=\"206.8\" r=\"3\" fill=\"#2e808e\"/><circle cx=\"350\" cy=\"213.6\" r=\"3\" fill=\"#2e808e\"/><rect x=\"260\" y=\"326\" width=\"10\" height=\"10\" fill=\"#2e808e\"/><text x=\"274\" y=\"335\" text-anchor=\"start\" font-size=\"11\" fill=\"#22272b\">Bondi</text><rect x=\"400\" y=\"124\" width=\"344\" height=\"214\" rx=\"6\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"412\" y=\"144\" text-anchor=\"start\" font-size=\"13\" font-weight=\"700\" fill=\"#22272b\">Average trip length</text><line x1=\"450\" y1=\"312\" x2=\"720\" y2=\"312\" stroke=\"#22272b\" stroke-width=\"1.6\"/><line x1=\"450\" y1=\"312\" x2=\"450\" y2=\"162\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"442\" y=\"316\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">10</text><text x=\"442\" y=\"266\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">15</text><text x=\"442\" y=\"216\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">20</text><text x=\"442\" y=\"166\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">25</text><rect x=\"475\" y=\"232\" width=\"50\" height=\"80\" fill=\"#002664\"/><text x=\"500\" y=\"328\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Manly</text><rect x=\"560\" y=\"302\" width=\"50\" height=\"10\" fill=\"#d7153a\"/><text x=\"585\" y=\"328\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Parramatta</text><rect x=\"645\" y=\"172\" width=\"50\" height=\"140\" fill=\"#2e808e\"/><text x=\"670\" y=\"328\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Bondi</text><rect x=\"16\" y=\"350\" width=\"728\" height=\"138\" rx=\"6\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"28\" y=\"370\" text-anchor=\"start\" font-size=\"13\" font-weight=\"700\" fill=\"#22272b\">Trips by time of day</text><path d=\"M120,425 L120,373 A52,52 0 0 1 171.079,415.256 z\" fill=\"#0b3d91\" stroke=\"#ffffff\" stroke-width=\"1\"/><path d=\"M120,425 L171.079,415.256 A52,52 0 0 1 160.067,458.146 z\" fill=\"#1a4d9e\" stroke=\"#ffffff\" stroke-width=\"1\"/><path d=\"M120,425 L160.067,458.146 A52,52 0 0 1 126.517,476.59 z\" fill=\"#2a5daa\" stroke=\"#ffffff\" stroke-width=\"1\"/><path d=\"M120,425 L126.517,476.59 A52,52 0 0 1 68.1026,428.265 z\" fill=\"#3a6db6\" stroke=\"#ffffff\" stroke-width=\"1\"/><path d=\"M120,425 L68.1026,428.265 A52,52 0 0 1 94.9488,379.432 z\" fill=\"#4a7dc2\" stroke=\"#ffffff\" stroke-width=\"1\"/><path d=\"M120,425 L94.9488,379.432 A52,52 0 0 1 120,373 z\" fill=\"#5a8dce\" stroke=\"#ffffff\" stroke-width=\"1\"/><rect x=\"210\" y=\"400\" width=\"12\" height=\"12\" fill=\"#0b3d91\"/><text x=\"228\" y=\"411\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">6–9 am  22%</text><rect x=\"380\" y=\"400\" width=\"12\" height=\"12\" fill=\"#1a4d9e\"/><text x=\"398\" y=\"411\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">9–12  14%</text><rect x=\"550\" y=\"400\" width=\"12\" height=\"12\" fill=\"#2a5daa\"/><text x=\"568\" y=\"411\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">12–3 pm  12%</text><rect x=\"210\" y=\"434\" width=\"12\" height=\"12\" fill=\"#3a6db6\"/><text x=\"228\" y=\"445\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">3–6 pm  26%</text><rect x=\"380\" y=\"434\" width=\"12\" height=\"12\" fill=\"#4a7dc2\"/><text x=\"398\" y=\"445\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">6–9 pm  18%</text><rect x=\"550\" y=\"434\" width=\"12\" height=\"12\" fill=\"#5a8dce\"/><text x=\"568\" y=\"445\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">9 pm–6 am  8%</text></svg></div>"
+  },
+  {
+   "number": 6,
+   "parts": [
+    {
+     "type": "short",
+     "marks": 4,
+     "syllabus": "DV3.6",
+     "question": "Identify two UX strengths and two limitations of this dashboard, and suggest one improvement.",
+     "words": 120,
+     "markingGuide": "4 marks: two specific strengths (e.g. the line chart shows each suburb’s trend clearly; suburb and month filters allow drill-down; KPI tiles give a quick overview) and two specific limitations (bar chart axis starts at 10 with no units, so Parramatta’s 11 looks tiny; six similar blues in the pie chart; no comparison or trend on the KPI tiles; no forecast), plus a matching improvement. 3 marks: three of these. 2 marks: general strengths and limitations. 1 mark: one relevant point."
+    }
+   ],
+   "stimulus": "<p>TideRide Bikes runs a bike share service in three Sydney suburbs. The operations manager uses this interactive dashboard to track usage and plan where to place bikes and staff for the rest of the year.</p><div style=\"max-width:100%;overflow-x:auto\"><svg viewBox=\"0 0 760 500\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" font-family=\"Public Sans, Arial, sans-serif\" font-size=\"13\"><defs><marker id=\"ah\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#22272b\"/></marker></defs><rect x=\"0.5\" y=\"0.5\" width=\"759\" height=\"499\" rx=\"0\" fill=\"#f6f7f9\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"16\" y=\"28\" text-anchor=\"start\" font-size=\"16\" font-weight=\"700\" fill=\"#22272b\">TideRide Bikes · Operations dashboard · Jan–Jun 2026</text><rect x=\"470\" y=\"12\" width=\"120\" height=\"26\" rx=\"4\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"480\" y=\"30\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">Suburb: All ▾</text><rect x=\"600\" y=\"12\" width=\"144\" height=\"26\" rx=\"4\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"610\" y=\"30\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">Month: Jan ◀━━▶ Jun</text><rect x=\"16\" y=\"50\" width=\"232\" height=\"62\" rx=\"6\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"28\" y=\"72\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">Total trips</text><text x=\"28\" y=\"100\" text-anchor=\"start\" font-size=\"22\" font-weight=\"700\" fill=\"#22272b\">46,200</text><rect x=\"264\" y=\"50\" width=\"232\" height=\"62\" rx=\"6\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"276\" y=\"72\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">Bikes out of service</text><text x=\"276\" y=\"100\" text-anchor=\"start\" font-size=\"22\" font-weight=\"700\" fill=\"#22272b\">14%</text><rect x=\"512\" y=\"50\" width=\"232\" height=\"62\" rx=\"6\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"524\" y=\"72\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">Average rider rating</text><text x=\"524\" y=\"100\" text-anchor=\"start\" font-size=\"22\" font-weight=\"700\" fill=\"#22272b\">3.9 / 5</text><rect x=\"16\" y=\"124\" width=\"372\" height=\"214\" rx=\"6\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"28\" y=\"144\" text-anchor=\"start\" font-size=\"13\" font-weight=\"700\" fill=\"#22272b\">Monthly trips by suburb (thousands)</text><line x1=\"50\" y1=\"302\" x2=\"370\" y2=\"302\" stroke=\"#22272b\" stroke-width=\"1.6\"/><line x1=\"50\" y1=\"302\" x2=\"50\" y2=\"166\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"42\" y=\"306\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">0</text><line x1=\"50\" y1=\"302\" x2=\"370\" y2=\"302\" stroke=\"#d9dce0\" stroke-width=\"1\"/><text x=\"42\" y=\"272\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">1</text><line x1=\"50\" y1=\"268\" x2=\"370\" y2=\"268\" stroke=\"#d9dce0\" stroke-width=\"1\"/><text x=\"42\" y=\"238\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">2</text><line x1=\"50\" y1=\"234\" x2=\"370\" y2=\"234\" stroke=\"#d9dce0\" stroke-width=\"1\"/><text x=\"42\" y=\"204\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">3</text><line x1=\"50\" y1=\"200\" x2=\"370\" y2=\"200\" stroke=\"#d9dce0\" stroke-width=\"1\"/><text x=\"42\" y=\"170\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">4</text><line x1=\"50\" y1=\"166\" x2=\"370\" y2=\"166\" stroke=\"#d9dce0\" stroke-width=\"1\"/><text x=\"70\" y=\"318\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Jan</text><text x=\"126\" y=\"318\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Feb</text><text x=\"182\" y=\"318\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Mar</text><text x=\"238\" y=\"318\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Apr</text><text x=\"294\" y=\"318\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">May</text><text x=\"350\" y=\"318\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Jun</text><polyline points=\"70,230.6 126,223.8 182,234 238,220.4 294,213.6 350,203.4\" fill=\"none\" stroke=\"#002664\" stroke-width=\"2.4\"/><circle cx=\"70\" cy=\"230.6\" r=\"3\" fill=\"#002664\"/><circle cx=\"126\" cy=\"223.8\" r=\"3\" fill=\"#002664\"/><circle cx=\"182\" cy=\"234\" r=\"3\" fill=\"#002664\"/><circle cx=\"238\" cy=\"220.4\" r=\"3\" fill=\"#002664\"/><circle cx=\"294\" cy=\"213.6\" r=\"3\" fill=\"#002664\"/><circle cx=\"350\" cy=\"203.4\" r=\"3\" fill=\"#002664\"/><rect x=\"60\" y=\"326\" width=\"10\" height=\"10\" fill=\"#002664\"/><text x=\"74\" y=\"335\" text-anchor=\"start\" font-size=\"11\" fill=\"#22272b\">Manly</text><polyline points=\"70,261.2 126,251 182,237.4 238,223.8 294,206.8 350,186.4\" fill=\"none\" stroke=\"#d7153a\" stroke-width=\"2.4\"/><circle cx=\"70\" cy=\"261.2\" r=\"3\" fill=\"#d7153a\"/><circle cx=\"126\" cy=\"251\" r=\"3\" fill=\"#d7153a\"/><circle cx=\"182\" cy=\"237.4\" r=\"3\" fill=\"#d7153a\"/><circle cx=\"238\" cy=\"223.8\" r=\"3\" fill=\"#d7153a\"/><circle cx=\"294\" cy=\"206.8\" r=\"3\" fill=\"#d7153a\"/><circle cx=\"350\" cy=\"186.4\" r=\"3\" fill=\"#d7153a\"/><rect x=\"160\" y=\"326\" width=\"10\" height=\"10\" fill=\"#d7153a\"/><text x=\"174\" y=\"335\" text-anchor=\"start\" font-size=\"11\" fill=\"#22272b\">Parramatta</text><polyline points=\"70,179.6 126,183 182,189.8 238,200 294,206.8 350,213.6\" fill=\"none\" stroke=\"#2e808e\" stroke-width=\"2.4\"/><circle cx=\"70\" cy=\"179.6\" r=\"3\" fill=\"#2e808e\"/><circle cx=\"126\" cy=\"183\" r=\"3\" fill=\"#2e808e\"/><circle cx=\"182\" cy=\"189.8\" r=\"3\" fill=\"#2e808e\"/><circle cx=\"238\" cy=\"200\" r=\"3\" fill=\"#2e808e\"/><circle cx=\"294\" cy=\"206.8\" r=\"3\" fill=\"#2e808e\"/><circle cx=\"350\" cy=\"213.6\" r=\"3\" fill=\"#2e808e\"/><rect x=\"260\" y=\"326\" width=\"10\" height=\"10\" fill=\"#2e808e\"/><text x=\"274\" y=\"335\" text-anchor=\"start\" font-size=\"11\" fill=\"#22272b\">Bondi</text><rect x=\"400\" y=\"124\" width=\"344\" height=\"214\" rx=\"6\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"412\" y=\"144\" text-anchor=\"start\" font-size=\"13\" font-weight=\"700\" fill=\"#22272b\">Average trip length</text><line x1=\"450\" y1=\"312\" x2=\"720\" y2=\"312\" stroke=\"#22272b\" stroke-width=\"1.6\"/><line x1=\"450\" y1=\"312\" x2=\"450\" y2=\"162\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"442\" y=\"316\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">10</text><text x=\"442\" y=\"266\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">15</text><text x=\"442\" y=\"216\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">20</text><text x=\"442\" y=\"166\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">25</text><rect x=\"475\" y=\"232\" width=\"50\" height=\"80\" fill=\"#002664\"/><text x=\"500\" y=\"328\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Manly</text><rect x=\"560\" y=\"302\" width=\"50\" height=\"10\" fill=\"#d7153a\"/><text x=\"585\" y=\"328\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Parramatta</text><rect x=\"645\" y=\"172\" width=\"50\" height=\"140\" fill=\"#2e808e\"/><text x=\"670\" y=\"328\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Bondi</text><rect x=\"16\" y=\"350\" width=\"728\" height=\"138\" rx=\"6\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"28\" y=\"370\" text-anchor=\"start\" font-size=\"13\" font-weight=\"700\" fill=\"#22272b\">Trips by time of day</text><path d=\"M120,425 L120,373 A52,52 0 0 1 171.079,415.256 z\" fill=\"#0b3d91\" stroke=\"#ffffff\" stroke-width=\"1\"/><path d=\"M120,425 L171.079,415.256 A52,52 0 0 1 160.067,458.146 z\" fill=\"#1a4d9e\" stroke=\"#ffffff\" stroke-width=\"1\"/><path d=\"M120,425 L160.067,458.146 A52,52 0 0 1 126.517,476.59 z\" fill=\"#2a5daa\" stroke=\"#ffffff\" stroke-width=\"1\"/><path d=\"M120,425 L126.517,476.59 A52,52 0 0 1 68.1026,428.265 z\" fill=\"#3a6db6\" stroke=\"#ffffff\" stroke-width=\"1\"/><path d=\"M120,425 L68.1026,428.265 A52,52 0 0 1 94.9488,379.432 z\" fill=\"#4a7dc2\" stroke=\"#ffffff\" stroke-width=\"1\"/><path d=\"M120,425 L94.9488,379.432 A52,52 0 0 1 120,373 z\" fill=\"#5a8dce\" stroke=\"#ffffff\" stroke-width=\"1\"/><rect x=\"210\" y=\"400\" width=\"12\" height=\"12\" fill=\"#0b3d91\"/><text x=\"228\" y=\"411\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">6–9 am  22%</text><rect x=\"380\" y=\"400\" width=\"12\" height=\"12\" fill=\"#1a4d9e\"/><text x=\"398\" y=\"411\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">9–12  14%</text><rect x=\"550\" y=\"400\" width=\"12\" height=\"12\" fill=\"#2a5daa\"/><text x=\"568\" y=\"411\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">12–3 pm  12%</text><rect x=\"210\" y=\"434\" width=\"12\" height=\"12\" fill=\"#3a6db6\"/><text x=\"228\" y=\"445\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">3–6 pm  26%</text><rect x=\"380\" y=\"434\" width=\"12\" height=\"12\" fill=\"#4a7dc2\"/><text x=\"398\" y=\"445\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">6–9 pm  18%</text><rect x=\"550\" y=\"434\" width=\"12\" height=\"12\" fill=\"#5a8dce\"/><text x=\"568\" y=\"445\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">9 pm–6 am  8%</text></svg></div>"
+  },
+  {
+   "number": 7,
+   "parts": [
+    {
+     "type": "short",
+     "marks": 4,
+     "syllabus": "DV3.2",
+     "question": "Explain how replacing monthly PDF tables with an interactive dashboard would affect the managers’ experience and understanding of the data.",
+     "words": 120,
+     "markingGuide": "4 marks: explains effects with reasons, e.g. filters and drill-down let each manager see their own region instead of searching tables; charts make trends and outliers visible at a glance; live or more frequent data supports quicker decisions; but managers need some training, and a cluttered dashboard can mislead. 3 marks: several effects with some explanation. 2 marks: describes features. 1 mark: a relevant point."
+    }
+   ],
+   "stimulus": "<p>A retail chain currently emails each regional manager a 20-page PDF of sales tables at the end of every month.</p>"
+  }
+ ]
+},
+{
+ "id": "school-6",
+ "format": "ec-practice-set",
+ "version": 1,
+ "title": "Enterprise School practice set 6: Big data, ethics and the 8-mark response",
+ "notice": "<p>Lesson 6 of the Enterprise School revision lessons. Big data terms and social, ethical and legal issues, then an 8-mark response. Spend two minutes planning: underline each task word and pick at least three details from the stimulus. 13 marks.</p>",
+ "timing": {
+  "reading": 2,
+  "working": 18
+ },
+ "questions": [
+  {
+   "number": 1,
+   "parts": [
+    {
+     "type": "mcq",
+     "marks": 1,
+     "syllabus": "DS1.21",
+     "question": "A ride-share app receives thousands of location updates every second. Which characteristic of big data does this describe?",
+     "options": [
+      "Variety",
+      "Volume",
+      "Validity",
+      "Velocity"
+     ],
+     "answer": 3,
+     "markingGuide": "D. Velocity is the speed at which data arrives. Volume is the amount, variety the range of types."
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "parts": [
+    {
+     "type": "mcq",
+     "marks": 1,
+     "syllabus": "DS1.31",
+     "question": "What is the main difference between a data warehouse and a data lake?",
+     "options": [
+      "A warehouse holds raw data; a lake holds cleaned, structured data",
+      "A warehouse holds cleaned, structured data; a lake holds raw data",
+      "A warehouse is stored in the cloud; a lake is stored on premises",
+      "A warehouse holds only current data; a lake holds only past data"
+     ],
+     "answer": 1,
+     "markingGuide": "B. Warehouses store cleaned, structured, historical data ready for analysis; lakes store raw data of any type for later use. Either can be cloud or on premises."
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "parts": [
+    {
+     "type": "mcq",
+     "marks": 1,
+     "syllabus": "DS2.10",
+     "question": "Which Australian body handles complaints about how organisations handle personal information under the Privacy Act 1988?",
+     "options": [
+      "Australian Cyber Security Centre (ACSC)",
+      "Office of the Australian Information Commissioner (OAIC)",
+      "Australian Competition and Consumer Commission (ACCC)",
+      "Australian Bureau of Statistics (ABS)"
+     ],
+     "answer": 1,
+     "markingGuide": "B. The OAIC enforces the Privacy Act and the Australian Privacy Principles, including data breach notifications. The ACSC gives cyber security advice."
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "parts": [
+    {
+     "type": "dropdown",
+     "marks": 2,
+     "syllabus": "DS2.7",
+     "question": "For each situation, select the main social, ethical or legal issue.",
+     "body": "<table><tr><th>Situation</th><th>Issue</th></tr><tr><td>A fitness app shares users’ heart rate data with insurers without asking</td><td>[[0]]</td></tr><tr><td>A hiring algorithm trained on past hires rates women lower</td><td>[[1]]</td></tr><tr><td>A report reuses a photographer’s images without credit</td><td>[[2]]</td></tr><tr><td>A museum publishes sacred stories without the community’s agreement</td><td>[[3]]</td></tr><tr><td>Survey answers are typed in wrongly, so results are misleading</td><td>[[4]]</td></tr></table>",
+     "blanks": [
+      [
+       "Accuracy",
+       "Copyright",
+       "Consent and privacy",
+       "ICIP and Indigenous data sovereignty",
+       "Bias"
+      ],
+      [
+       "Accuracy",
+       "Copyright",
+       "Consent and privacy",
+       "ICIP and Indigenous data sovereignty",
+       "Bias"
+      ],
+      [
+       "Accuracy",
+       "Copyright",
+       "Consent and privacy",
+       "ICIP and Indigenous data sovereignty",
+       "Bias"
+      ],
+      [
+       "Accuracy",
+       "Copyright",
+       "Consent and privacy",
+       "ICIP and Indigenous data sovereignty",
+       "Bias"
+      ],
+      [
+       "Accuracy",
+       "Copyright",
+       "Consent and privacy",
+       "ICIP and Indigenous data sovereignty",
+       "Bias"
+      ]
+     ],
+     "answer": [
+      2,
+      4,
+      1,
+      3,
+      0
+     ],
+     "scoreBands": [
+      [
+       5,
+       2
+      ],
+      [
+       4,
+       1
+      ]
+     ],
+     "markingGuide": "1 consent and privacy, 2 bias, 3 copyright, 4 ICIP, 5 accuracy. 2 marks all five, 1 mark four."
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "parts": [
+    {
+     "type": "short",
+     "marks": 8,
+     "syllabus": "DS2.1",
+     "question": "Evaluate the social, ethical and legal issues of this loyalty app.",
+     "words": 360,
+     "markingGuide": "8 marks: a judgement supported by several issues, each linked to stimulus details. Privacy and consent: in-store location tracking and purchase history are personal information under the Privacy Act; consent is buried in the terms, so it is not informed; the APPs require purpose limitation. Security: a large store of purchase and location data is a breach target; encryption and access controls are needed. Ethics: personalised prices could charge loyal customers more; inferences (pregnancy, health, finances) from purchases are sensitive; sharing with partner companies widens risk. Social: data-driven offers can be convenient and save money, but heavy discounting nudges spending and excludes people without smartphones. Legal: selling or sharing data needs disclosure; the OAIC handles complaints. 7–8: balanced evaluation with a clear judgement and at least three stimulus details. 5–6: several issues explained with some links. 3–4: describes issues generally. 1–2: lists issues."
+    }
+   ],
+   "stimulus": "<p>A supermarket’s loyalty app records every purchase and uses Bluetooth beacons to track where shoppers walk in the store. It sends personalised discounts and shares data with “partner companies”. Consent is given by accepting the terms of agreement when the app is installed.</p>"
+  }
+ ]
 }
 ];
 
@@ -7527,7 +8578,7 @@ var PAPER_BANDS = {"indep2026":{"1":{"stim":[],"items":[{"stem":[[2,0.2871,0.329
     if (PERSONAL) {
       main.appendChild(section('Study blocks', 'Short timed sets from your weak areas. Finish one, then ask Claude in chat to mark it.', order.blocks.length ? h('div', { class: 'cards' }, order.blocks.slice().reverse().map(function (id) { return setCard(sets[id]); })) : h('p', { class: 'empty', text: order.loadError ? 'Study blocks could not be loaded. Reload the page to try again.' : 'No study blocks yet.' })));
     } else {
-      main.appendChild(section('Practice sets', 'A sample set that uses every answer tool in the exam, a peer revision set across all four modules, and a set of the newer question types (picture options, drop-downs, drag to order, label the diagram). Make more with the AI kit below.', h('div', { class: 'cards' }, order.practice.map(function (id) { return setCard(sets[id]); }))));
+      main.appendChild(section('Practice sets', 'A sample set that uses every answer tool in the exam, a peer revision set across all four modules, a set of the newer question types, and the six Enterprise School practice sets, one for each revision lesson (about 20 minutes each). Make more with the AI kit below.', h('div', { class: 'cards' }, order.practice.map(function (id) { return setCard(sets[id]); }))));
     }
     if (order.custom.length) main.appendChild(section('Your AI-made sets', null, h('div', { class: 'cards' }, order.custom.slice().reverse().map(function (id) { return setCard(sets[id]); }))));
     var bundledAll = order.papers.every(function (id) { return window.EC_BUNDLED_PDFS && window.EC_BUNDLED_PDFS[sets[id].paper.id]; });
