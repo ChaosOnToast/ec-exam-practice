@@ -6637,7 +6637,7 @@ var Kit = (function () {
     if (it.type === 'sql') return a && a.query && a.query.trim() ? '\n' + a.query.trim() : '(no answer)';
     if (it.type === 'sheet') return '\n' + Exporter.sheetSummary(it, a);
     if (it.type === 'draw') return '\n' + Exporter.drawSummary(a);
-    if (it.type === 'multi' || it.type === 'matrix' || it.type === 'match') return Exporter.choiceText(it, a);
+    if (['multi', 'matrix', 'match', 'dropdown', 'order', 'label'].indexOf(it.type) >= 0) return Exporter.choiceText(it, a);
     return '(no answer)';
   }
 
