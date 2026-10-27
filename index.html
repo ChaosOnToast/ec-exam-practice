@@ -495,6 +495,19 @@
   .exam-root .item-buttons button.nsw-button { margin-left: 0; margin-right: .5rem; }
 }
 
+.guidebox { margin-top: 16px; padding: 14px 16px; background: #fff; border: 1px solid #cdd3d6; border-radius: 4px; font-size: 15px; line-height: 1.5; }
+.guidebox .gb-lab { font-weight: 700; color: #002664; margin: 0 0 6px; }
+.guidebox .gb-lab + .gb-sample, .guidebox table + .gb-lab { margin-top: 12px; }
+.guidebox .gb-crit { border-collapse: collapse; width: 100%; }
+.guidebox .gb-crit th { text-align: left; background: #eef2f6; padding: 6px 10px; border-bottom: 1px solid #cdd3d6; }
+.guidebox .gb-crit td { padding: 7px 10px; border-bottom: 1px solid #e4e8eb; vertical-align: top; }
+.guidebox .gb-m { white-space: nowrap; font-weight: 700; width: 1%; }
+.guidebox .gb-sample { background: #f5f8fb; border-left: 4px solid #002664; padding: 10px 14px; overflow-x: auto; }
+.guidebox .gb-sample p { margin: 0 0 8px; } .guidebox .gb-sample p:last-child { margin-bottom: 0; }
+.guidebox .gb-sample pre { white-space: pre-wrap; font-size: 13.5px; margin: 0 0 8px; }
+.guidebox .gb-sample svg { max-width: 100%; height: auto; display: block; margin: 4px 0 8px; }
+.guidebox .gb-sample ul, .guidebox .gb-sample ol { margin: 0 0 8px; padding-left: 1.3em; }
+
 /* Response types inside an item: multiple choice, written response, SQL, spreadsheet, drawing. */
 .exam-root .item-body { position: relative; }
 /* multiple choice */
@@ -930,6 +943,17 @@ input[type=range] { width: min(100%, 360px); accent-color: var(--navy); }
 .pbar { height: 8px; background: #e3e7ec; border-radius: 4px; overflow: hidden; margin-top: 8px; }
 .pbar span { display: block; height: 100%; width: 0; background: #002664; transition: width .2s; }
 @media (max-width: 860px) { .importer .imp-grid { grid-template-columns: 1fr; } .importer .imp-left { position: static; } }
+
+.ans-guide { display: flex; flex-direction: column; gap: 10px; }
+.ag-q { border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; background: #fff; }
+.ag-q > summary { cursor: pointer; font-weight: 600; color: var(--ink-2); }
+.ag-q[open] > summary { margin-bottom: 10px; }
+.ag-crit td.num { white-space: nowrap; font-weight: 600; width: 1%; }
+.ag-lab { margin: 12px 0 4px; font-weight: 600; }
+.ag-sample { background: #f5f8fb; border-left: 4px solid #002664; padding: 10px 14px; border-radius: 4px; overflow-x: auto; }
+.ag-sample p { margin: 0 0 8px; } .ag-sample p:last-child { margin-bottom: 0; }
+.ag-sample pre { white-space: pre-wrap; font-size: 13.5px; margin: 0 0 8px; }
+.ag-sample svg { max-width: 100%; height: auto; display: block; margin: 4px 0 8px; }
 
 </style>
 <div id="app"><p style="font:16px 'Public Sans',Arial,sans-serif;padding:24px max(16px,env(safe-area-inset-left,0px));color:#4a5666">Loading the exam practice page&hellip;</p></div>
@@ -2166,7 +2190,18 @@ window.EC_PRACTICE = [{
       "A foreign key that links each booking to one member"
      ],
      "answer": 3,
-     "markingGuide": "D. memberID is the primary key of Members; stored in Bookings it is a foreign key, linking many bookings to one member (one-to-many). bookingID is the primary key of Bookings."
+     "markingGuide": "D. memberID is the primary key of Members; stored in Bookings it is a foreign key, linking many bookings to one member (one-to-many). bookingID is the primary key of Bookings.",
+     "criteria": [
+      [
+       "1",
+       "Correct option selected"
+      ],
+      [
+       "0",
+       "Any other option, or more than one"
+      ]
+     ],
+     "sample": "<p><b>D) A foreign key that links each booking to one member</b></p><p>memberID is the primary key of Members; stored in Bookings it is a foreign key, linking many bookings to one member (one-to-many). bookingID is the primary key of Bookings.</p>"
     }
    ]
   },
@@ -2185,7 +2220,18 @@ window.EC_PRACTICE = [{
       "Currency, so it lines up neatly"
      ],
      "answer": 0,
-     "markingGuide": "A. Postcodes are labels, never used in calculations, and a number type would drop the leading zero of NT postcodes such as 0800."
+     "markingGuide": "A. Postcodes are labels, never used in calculations, and a number type would drop the leading zero of NT postcodes such as 0800.",
+     "criteria": [
+      [
+       "1",
+       "Correct option selected"
+      ],
+      [
+       "0",
+       "Any other option, or more than one"
+      ]
+     ],
+     "sample": "<p><b>A) Text, so the leading zero is kept</b></p><p>Postcodes are labels, never used in calculations, and a number type would drop the leading zero of NT postcodes such as 0800.</p>"
     }
    ]
   },
@@ -2204,7 +2250,18 @@ window.EC_PRACTICE = [{
       "The results are correct but they are not sorted in any order"
      ],
      "answer": 2,
-     "markingGuide": "C. Each link between tables needs its own join condition. Without Bookings.classID = Classes.classID, every row is combined with every class (a cross join), so the output has far too many rows. SQL does not raise an error."
+     "markingGuide": "C. Each link between tables needs its own join condition. Without Bookings.classID = Classes.classID, every row is combined with every class (a cross join), so the output has far too many rows. SQL does not raise an error.",
+     "criteria": [
+      [
+       "1",
+       "Correct option selected"
+      ],
+      [
+       "0",
+       "Any other option, or more than one"
+      ]
+     ],
+     "sample": "<p><b>C) Every booking is paired with every class, giving far too many rows</b></p><p>Each link between tables needs its own join condition. Without Bookings.classID = Classes.classID, every row is combined with every class (a cross join), so the output has far too many rows. SQL does not raise an error.</p>"
     }
    ]
   },
@@ -2271,7 +2328,22 @@ window.EC_PRACTICE = [{
        1
       ]
      ],
-     "markingGuide": "1 Text (an ID with a letter), 2 Currency, 3 Date/Time, 4 Boolean, 5 Text (keeps the leading zero, never calculated). 2 marks all five, 1 mark four."
+     "markingGuide": "1 Text (an ID with a letter), 2 Currency, 3 Date/Time, 4 Boolean, 5 Text (keeps the leading zero, never calculated). 2 marks all five, 1 mark four.",
+     "criteria": [
+      [
+       "2",
+       "All 5 correct"
+      ],
+      [
+       "1",
+       "At least 4 of 5 correct"
+      ],
+      [
+       "0",
+       "Fewer correct"
+      ]
+     ],
+     "sample": "<ul><li>memberID (M01) → <b>Text</b></li><li>fee ($15) → <b>Currency</b></li><li>bookingDate → <b>Date/Time</b></li><li>paidUp (yes or no) → <b>Boolean</b></li><li>mobile (0412 345 678) → <b>Text</b></li></ul><p>1 Text (an ID with a letter), 2 Currency, 3 Date/Time, 4 Boolean, 5 Text (keeps the leading zero, never calculated). 2 marks all five, 1 mark four.</p>"
     }
    ]
   },
@@ -2284,7 +2356,18 @@ window.EC_PRACTICE = [{
      "syllabus": "DS3.11",
      "question": "Using the tables in the stimulus, describe the relationship between Members and Bookings and how the tables are linked.",
      "words": 60,
-     "markingGuide": "2 marks: one-to-many (one member can make many bookings, each booking belongs to one member), linked by memberID, the primary key of Members and a foreign key in Bookings. 1 mark: identifies the link field or the relationship type."
+     "markingGuide": "2 marks: one-to-many (one member can make many bookings, each booking belongs to one member), linked by memberID, the primary key of Members and a foreign key in Bookings. 1 mark: identifies the link field or the relationship type.",
+     "criteria": [
+      [
+       "2",
+       "Identifies the one-to-many relationship (one member, many bookings) AND explains the link: memberID is the primary key of Members and a foreign key in Bookings"
+      ],
+      [
+       "1",
+       "Identifies the relationship type OR the linking field"
+      ]
+     ],
+     "sample": "<p>Members and Bookings have a one-to-many relationship: one member can make many bookings (Ava, M01, has bookings 1 and 4), but each booking belongs to only one member. The tables are linked by memberID, which is the primary key of Members and is stored in Bookings as a foreign key.</p>"
     }
    ],
    "stimulus": "<p>A gym stores its data in three tables.</p><p><b>Members</b></p><table><tr><th>memberID</th><th>firstName</th><th>suburb</th><th>postcode</th></tr><tr><td>M01</td><td>Ava</td><td>Penrith</td><td>2750</td></tr><tr><td>M02</td><td>Ben</td><td>Parramatta</td><td>2150</td></tr><tr><td>M03</td><td>Chloe</td><td>Penrith</td><td>2750</td></tr><tr><td>M04</td><td>Dev</td><td>Ryde</td><td>2112</td></tr></table><p><b>Classes</b></p><table><tr><th>classID</th><th>className</th><th>level</th><th>fee</th></tr><tr><td>C1</td><td>Spin</td><td>Beginner</td><td>15</td></tr><tr><td>C2</td><td>Boxing</td><td>Advanced</td><td>25</td></tr><tr><td>C3</td><td>Yoga</td><td>Beginner</td><td>12</td></tr><tr><td>C4</td><td>HIIT</td><td>Advanced</td><td>20</td></tr></table><p><b>Bookings</b></p><table><tr><th>bookingID</th><th>memberID</th><th>classID</th><th>bookingDate</th></tr><tr><td>1</td><td>M01</td><td>C2</td><td>2026-10-03</td></tr><tr><td>2</td><td>M02</td><td>C1</td><td>2026-10-05</td></tr><tr><td>3</td><td>M03</td><td>C4</td><td>2026-09-29</td></tr><tr><td>4</td><td>M01</td><td>C3</td><td>2026-10-12</td></tr><tr><td>5</td><td>M04</td><td>C2</td><td>2026-10-31</td></tr><tr><td>6</td><td>M03</td><td>C2</td><td>2026-11-02</td></tr><tr><td>7</td><td>M02</td><td>C4</td><td>2026-10-20</td></tr></table>"
@@ -2302,7 +2385,26 @@ window.EC_PRACTICE = [{
       "showTables": [],
       "solution": "SELECT Members.firstName, Classes.className, Bookings.bookingDate FROM Members, Classes, Bookings WHERE Members.memberID = Bookings.memberID AND Classes.classID = Bookings.classID AND Classes.level = 'Advanced' AND Bookings.bookingDate >= '2026-10-01' AND Bookings.bookingDate <= '2026-10-31' ORDER BY Bookings.bookingDate ASC;"
      },
-     "markingGuide": "3 marks, one each: the three columns with both join conditions; level = 'Advanced' AND bookingDate >= '2026-10-01' AND bookingDate <= '2026-10-31'; ORDER BY bookingDate ASC. Ava (3 Oct), Ben (20 Oct, HIIT) and Dev (31 Oct) should appear; the 29 Sep and 2 Nov bookings must not."
+     "markingGuide": "3 marks, one each: the three columns with both join conditions; level = 'Advanced' AND bookingDate >= '2026-10-01' AND bookingDate <= '2026-10-31'; ORDER BY bookingDate ASC. Ava (3 Oct), Ben (20 Oct, HIIT) and Dev (31 Oct) should appear; the 29 Sep and 2 Nov bookings must not.",
+     "criteria": [
+      [
+       "3",
+       "Correct columns with both join conditions, correct filters on level and the October date range, and ORDER BY bookingDate ASC"
+      ],
+      [
+       "2",
+       "Two of: columns with joins; both filters; sort"
+      ],
+      [
+       "1",
+       "One of these"
+      ],
+      [
+       "0",
+       "No relevant SQL"
+      ]
+     ],
+     "sample": "<pre>SELECT Members.firstName, Classes.className, Bookings.bookingDate\nFROM Members, Classes, Bookings\nWHERE Members.memberID = Bookings.memberID\n  AND Classes.classID = Bookings.classID\n  AND Classes.level = 'Advanced'\n  AND Bookings.bookingDate >= '2026-10-01'\n  AND Bookings.bookingDate <= '2026-10-31'\nORDER BY Bookings.bookingDate ASC;</pre><p>Output: Ava, Boxing, 2026-10-03; Ben, HIIT, 2026-10-20; Dev, Boxing, 2026-10-31.</p>"
     }
    ],
    "stimulus": "<p>A gym stores its data in three tables. Dates are stored as YYYY-MM-DD.</p><p><b>Members</b></p><table><tr><th>memberID</th><th>firstName</th><th>suburb</th><th>postcode</th></tr><tr><td>M01</td><td>Ava</td><td>Penrith</td><td>2750</td></tr><tr><td>M02</td><td>Ben</td><td>Parramatta</td><td>2150</td></tr><tr><td>M03</td><td>Chloe</td><td>Penrith</td><td>2750</td></tr><tr><td>M04</td><td>Dev</td><td>Ryde</td><td>2112</td></tr></table><p><b>Classes</b></p><table><tr><th>classID</th><th>className</th><th>level</th><th>fee</th></tr><tr><td>C1</td><td>Spin</td><td>Beginner</td><td>15</td></tr><tr><td>C2</td><td>Boxing</td><td>Advanced</td><td>25</td></tr><tr><td>C3</td><td>Yoga</td><td>Beginner</td><td>12</td></tr><tr><td>C4</td><td>HIIT</td><td>Advanced</td><td>20</td></tr></table><p><b>Bookings</b></p><table><tr><th>bookingID</th><th>memberID</th><th>classID</th><th>bookingDate</th></tr><tr><td>1</td><td>M01</td><td>C2</td><td>2026-10-03</td></tr><tr><td>2</td><td>M02</td><td>C1</td><td>2026-10-05</td></tr><tr><td>3</td><td>M03</td><td>C4</td><td>2026-09-29</td></tr><tr><td>4</td><td>M01</td><td>C3</td><td>2026-10-12</td></tr><tr><td>5</td><td>M04</td><td>C2</td><td>2026-10-31</td></tr><tr><td>6</td><td>M03</td><td>C2</td><td>2026-11-02</td></tr><tr><td>7</td><td>M02</td><td>C4</td><td>2026-10-20</td></tr></table>"
@@ -2320,7 +2422,26 @@ window.EC_PRACTICE = [{
       "showTables": [],
       "solution": "SELECT className, fee FROM Classes WHERE (level = 'Beginner' OR fee > 22) AND fee >= 13 ORDER BY fee DESC;"
      },
-     "markingGuide": "3 marks, one each: SELECT className, fee FROM Classes; WHERE (level = 'Beginner' OR fee > 22) AND fee >= 13 with the brackets; ORDER BY fee DESC. Boxing ($25) and Spin ($15) should appear; Yoga ($12) must not, which is what the brackets control."
+     "markingGuide": "3 marks, one each: SELECT className, fee FROM Classes; WHERE (level = 'Beginner' OR fee > 22) AND fee >= 13 with the brackets; ORDER BY fee DESC. Boxing ($25) and Spin ($15) should appear; Yoga ($12) must not, which is what the brackets control.",
+     "criteria": [
+      [
+       "3",
+       "Selects className and fee from Classes; WHERE (level = 'Beginner' OR fee &gt; 22) AND fee &gt;= 13 with the brackets; ORDER BY fee DESC"
+      ],
+      [
+       "2",
+       "Two of these, e.g. correct but missing the brackets (Yoga wrongly appears)"
+      ],
+      [
+       "1",
+       "One of these"
+      ],
+      [
+       "0",
+       "No relevant SQL"
+      ]
+     ],
+     "sample": "<pre>SELECT className, fee\nFROM Classes\nWHERE (level = 'Beginner' OR fee > 22)\n  AND fee >= 13\nORDER BY fee DESC;</pre><p>Output: Boxing 25, then Spin 15. Without the brackets AND is applied first, so Yoga ($12) would wrongly appear.</p>"
     }
    ],
    "stimulus": "<p>The same gym database. Fees are stored in dollars.</p><p><b>Members</b></p><table><tr><th>memberID</th><th>firstName</th><th>suburb</th><th>postcode</th></tr><tr><td>M01</td><td>Ava</td><td>Penrith</td><td>2750</td></tr><tr><td>M02</td><td>Ben</td><td>Parramatta</td><td>2150</td></tr><tr><td>M03</td><td>Chloe</td><td>Penrith</td><td>2750</td></tr><tr><td>M04</td><td>Dev</td><td>Ryde</td><td>2112</td></tr></table><p><b>Classes</b></p><table><tr><th>classID</th><th>className</th><th>level</th><th>fee</th></tr><tr><td>C1</td><td>Spin</td><td>Beginner</td><td>15</td></tr><tr><td>C2</td><td>Boxing</td><td>Advanced</td><td>25</td></tr><tr><td>C3</td><td>Yoga</td><td>Beginner</td><td>12</td></tr><tr><td>C4</td><td>HIIT</td><td>Advanced</td><td>20</td></tr></table>"
@@ -2353,7 +2474,18 @@ window.EC_PRACTICE = [{
       "Daily backups of every client document stored"
      ],
      "answer": 0,
-     "markingGuide": "A. Phishing targets people, so training (plus verifying unusual requests) is the direct defence. Encryption, firewalls and backups protect data and networks but do not stop a person handing over a password."
+     "markingGuide": "A. Phishing targets people, so training (plus verifying unusual requests) is the direct defence. Encryption, firewalls and backups protect data and networks but do not stop a person handing over a password.",
+     "criteria": [
+      [
+       "1",
+       "Correct option selected"
+      ],
+      [
+       "0",
+       "Any other option, or more than one"
+      ]
+     ],
+     "sample": "<p><b>A) Ongoing training to recognise phishing emails</b></p><p>Phishing targets people, so training (plus verifying unusual requests) is the direct defence. Encryption, firewalls and backups protect data and networks but do not stop a person handing over a password.</p>"
     }
    ]
   },
@@ -2372,7 +2504,18 @@ window.EC_PRACTICE = [{
       "Daily full backups of the hospital’s whole network"
      ],
      "answer": 2,
-     "markingGuide": "C. Least-privilege access levels mean a compromised account can only reach a small part of the data. Backups help recovery, not limiting access; a single database and longer expiry periods increase risk."
+     "markingGuide": "C. Least-privilege access levels mean a compromised account can only reach a small part of the data. Backups help recovery, not limiting access; a single database and longer expiry periods increase risk.",
+     "criteria": [
+      [
+       "1",
+       "Correct option selected"
+      ],
+      [
+       "0",
+       "Any other option, or more than one"
+      ]
+     ],
+     "sample": "<p><b>C) Access levels so each account sees only what it needs</b></p><p>Least-privilege access levels mean a compromised account can only reach a small part of the data. Backups help recovery, not limiting access; a single database and longer expiry periods increase risk.</p>"
     }
    ]
   },
@@ -2391,7 +2534,18 @@ window.EC_PRACTICE = [{
       "Only Sunday night’s full backup"
      ],
      "answer": 2,
-     "markingGuide": "C. A differential copies everything changed since the last full backup, so only the full backup plus the latest differential are needed. With incrementals, every incremental since the full backup would be needed."
+     "markingGuide": "C. A differential copies everything changed since the last full backup, so only the full backup plus the latest differential are needed. With incrementals, every incremental since the full backup would be needed.",
+     "criteria": [
+      [
+       "1",
+       "Correct option selected"
+      ],
+      [
+       "0",
+       "Any other option, or more than one"
+      ]
+     ],
+     "sample": "<p><b>C) Sunday’s full backup and Thursday’s differential</b></p><p>A differential copies everything changed since the last full backup, so only the full backup plus the latest differential are needed. With incrementals, every incremental since the full backup would be needed.</p>"
     }
    ]
   },
@@ -2463,7 +2617,22 @@ window.EC_PRACTICE = [{
        1
       ]
      ],
-     "markingGuide": "1 MFA (a guessed password alone is not enough), 2 encryption at rest (the data is unreadable without the key), 3 tested offsite backups (restore without paying), 4 access levels (least privilege), 5 antivirus. Staff training is not used. 2 marks all five, 1 mark four."
+     "markingGuide": "1 MFA (a guessed password alone is not enough), 2 encryption at rest (the data is unreadable without the key), 3 tested offsite backups (restore without paying), 4 access levels (least privilege), 5 antivirus. Staff training is not used. 2 marks all five, 1 mark four.",
+     "criteria": [
+      [
+       "2",
+       "All 5 correct"
+      ],
+      [
+       "1",
+       "At least 4 of 5 correct"
+      ],
+      [
+       "0",
+       "Fewer correct"
+      ]
+     ],
+     "sample": "<ul><li>A staff password is guessed → <b>Multi-factor authentication</b></li><li>A laptop with client files is stolen from a car → <b>Encryption at rest</b></li><li>Ransomware encrypts the office file server → <b>Tested offsite backups</b></li><li>An intern can open payroll records → <b>Access levels</b></li><li>Malware arrives in a downloaded program → <b>Antivirus software</b></li></ul><p>1 MFA (a guessed password alone is not enough), 2 encryption at rest (the data is unreadable without the key), 3 tested offsite backups (restore without paying), 4 access levels (least privilege), 5 antivirus. Staff training is not used. 2 marks all five, 1 mark four.</p>"
     }
    ]
   },
@@ -2500,7 +2669,22 @@ window.EC_PRACTICE = [{
        1
       ]
      ],
-     "markingGuide": "Sunday full → Monday → Tuesday → Wednesday incrementals. Each incremental only holds changes since the previous backup, so all of them are restored in order after the full backup. Saturday’s incremental is older than the full backup and Thursday night’s backup has not happened yet. 2 marks all four, 1 mark three in place."
+     "markingGuide": "Sunday full → Monday → Tuesday → Wednesday incrementals. Each incremental only holds changes since the previous backup, so all of them are restored in order after the full backup. Saturday’s incremental is older than the full backup and Thursday night’s backup has not happened yet. 2 marks all four, 1 mark three in place.",
+     "criteria": [
+      [
+       "2",
+       "All 4 correct"
+      ],
+      [
+       "1",
+       "At least 3 of 4 correct"
+      ],
+      [
+       "0",
+       "Fewer correct"
+      ]
+     ],
+     "sample": "<ol><li>Sunday night full backup</li><li>Monday night incremental</li><li>Tuesday night incremental</li><li>Wednesday night incremental</li></ol><p>Sunday full → Monday → Tuesday → Wednesday incrementals. Each incremental only holds changes since the previous backup, so all of them are restored in order after the full backup. Saturday’s incremental is older than the full backup and Thursday night’s backup has not happened yet. 2 marks all four, 1 mark three in place.</p>"
     }
    ]
   },
@@ -2513,7 +2697,22 @@ window.EC_PRACTICE = [{
      "syllabus": "DV4.3",
      "question": "Justify TWO security measures for this system.",
      "words": 90,
-     "markingGuide": "3 marks: two measures, each linked to a specific risk in the scenario with a reason, e.g. MFA for staff logins because accounts on a cloud system can be reached from anywhere; encryption in transit and at rest because claims include medical and bank details; role-based access so assessors see only their claims. 2 marks: two measures with a general justification, or one well justified. 1 mark: names a measure."
+     "markingGuide": "3 marks: two measures, each linked to a specific risk in the scenario with a reason, e.g. MFA for staff logins because accounts on a cloud system can be reached from anywhere; encryption in transit and at rest because claims include medical and bank details; role-based access so assessors see only their claims. 2 marks: two measures with a general justification, or one well justified. 1 mark: names a measure.",
+     "criteria": [
+      [
+       "3",
+       "Two appropriate measures, each justified by a specific risk in the scenario (remote logins, cloud access, medical and bank details)"
+      ],
+      [
+       "2",
+       "Two measures with general justification, OR one measure well justified"
+      ],
+      [
+       "1",
+       "Names a relevant security measure"
+      ]
+     ],
+     "sample": "<p>Multi-factor authentication should be required for every assessor login. Because the system is in the cloud and reached through a browser from home, a stolen or phished password alone would otherwise give an attacker access to claims; MFA means the attacker also needs the assessor’s phone or token.</p><p>Claims should be encrypted in transit (HTTPS/TLS) and at rest. Claims contain medical reports and bank details, which are highly sensitive, so if data is intercepted on a home network or the cloud storage is breached, it cannot be read without the key.</p>"
     }
    ],
    "stimulus": "<p>An insurance company is moving its claims system to the cloud. Assessors work from home and log in through a web browser. Claims include customers’ medical reports and bank details.</p>"
@@ -2527,7 +2726,22 @@ window.EC_PRACTICE = [{
      "syllabus": "EP3.13",
      "question": "Explain how the company could use a risk matrix to decide which threat to deal with first.",
      "words": 90,
-     "markingGuide": "3 marks: a risk matrix rates each threat by likelihood and impact; threats high on both are treated first; applied to the stimulus, e.g. phishing is likely and high impact (access to claims), so training and MFA come first, while a data centre fire is unlikely though severe, so it is handled by backups and a recovery plan. 2 marks: explains the matrix without applying it. 1 mark: mentions likelihood or impact."
+     "markingGuide": "3 marks: a risk matrix rates each threat by likelihood and impact; threats high on both are treated first; applied to the stimulus, e.g. phishing is likely and high impact (access to claims), so training and MFA come first, while a data centre fire is unlikely though severe, so it is handled by backups and a recovery plan. 2 marks: explains the matrix without applying it. 1 mark: mentions likelihood or impact.",
+     "criteria": [
+      [
+       "3",
+       "Explains that a risk matrix rates each threat by likelihood and impact, that threats high on both are dealt with first, AND applies this to the three threats in the stimulus"
+      ],
+      [
+       "2",
+       "Explains how a risk matrix works without applying it to the stimulus"
+      ],
+      [
+       "1",
+       "Mentions likelihood or impact"
+      ]
+     ],
+     "sample": "<p>A risk matrix rates each threat on how likely it is and how severe its impact would be, and places it in a grid. Threats that are both likely and high impact are treated first.</p><p>Phishing emails to assessors are very likely (they arrive daily) and high impact (an attacker could access medical and bank details), so they rank highest and are dealt with first through training and MFA. A lost unencrypted USB is fairly likely and high impact, so it comes next (ban USBs or enforce encryption). A data centre fire is unlikely, even though its impact is severe, so it is handled through offsite backups and the provider’s recovery plan rather than first.</p>"
     }
    ],
    "stimulus": "<p>An insurance company lists three threats: phishing emails sent to assessors, a fire at its cloud provider’s data centre, and an assessor losing an unencrypted USB drive.</p>"
@@ -2612,7 +2826,22 @@ window.EC_PRACTICE = [{
        1
       ]
      ],
-     "markingGuide": "The first condition (overdue?) sits at the root; its No branch ends in No fine; its Yes branch leads to the student condition, whose Yes branch is 20c and No branch is 50c. Every path ends in an action. 2 marks all five, 1 mark four."
+     "markingGuide": "The first condition (overdue?) sits at the root; its No branch ends in No fine; its Yes branch leads to the student condition, whose Yes branch is 20c and No branch is 50c. Every path ends in an action. 2 marks all five, 1 mark four.",
+     "criteria": [
+      [
+       "2",
+       "All 5 correct"
+      ],
+      [
+       "1",
+       "At least 4 of 5 correct"
+      ],
+      [
+       "0",
+       "Fewer correct"
+      ]
+     ],
+     "sample": "<ul><li>Box 1: <b>Is the book overdue?</b></li><li>Box 2: <b>No fine</b></li><li>Box 3: <b>Is the borrower a student?</b></li><li>Box 4: <b>Fine 20c per day</b></li><li>Box 5: <b>Fine 50c per day</b></li></ul><p>The first condition (overdue?) sits at the root; its No branch ends in No fine; its Yes branch leads to the student condition, whose Yes branch is 20c and No branch is 50c. Every path ends in an action. 2 marks all five, 1 mark four.</p>"
     }
    ]
   },
@@ -2631,7 +2860,18 @@ window.EC_PRACTICE = [{
       "The name of the whole system as a process"
      ],
      "answer": 2,
-     "markingGuide": "C. A context diagram (level 0) shows the whole system as one process with its external entities and flows, and no data stores. A level 1 DFD breaks it into processes and adds data stores."
+     "markingGuide": "C. A context diagram (level 0) shows the whole system as one process with its external entities and flows, and no data stores. A level 1 DFD breaks it into processes and adds data stores.",
+     "criteria": [
+      [
+       "1",
+       "Correct option selected"
+      ],
+      [
+       "0",
+       "Any other option, or more than one"
+      ]
+     ],
+     "sample": "<p><b>C) Data stores and the separate processes</b></p><p>A context diagram (level 0) shows the whole system as one process with its external entities and flows, and no data stores. A level 1 DFD breaks it into processes and adds data stores.</p>"
     }
    ]
   },
@@ -2650,7 +2890,18 @@ window.EC_PRACTICE = [{
       "Every arrow must point away from a data store"
      ],
      "answer": 2,
-     "markingGuide": "C. An external entity cannot read or write a data store directly; a process must handle the data. Entities appear on both levels, stores are open-ended rectangles, and flows can go in either direction."
+     "markingGuide": "C. An external entity cannot read or write a data store directly; a process must handle the data. Entities appear on both levels, stores are open-ended rectangles, and flows can go in either direction.",
+     "criteria": [
+      [
+       "1",
+       "Correct option selected"
+      ],
+      [
+       "0",
+       "Any other option, or more than one"
+      ]
+     ],
+     "sample": "<p><b>C) Data can only reach a store through a process</b></p><p>An external entity cannot read or write a data store directly; a process must handle the data. Entities appear on both levels, stores are open-ended rectangles, and flows can go in either direction.</p>"
     }
    ]
   },
@@ -2662,7 +2913,22 @@ window.EC_PRACTICE = [{
      "marks": 3,
      "syllabus": "EP2.6",
      "question": "Draw a context diagram for the food delivery app.",
-     "markingGuide": "3 marks: one process (the delivery app) with all four entities (customer, restaurant, driver, bank) and correctly labelled flows in the right directions, e.g. order details and payment details in from the customer; order confirmation and delivery status out; order to the restaurant and food ready back; delivery job to the driver and pickup/delivery confirmation back; payment request to the bank and payment approval back; no data stores. 2 marks: most entities and flows. 1 mark: some correct elements."
+     "markingGuide": "3 marks: one process (the delivery app) with all four entities (customer, restaurant, driver, bank) and correctly labelled flows in the right directions, e.g. order details and payment details in from the customer; order confirmation and delivery status out; order to the restaurant and food ready back; delivery job to the driver and pickup/delivery confirmation back; payment request to the bank and payment approval back; no data stores. 2 marks: most entities and flows. 1 mark: some correct elements.",
+     "criteria": [
+      [
+       "3",
+       "One process for the whole system, all four external entities (customer, restaurant, driver, bank) and correctly labelled data flows in both directions; no data stores"
+      ],
+      [
+       "2",
+       "Most entities and flows correct, e.g. one entity missing or some flows unlabelled or in the wrong direction"
+      ],
+      [
+       "1",
+       "Some correct elements, e.g. a process with entities but no labelled flows"
+      ]
+     ],
+     "sample": "<svg viewBox=\"0 0 760 430\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" font-family=\"Public Sans, Arial, sans-serif\" font-size=\"13\"><defs><marker id=\"ah\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#22272b\"/></marker></defs><circle cx=\"380\" cy=\"215\" r=\"72\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"380\" y=\"193\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"700\" fill=\"#22272b\">0</text><text x=\"380\" y=\"219\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"700\" fill=\"#22272b\">Food delivery</text><text x=\"380\" y=\"237\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"700\" fill=\"#22272b\">app</text><rect x=\"10\" y=\"193\" width=\"140\" height=\"44\" rx=\"0\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"80\" y=\"220\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"700\" fill=\"#22272b\">Customer</text><rect x=\"610\" y=\"193\" width=\"140\" height=\"44\" rx=\"0\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"680\" y=\"220\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"700\" fill=\"#22272b\">Driver</text><rect x=\"310\" y=\"10\" width=\"140\" height=\"44\" rx=\"0\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"380\" y=\"37\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"700\" fill=\"#22272b\">Restaurant</text><rect x=\"310\" y=\"376\" width=\"140\" height=\"44\" rx=\"0\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"380\" y=\"403\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"700\" fill=\"#22272b\">Bank</text><line x1=\"150\" y1=\"203\" x2=\"307\" y2=\"203\" stroke=\"#22272b\" stroke-width=\"1.6\" marker-end=\"url(#ah)\"/><text x=\"229\" y=\"196\" text-anchor=\"middle\" font-size=\"11.5\" fill=\"#22272b\">Order, payment details</text><line x1=\"307\" y1=\"227\" x2=\"150\" y2=\"227\" stroke=\"#22272b\" stroke-width=\"1.6\" marker-end=\"url(#ah)\"/><text x=\"229\" y=\"245\" text-anchor=\"middle\" font-size=\"11.5\" fill=\"#22272b\">Confirmation, delivery status</text><line x1=\"453\" y1=\"203\" x2=\"610\" y2=\"203\" stroke=\"#22272b\" stroke-width=\"1.6\" marker-end=\"url(#ah)\"/><text x=\"531\" y=\"196\" text-anchor=\"middle\" font-size=\"11.5\" fill=\"#22272b\">Delivery job</text><line x1=\"610\" y1=\"227\" x2=\"453\" y2=\"227\" stroke=\"#22272b\" stroke-width=\"1.6\" marker-end=\"url(#ah)\"/><text x=\"531\" y=\"245\" text-anchor=\"middle\" font-size=\"11.5\" fill=\"#22272b\">Pickup, delivery confirmed</text><line x1=\"360\" y1=\"54\" x2=\"360\" y2=\"143\" stroke=\"#22272b\" stroke-width=\"1.6\" marker-end=\"url(#ah)\"/><text x=\"352\" y=\"102\" text-anchor=\"end\" font-size=\"11.5\" fill=\"#22272b\">Food ready</text><line x1=\"400\" y1=\"143\" x2=\"400\" y2=\"54\" stroke=\"#22272b\" stroke-width=\"1.6\" marker-end=\"url(#ah)\"/><text x=\"408\" y=\"102\" text-anchor=\"start\" font-size=\"11.5\" fill=\"#22272b\">Order details</text><line x1=\"360\" y1=\"376\" x2=\"360\" y2=\"287\" stroke=\"#22272b\" stroke-width=\"1.6\" marker-end=\"url(#ah)\"/><text x=\"352\" y=\"335\" text-anchor=\"end\" font-size=\"11.5\" fill=\"#22272b\">Payment approval</text><line x1=\"400\" y1=\"287\" x2=\"400\" y2=\"376\" stroke=\"#22272b\" stroke-width=\"1.6\" marker-end=\"url(#ah)\"/><text x=\"408\" y=\"335\" text-anchor=\"start\" font-size=\"11.5\" fill=\"#22272b\">Payment request</text></svg><p>Every flow is labelled with the data it carries and points the way the data moves. A context diagram has one process and no data stores.</p>"
     }
    ],
    "stimulus": "<p>A food delivery app lets customers order from restaurants. The restaurant confirms the order and prepares it, a driver is assigned to pick it up and deliver it, and the customer’s card payment is processed by their bank.</p>"
@@ -2675,7 +2941,22 @@ window.EC_PRACTICE = [{
      "marks": 3,
      "syllabus": "IS1.36",
      "question": "Draw a flowchart for the boom gate.",
-     "markingGuide": "3 marks: start and end terminators; detect a car → read ticket or plate → decision “valid?” (No → show error and stay closed, loop back); Yes → raise gate → decision “has the car passed the sensor?” with a No branch looping back to the same check (wait) → lower gate; all branches labelled Yes/No. 2 marks: logical sequence with one missing loop or unlabelled branch. 1 mark: some correct steps."
+     "markingGuide": "3 marks: start and end terminators; detect a car → read ticket or plate → decision “valid?” (No → show error and stay closed, loop back); Yes → raise gate → decision “has the car passed the sensor?” with a No branch looping back to the same check (wait) → lower gate; all branches labelled Yes/No. 2 marks: logical sequence with one missing loop or unlabelled branch. 1 mark: some correct steps.",
+     "criteria": [
+      [
+       "3",
+       "Start and end terminators; detect, read and validity decision; invalid branch shows an error and the gate stays closed; raise gate; a sensor decision that loops back until the car has passed; lower gate; all decision branches labelled"
+      ],
+      [
+       "2",
+       "Logical sequence with one error, e.g. the waiting loop missing or a branch unlabelled"
+      ],
+      [
+       "1",
+       "Some correct steps or symbols"
+      ]
+     ],
+     "sample": "<svg viewBox=\"0 0 540 560\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" font-family=\"Public Sans, Arial, sans-serif\" font-size=\"13\"><defs><marker id=\"ah\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#22272b\"/></marker></defs><rect x=\"230\" y=\"10\" width=\"140\" height=\"38\" rx=\"19\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"300\" y=\"34\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"700\" fill=\"#22272b\">Start</text><line x1=\"300\" y1=\"48\" x2=\"300\" y2=\"70\" stroke=\"#22272b\" stroke-width=\"1.6\" marker-end=\"url(#ah)\"/><rect x=\"200\" y=\"70\" width=\"200\" height=\"40\" rx=\"0\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"300\" y=\"95\" text-anchor=\"middle\" font-size=\"13\" fill=\"#22272b\">Detect car at the gate</text><line x1=\"300\" y1=\"110\" x2=\"300\" y2=\"132\" stroke=\"#22272b\" stroke-width=\"1.6\" marker-end=\"url(#ah)\"/><rect x=\"200\" y=\"132\" width=\"200\" height=\"40\" rx=\"0\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"300\" y=\"157\" text-anchor=\"middle\" font-size=\"13\" fill=\"#22272b\">Read ticket</text><line x1=\"300\" y1=\"172\" x2=\"300\" y2=\"194\" stroke=\"#22272b\" stroke-width=\"1.6\" marker-end=\"url(#ah)\"/><polygon points=\"300,194 395,229 300,264 205,229\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"300\" y=\"234\" text-anchor=\"middle\" font-size=\"13\" fill=\"#22272b\">Ticket valid?</text><text x=\"195\" y=\"222\" text-anchor=\"end\" font-size=\"11.5\" fill=\"#22272b\">No</text><path d=\"M205,229 L70,229 L70,276\" fill=\"none\" stroke=\"#22272b\" stroke-width=\"1.6\" marker-end=\"url(#ah)\"/><rect x=\"10\" y=\"276\" width=\"120\" height=\"52\" rx=\"0\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"70\" y=\"298\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"#22272b\">Show error;</text><text x=\"70\" y=\"316\" text-anchor=\"middle\" font-size=\"12.5\" fill=\"#22272b\">gate stays closed</text><path d=\"M70,328 L70,350 L20,350 L20,90 L200,90\" fill=\"none\" stroke=\"#22272b\" stroke-width=\"1.6\" marker-end=\"url(#ah)\"/><text x=\"308\" y=\"282\" text-anchor=\"start\" font-size=\"11.5\" fill=\"#22272b\">Yes</text><line x1=\"300\" y1=\"264\" x2=\"300\" y2=\"290\" stroke=\"#22272b\" stroke-width=\"1.6\" marker-end=\"url(#ah)\"/><rect x=\"200\" y=\"290\" width=\"200\" height=\"40\" rx=\"0\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"300\" y=\"315\" text-anchor=\"middle\" font-size=\"13\" fill=\"#22272b\">Raise gate</text><line x1=\"300\" y1=\"330\" x2=\"300\" y2=\"352\" stroke=\"#22272b\" stroke-width=\"1.6\" marker-end=\"url(#ah)\"/><polygon points=\"300,352 405,387 300,422 195,387\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"300\" y=\"392\" text-anchor=\"middle\" font-size=\"13\" fill=\"#22272b\">Car passed sensor?</text><path d=\"M405,387 L500,387 L500,341 L303,341\" fill=\"none\" stroke=\"#22272b\" stroke-width=\"1.6\" marker-end=\"url(#ah)\"/><text x=\"412\" y=\"380\" text-anchor=\"start\" font-size=\"11.5\" fill=\"#22272b\">No (wait)</text><text x=\"308\" y=\"440\" text-anchor=\"start\" font-size=\"11.5\" fill=\"#22272b\">Yes</text><line x1=\"300\" y1=\"422\" x2=\"300\" y2=\"448\" stroke=\"#22272b\" stroke-width=\"1.6\" marker-end=\"url(#ah)\"/><rect x=\"200\" y=\"448\" width=\"200\" height=\"40\" rx=\"0\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"300\" y=\"473\" text-anchor=\"middle\" font-size=\"13\" fill=\"#22272b\">Lower gate</text><line x1=\"300\" y1=\"488\" x2=\"300\" y2=\"510\" stroke=\"#22272b\" stroke-width=\"1.6\" marker-end=\"url(#ah)\"/><rect x=\"230\" y=\"510\" width=\"140\" height=\"38\" rx=\"19\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"300\" y=\"534\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"700\" fill=\"#22272b\">End</text></svg><p>The “Car passed sensor?” decision loops back on No, so the gate stays up until the car is clear. Both decisions have labelled Yes and No branches.</p>"
     }
    ],
    "stimulus": "<p>A car park boom gate reads a car’s ticket. If the ticket is valid it raises the gate, then keeps checking a sensor until the car has passed, then lowers the gate. An invalid ticket shows an error and the gate stays closed.</p>"
@@ -2708,7 +2989,18 @@ window.EC_PRACTICE = [{
       "A DSS is only used for fully structured decisions"
      ],
      "answer": 2,
-     "markingGuide": "C. A DSS analyses data and presents options for a person to decide. An expert system reaches a conclusion itself using a knowledge base and inference engine."
+     "markingGuide": "C. A DSS analyses data and presents options for a person to decide. An expert system reaches a conclusion itself using a knowledge base and inference engine.",
+     "criteria": [
+      [
+       "1",
+       "Correct option selected"
+      ],
+      [
+       "0",
+       "Any other option, or more than one"
+      ]
+     ],
+     "sample": "<p><b>C) A DSS presents analysis so a person decides</b></p><p>A DSS analyses data and presents options for a person to decide. An expert system reaches a conclusion itself using a knowledge base and inference engine.</p>"
     }
    ]
   },
@@ -2727,7 +3019,18 @@ window.EC_PRACTICE = [{
       "Truth maintenance"
      ],
      "answer": 0,
-     "markingGuide": "A. Backward chaining is goal-driven: it starts from a hypothesis and works back to supporting facts. Forward chaining starts from incoming facts."
+     "markingGuide": "A. Backward chaining is goal-driven: it starts from a hypothesis and works back to supporting facts. Forward chaining starts from incoming facts.",
+     "criteria": [
+      [
+       "1",
+       "Correct option selected"
+      ],
+      [
+       "0",
+       "Any other option, or more than one"
+      ]
+     ],
+     "sample": "<p><b>A) Backward chaining</b></p><p>Backward chaining is goal-driven: it starts from a hypothesis and works back to supporting facts. Forward chaining starts from incoming facts.</p>"
     }
    ]
   },
@@ -2746,7 +3049,18 @@ window.EC_PRACTICE = [{
       "The actuator that opens the roof vents"
      ],
      "answer": 3,
-     "markingGuide": "D. Sensors measure, the microcontroller decides, and actuators or motors act. The gateway transmits data and the dashboard displays it."
+     "markingGuide": "D. Sensors measure, the microcontroller decides, and actuators or motors act. The gateway transmits data and the dashboard displays it.",
+     "criteria": [
+      [
+       "1",
+       "Correct option selected"
+      ],
+      [
+       "0",
+       "Any other option, or more than one"
+      ]
+     ],
+     "sample": "<p><b>D) The actuator that opens the roof vents</b></p><p>Sensors measure, the microcontroller decides, and actuators or motors act. The gateway transmits data and the dashboard displays it.</p>"
     }
    ]
   },
@@ -2803,7 +3117,22 @@ window.EC_PRACTICE = [{
        1
       ]
      ],
-     "markingGuide": "1 structured (fixed rule, automatic), 2 semi-structured (system flags, person decides), 3 unstructured (no set procedure, judgement), 4 structured, 5 semi-structured. 2 marks all five, 1 mark four."
+     "markingGuide": "1 structured (fixed rule, automatic), 2 semi-structured (system flags, person decides), 3 unstructured (no set procedure, judgement), 4 structured, 5 semi-structured. 2 marks all five, 1 mark four.",
+     "criteria": [
+      [
+       "2",
+       "All 5 correct"
+      ],
+      [
+       "1",
+       "At least 4 of 5 correct"
+      ],
+      [
+       "0",
+       "Fewer correct"
+      ]
+     ],
+     "sample": "<ul><li>Reordering stock automatically when it falls below a set level → <b>Structured</b></li><li>An analyst reviewing transactions the system flagged as possible fraud → <b>Semi-structured</b></li><li>A board deciding whether to expand into a new country → <b>Unstructured</b></li><li>Approving a loan that meets every fixed criterion → <b>Structured</b></li><li>A doctor confirming a diagnosis the system suggested → <b>Semi-structured</b></li></ul><p>1 structured (fixed rule, automatic), 2 semi-structured (system flags, person decides), 3 unstructured (no set procedure, judgement), 4 structured, 5 semi-structured. 2 marks all five, 1 mark four.</p>"
     }
    ]
   },
@@ -2840,7 +3169,22 @@ window.EC_PRACTICE = [{
        1
       ]
      ],
-     "markingGuide": "Sense → compare with the threshold → signal the actuator → act → feedback from the sensor (the loop continues). 2 marks all five, 1 mark four in place."
+     "markingGuide": "Sense → compare with the threshold → signal the actuator → act → feedback from the sensor (the loop continues). 2 marks all five, 1 mark four in place.",
+     "criteria": [
+      [
+       "2",
+       "All 5 correct"
+      ],
+      [
+       "1",
+       "At least 4 of 5 correct"
+      ],
+      [
+       "0",
+       "Fewer correct"
+      ]
+     ],
+     "sample": "<ol><li>The temperature sensor measures 34 °C</li><li>The microcontroller compares the reading with the set limit</li><li>The microcontroller sends a signal to the actuator</li><li>The roof vent actuator opens the vents</li><li>The sensor reports the temperature has dropped below the limit</li></ol><p>Sense → compare with the threshold → signal the actuator → act → feedback from the sensor (the loop continues). 2 marks all five, 1 mark four in place.</p>"
     }
    ]
   },
@@ -2853,7 +3197,26 @@ window.EC_PRACTICE = [{
      "syllabus": "IS1.31",
      "question": "Describe the hardware an intelligent production line would use. Name specific sensors in your answer.",
      "words": 120,
-     "markingGuide": "4 marks: specific sensors with their purpose (e.g. proximity or optical sensors detect parts on the conveyor, cameras for machine-vision defect checks, temperature and vibration sensors for predictive maintenance), a controller (PLC or microcontroller) that processes readings, and actuators or motors (robotic arms, conveyor motors, reject gates), linked into a sense, decide, act sequence. 3 marks: most components, less specific. 2 marks: sensors and actuators named generally. 1 mark: one component."
+     "markingGuide": "4 marks: specific sensors with their purpose (e.g. proximity or optical sensors detect parts on the conveyor, cameras for machine-vision defect checks, temperature and vibration sensors for predictive maintenance), a controller (PLC or microcontroller) that processes readings, and actuators or motors (robotic arms, conveyor motors, reject gates), linked into a sense, decide, act sequence. 3 marks: most components, less specific. 2 marks: sensors and actuators named generally. 1 mark: one component.",
+     "criteria": [
+      [
+       "4",
+       "Names specific sensors with their purpose, a controller that processes the readings, and actuators or motors that act, linked as sense, decide, act"
+      ],
+      [
+       "3",
+       "Most components described, but less specific"
+      ],
+      [
+       "2",
+       "Sensors and actuators named generally"
+      ],
+      [
+       "1",
+       "One relevant component"
+      ]
+     ],
+     "sample": "<p>The line uses proximity or optical sensors to detect when a part arrives on the conveyor, cameras for machine-vision checks that spot defects, and temperature and vibration sensors on the motors to predict when maintenance is needed.</p><p>Readings go to a microcontroller or PLC, which compares them with set limits and decides what to do. It then signals actuators and motors: conveyor motors move parts along, robotic arms pick and place them, and a reject gate pushes defective parts off the line. This sense, decide, act loop runs continuously without human input.</p>"
     }
    ]
   },
@@ -2866,7 +3229,26 @@ window.EC_PRACTICE = [{
      "syllabus": "IS1.4",
      "question": "Explain how intelligent systems can assist each category of decision at this airline. Use examples from the stimulus.",
      "words": 200,
-     "markingGuide": "6 marks: all three categories, each with its own stimulus example and how the system helps. Structured: check-in and seat allocation follow fixed rules, so the system decides automatically, quickly and consistently. Semi-structured: the delay system predicts disruption and suggests crew and aircraft swaps, and an operations controller approves them, combining analysis with judgement. Unstructured: route planning has no fixed procedure; the system models demand and competitors so executives can compare options, but they decide. 4–5 marks: all three with less detail or a missing example. 2–3 marks: describes the categories generally. 1 mark: relevant information."
+     "markingGuide": "6 marks: all three categories, each with its own stimulus example and how the system helps. Structured: check-in and seat allocation follow fixed rules, so the system decides automatically, quickly and consistently. Semi-structured: the delay system predicts disruption and suggests crew and aircraft swaps, and an operations controller approves them, combining analysis with judgement. Unstructured: route planning has no fixed procedure; the system models demand and competitors so executives can compare options, but they decide. 4–5 marks: all three with less detail or a missing example. 2–3 marks: describes the categories generally. 1 mark: relevant information.",
+     "criteria": [
+      [
+       "5–6",
+       "Explains all three decision categories, each with its own example from the stimulus and how the system assists"
+      ],
+      [
+       "3–4",
+       "All three categories with less detail, or a missing example"
+      ],
+      [
+       "2",
+       "Describes the categories generally"
+      ],
+      [
+       "1",
+       "Some relevant information"
+      ]
+     ],
+     "sample": "<p>Check-in and seat allocation are structured decisions: they follow fixed rules, so the system makes them automatically. This makes them fast and consistent, and frees staff from routine work.</p><p>Delay management is semi-structured. The system analyses weather, aircraft and crew data to predict disruptions and suggests crew and aircraft swaps, but an operations controller approves them. The system speeds up the analysis while a person applies judgement to things it cannot know.</p><p>Route planning is unstructured: there is no set procedure and the decision depends on judgement about markets and strategy. The system assists by modelling demand, costs and competitors so executives can compare options, but the executives make the final decision.</p>"
     }
    ],
    "stimulus": "<p>An airline uses intelligent systems for: <b>check-in and seat allocation</b> using fixed rules; <b>delay management</b>, which predicts disruptions and suggests crew and aircraft swaps for an operations controller to approve; and <b>route planning</b>, where executives decide whether to open new routes.</p>"
@@ -2899,7 +3281,18 @@ window.EC_PRACTICE = [{
       "Stacked bar chart"
      ],
      "answer": 0,
-     "markingGuide": "A. A scatter plot shows the relationship between two numeric variables. Pie charts show parts of a whole, line graphs show change over time and stacked bars show how parts make up category totals."
+     "markingGuide": "A. A scatter plot shows the relationship between two numeric variables. Pie charts show parts of a whole, line graphs show change over time and stacked bars show how parts make up category totals.",
+     "criteria": [
+      [
+       "1",
+       "Correct option selected"
+      ],
+      [
+       "0",
+       "Any other option, or more than one"
+      ]
+     ],
+     "sample": "<p><b>A) Scatter plot</b></p><p>A scatter plot shows the relationship between two numeric variables. Pie charts show parts of a whole, line graphs show change over time and stacked bars show how parts make up category totals.</p>"
     }
    ]
   },
@@ -2918,7 +3311,18 @@ window.EC_PRACTICE = [{
       "Small differences look much larger than they are"
      ],
      "answer": 3,
-     "markingGuide": "D. A truncated axis exaggerates differences, so a 1% gap can look like a huge one. This is a common form of bias in visualisations."
+     "markingGuide": "D. A truncated axis exaggerates differences, so a 1% gap can look like a huge one. This is a common form of bias in visualisations.",
+     "criteria": [
+      [
+       "1",
+       "Correct option selected"
+      ],
+      [
+       "0",
+       "Any other option, or more than one"
+      ]
+     ],
+     "sample": "<p><b>D) Small differences look much larger than they are</b></p><p>A truncated axis exaggerates differences, so a 1% gap can look like a huge one. This is a common form of bias in visualisations.</p>"
     }
    ]
   },
@@ -2937,7 +3341,18 @@ window.EC_PRACTICE = [{
       "Remove that store from every chart on the dashboard"
      ],
      "answer": 1,
-     "markingGuide": "B. Outliers are investigated first, and an error is corrected or flagged before analysis (the median is also less affected by extreme values). Deleting data without checking or hiding the store loses information."
+     "markingGuide": "B. Outliers are investigated first, and an error is corrected or flagged before analysis (the median is also less affected by extreme values). Deleting data without checking or hiding the store loses information.",
+     "criteria": [
+      [
+       "1",
+       "Correct option selected"
+      ],
+      [
+       "0",
+       "Any other option, or more than one"
+      ]
+     ],
+     "sample": "<p><b>B) Check the record, then correct or flag it before analysis</b></p><p>Outliers are investigated first, and an error is corrected or flagged before analysis (the median is also less affected by extreme values). Deleting data without checking or hiding the store loses information.</p>"
     }
    ]
   },
@@ -2992,7 +3407,22 @@ window.EC_PRACTICE = [{
        1
       ]
      ],
-     "markingGuide": "1 validation, 2 ownership, 3 source, 4 risk. 2 marks all four, 1 mark three."
+     "markingGuide": "1 validation, 2 ownership, 3 source, 4 risk. 2 marks all four, 1 mark three.",
+     "criteria": [
+      [
+       "2",
+       "All 4 correct"
+      ],
+      [
+       "1",
+       "At least 3 of 4 correct"
+      ],
+      [
+       "0",
+       "Fewer correct"
+      ]
+     ],
+     "sample": "<ul><li>Readings outside the range 0–14 pH are rejected → <b>Validation</b></li><li>Each dataset has a named officer accountable for it → <b>Ownership</b></li><li>Analysts confirm readings came from the council’s own sensors → <b>Source</b></li><li>The team assesses what could go wrong if readings were wrong → <b>Risk</b></li></ul><p>1 validation, 2 ownership, 3 source, 4 risk. 2 marks all four, 1 mark three.</p>"
     }
    ]
   },
@@ -3005,7 +3435,18 @@ window.EC_PRACTICE = [{
      "syllabus": "DV2.9",
      "question": "Using figures from the dashboard, identify the suburb whose use is falling and suggest a reason.",
      "words": 60,
-     "markingGuide": "2 marks: Bondi, with figures (about 3.6 thousand trips in January down to 2.6 thousand in June) and a reasonable reason (cooler months reduce beach trips). 1 mark: Bondi without figures, or figures without a reason."
+     "markingGuide": "2 marks: Bondi, with figures (about 3.6 thousand trips in January down to 2.6 thousand in June) and a reasonable reason (cooler months reduce beach trips). 1 mark: Bondi without figures, or figures without a reason.",
+     "criteria": [
+      [
+       "2",
+       "Identifies Bondi, supported with figures from the line chart, AND gives a reasonable reason"
+      ],
+      [
+       "1",
+       "Identifies Bondi without figures, OR figures without a reason"
+      ]
+     ],
+     "sample": "<p>Bondi’s use is falling: trips drop from about 3.6 thousand in January to about 2.6 thousand in June. A likely reason is the cooler autumn and winter weather, which reduces beach trips.</p>"
     }
    ],
    "stimulus": "<p>TideRide Bikes runs a bike share service in three Sydney suburbs. The operations manager uses this interactive dashboard to track usage and plan where to place bikes and staff for the rest of the year.</p><div style=\"max-width:100%;overflow-x:auto\"><svg viewBox=\"0 0 760 500\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" font-family=\"Public Sans, Arial, sans-serif\" font-size=\"13\"><defs><marker id=\"ah\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#22272b\"/></marker></defs><rect x=\"0.5\" y=\"0.5\" width=\"759\" height=\"499\" rx=\"0\" fill=\"#f6f7f9\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"16\" y=\"28\" text-anchor=\"start\" font-size=\"16\" font-weight=\"700\" fill=\"#22272b\">TideRide Bikes · Operations dashboard · Jan–Jun 2026</text><rect x=\"470\" y=\"12\" width=\"120\" height=\"26\" rx=\"4\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"480\" y=\"30\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">Suburb: All ▾</text><rect x=\"600\" y=\"12\" width=\"144\" height=\"26\" rx=\"4\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"610\" y=\"30\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">Month: Jan ◀━━▶ Jun</text><rect x=\"16\" y=\"50\" width=\"232\" height=\"62\" rx=\"6\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"28\" y=\"72\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">Total trips</text><text x=\"28\" y=\"100\" text-anchor=\"start\" font-size=\"22\" font-weight=\"700\" fill=\"#22272b\">46,200</text><rect x=\"264\" y=\"50\" width=\"232\" height=\"62\" rx=\"6\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"276\" y=\"72\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">Bikes out of service</text><text x=\"276\" y=\"100\" text-anchor=\"start\" font-size=\"22\" font-weight=\"700\" fill=\"#22272b\">14%</text><rect x=\"512\" y=\"50\" width=\"232\" height=\"62\" rx=\"6\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"524\" y=\"72\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">Average rider rating</text><text x=\"524\" y=\"100\" text-anchor=\"start\" font-size=\"22\" font-weight=\"700\" fill=\"#22272b\">3.9 / 5</text><rect x=\"16\" y=\"124\" width=\"372\" height=\"214\" rx=\"6\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"28\" y=\"144\" text-anchor=\"start\" font-size=\"13\" font-weight=\"700\" fill=\"#22272b\">Monthly trips by suburb (thousands)</text><line x1=\"50\" y1=\"302\" x2=\"370\" y2=\"302\" stroke=\"#22272b\" stroke-width=\"1.6\"/><line x1=\"50\" y1=\"302\" x2=\"50\" y2=\"166\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"42\" y=\"306\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">0</text><line x1=\"50\" y1=\"302\" x2=\"370\" y2=\"302\" stroke=\"#d9dce0\" stroke-width=\"1\"/><text x=\"42\" y=\"272\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">1</text><line x1=\"50\" y1=\"268\" x2=\"370\" y2=\"268\" stroke=\"#d9dce0\" stroke-width=\"1\"/><text x=\"42\" y=\"238\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">2</text><line x1=\"50\" y1=\"234\" x2=\"370\" y2=\"234\" stroke=\"#d9dce0\" stroke-width=\"1\"/><text x=\"42\" y=\"204\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">3</text><line x1=\"50\" y1=\"200\" x2=\"370\" y2=\"200\" stroke=\"#d9dce0\" stroke-width=\"1\"/><text x=\"42\" y=\"170\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">4</text><line x1=\"50\" y1=\"166\" x2=\"370\" y2=\"166\" stroke=\"#d9dce0\" stroke-width=\"1\"/><text x=\"70\" y=\"318\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Jan</text><text x=\"126\" y=\"318\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Feb</text><text x=\"182\" y=\"318\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Mar</text><text x=\"238\" y=\"318\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Apr</text><text x=\"294\" y=\"318\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">May</text><text x=\"350\" y=\"318\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Jun</text><polyline points=\"70,230.6 126,223.8 182,234 238,220.4 294,213.6 350,203.4\" fill=\"none\" stroke=\"#002664\" stroke-width=\"2.4\"/><circle cx=\"70\" cy=\"230.6\" r=\"3\" fill=\"#002664\"/><circle cx=\"126\" cy=\"223.8\" r=\"3\" fill=\"#002664\"/><circle cx=\"182\" cy=\"234\" r=\"3\" fill=\"#002664\"/><circle cx=\"238\" cy=\"220.4\" r=\"3\" fill=\"#002664\"/><circle cx=\"294\" cy=\"213.6\" r=\"3\" fill=\"#002664\"/><circle cx=\"350\" cy=\"203.4\" r=\"3\" fill=\"#002664\"/><rect x=\"60\" y=\"326\" width=\"10\" height=\"10\" fill=\"#002664\"/><text x=\"74\" y=\"335\" text-anchor=\"start\" font-size=\"11\" fill=\"#22272b\">Manly</text><polyline points=\"70,261.2 126,251 182,237.4 238,223.8 294,206.8 350,186.4\" fill=\"none\" stroke=\"#d7153a\" stroke-width=\"2.4\"/><circle cx=\"70\" cy=\"261.2\" r=\"3\" fill=\"#d7153a\"/><circle cx=\"126\" cy=\"251\" r=\"3\" fill=\"#d7153a\"/><circle cx=\"182\" cy=\"237.4\" r=\"3\" fill=\"#d7153a\"/><circle cx=\"238\" cy=\"223.8\" r=\"3\" fill=\"#d7153a\"/><circle cx=\"294\" cy=\"206.8\" r=\"3\" fill=\"#d7153a\"/><circle cx=\"350\" cy=\"186.4\" r=\"3\" fill=\"#d7153a\"/><rect x=\"160\" y=\"326\" width=\"10\" height=\"10\" fill=\"#d7153a\"/><text x=\"174\" y=\"335\" text-anchor=\"start\" font-size=\"11\" fill=\"#22272b\">Parramatta</text><polyline points=\"70,179.6 126,183 182,189.8 238,200 294,206.8 350,213.6\" fill=\"none\" stroke=\"#2e808e\" stroke-width=\"2.4\"/><circle cx=\"70\" cy=\"179.6\" r=\"3\" fill=\"#2e808e\"/><circle cx=\"126\" cy=\"183\" r=\"3\" fill=\"#2e808e\"/><circle cx=\"182\" cy=\"189.8\" r=\"3\" fill=\"#2e808e\"/><circle cx=\"238\" cy=\"200\" r=\"3\" fill=\"#2e808e\"/><circle cx=\"294\" cy=\"206.8\" r=\"3\" fill=\"#2e808e\"/><circle cx=\"350\" cy=\"213.6\" r=\"3\" fill=\"#2e808e\"/><rect x=\"260\" y=\"326\" width=\"10\" height=\"10\" fill=\"#2e808e\"/><text x=\"274\" y=\"335\" text-anchor=\"start\" font-size=\"11\" fill=\"#22272b\">Bondi</text><rect x=\"400\" y=\"124\" width=\"344\" height=\"214\" rx=\"6\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"412\" y=\"144\" text-anchor=\"start\" font-size=\"13\" font-weight=\"700\" fill=\"#22272b\">Average trip length</text><line x1=\"450\" y1=\"312\" x2=\"720\" y2=\"312\" stroke=\"#22272b\" stroke-width=\"1.6\"/><line x1=\"450\" y1=\"312\" x2=\"450\" y2=\"162\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"442\" y=\"316\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">10</text><text x=\"442\" y=\"266\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">15</text><text x=\"442\" y=\"216\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">20</text><text x=\"442\" y=\"166\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">25</text><rect x=\"475\" y=\"232\" width=\"50\" height=\"80\" fill=\"#002664\"/><text x=\"500\" y=\"328\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Manly</text><rect x=\"560\" y=\"302\" width=\"50\" height=\"10\" fill=\"#d7153a\"/><text x=\"585\" y=\"328\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Parramatta</text><rect x=\"645\" y=\"172\" width=\"50\" height=\"140\" fill=\"#2e808e\"/><text x=\"670\" y=\"328\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Bondi</text><rect x=\"16\" y=\"350\" width=\"728\" height=\"138\" rx=\"6\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"28\" y=\"370\" text-anchor=\"start\" font-size=\"13\" font-weight=\"700\" fill=\"#22272b\">Trips by time of day</text><path d=\"M120,425 L120,373 A52,52 0 0 1 171.079,415.256 z\" fill=\"#0b3d91\" stroke=\"#ffffff\" stroke-width=\"1\"/><path d=\"M120,425 L171.079,415.256 A52,52 0 0 1 160.067,458.146 z\" fill=\"#1a4d9e\" stroke=\"#ffffff\" stroke-width=\"1\"/><path d=\"M120,425 L160.067,458.146 A52,52 0 0 1 126.517,476.59 z\" fill=\"#2a5daa\" stroke=\"#ffffff\" stroke-width=\"1\"/><path d=\"M120,425 L126.517,476.59 A52,52 0 0 1 68.1026,428.265 z\" fill=\"#3a6db6\" stroke=\"#ffffff\" stroke-width=\"1\"/><path d=\"M120,425 L68.1026,428.265 A52,52 0 0 1 94.9488,379.432 z\" fill=\"#4a7dc2\" stroke=\"#ffffff\" stroke-width=\"1\"/><path d=\"M120,425 L94.9488,379.432 A52,52 0 0 1 120,373 z\" fill=\"#5a8dce\" stroke=\"#ffffff\" stroke-width=\"1\"/><rect x=\"210\" y=\"400\" width=\"12\" height=\"12\" fill=\"#0b3d91\"/><text x=\"228\" y=\"411\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">6–9 am  22%</text><rect x=\"380\" y=\"400\" width=\"12\" height=\"12\" fill=\"#1a4d9e\"/><text x=\"398\" y=\"411\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">9–12  14%</text><rect x=\"550\" y=\"400\" width=\"12\" height=\"12\" fill=\"#2a5daa\"/><text x=\"568\" y=\"411\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">12–3 pm  12%</text><rect x=\"210\" y=\"434\" width=\"12\" height=\"12\" fill=\"#3a6db6\"/><text x=\"228\" y=\"445\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">3–6 pm  26%</text><rect x=\"380\" y=\"434\" width=\"12\" height=\"12\" fill=\"#4a7dc2\"/><text x=\"398\" y=\"445\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">6–9 pm  18%</text><rect x=\"550\" y=\"434\" width=\"12\" height=\"12\" fill=\"#5a8dce\"/><text x=\"568\" y=\"445\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">9 pm–6 am  8%</text></svg></div>"
@@ -3019,7 +3460,26 @@ window.EC_PRACTICE = [{
      "syllabus": "DV3.6",
      "question": "Identify two UX strengths and two limitations of this dashboard, and suggest one improvement.",
      "words": 120,
-     "markingGuide": "4 marks: two specific strengths (e.g. the line chart shows each suburb’s trend clearly; suburb and month filters allow drill-down; KPI tiles give a quick overview) and two specific limitations (bar chart axis starts at 10 with no units, so Parramatta’s 11 looks tiny; six similar blues in the pie chart; no comparison or trend on the KPI tiles; no forecast), plus a matching improvement. 3 marks: three of these. 2 marks: general strengths and limitations. 1 mark: one relevant point."
+     "markingGuide": "4 marks: two specific strengths (e.g. the line chart shows each suburb’s trend clearly; suburb and month filters allow drill-down; KPI tiles give a quick overview) and two specific limitations (bar chart axis starts at 10 with no units, so Parramatta’s 11 looks tiny; six similar blues in the pie chart; no comparison or trend on the KPI tiles; no forecast), plus a matching improvement. 3 marks: three of these. 2 marks: general strengths and limitations. 1 mark: one relevant point.",
+     "criteria": [
+      [
+       "4",
+       "Two specific UX strengths and two specific limitations of this dashboard, plus an improvement that matches a limitation"
+      ],
+      [
+       "3",
+       "Three of these"
+      ],
+      [
+       "2",
+       "General strengths and limitations not tied to the dashboard"
+      ],
+      [
+       "1",
+       "One relevant point"
+      ]
+     ],
+     "sample": "<p>Strengths: the line chart shows each suburb’s monthly trend clearly, so the falling Bondi use stands out; the suburb and month filters let the manager drill down to one area or period.</p><p>Limitations: the average trip length bar chart starts at 10 with no units, which exaggerates the differences between suburbs; the time-of-day pie chart uses similar shades, so slices are hard to tell apart.</p><p>Improvement: start the bar chart’s axis at zero and label it in minutes so the comparison is accurate.</p>"
     }
    ],
    "stimulus": "<p>TideRide Bikes runs a bike share service in three Sydney suburbs. The operations manager uses this interactive dashboard to track usage and plan where to place bikes and staff for the rest of the year.</p><div style=\"max-width:100%;overflow-x:auto\"><svg viewBox=\"0 0 760 500\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" font-family=\"Public Sans, Arial, sans-serif\" font-size=\"13\"><defs><marker id=\"ah\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#22272b\"/></marker></defs><rect x=\"0.5\" y=\"0.5\" width=\"759\" height=\"499\" rx=\"0\" fill=\"#f6f7f9\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"16\" y=\"28\" text-anchor=\"start\" font-size=\"16\" font-weight=\"700\" fill=\"#22272b\">TideRide Bikes · Operations dashboard · Jan–Jun 2026</text><rect x=\"470\" y=\"12\" width=\"120\" height=\"26\" rx=\"4\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"480\" y=\"30\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">Suburb: All ▾</text><rect x=\"600\" y=\"12\" width=\"144\" height=\"26\" rx=\"4\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"610\" y=\"30\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">Month: Jan ◀━━▶ Jun</text><rect x=\"16\" y=\"50\" width=\"232\" height=\"62\" rx=\"6\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"28\" y=\"72\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">Total trips</text><text x=\"28\" y=\"100\" text-anchor=\"start\" font-size=\"22\" font-weight=\"700\" fill=\"#22272b\">46,200</text><rect x=\"264\" y=\"50\" width=\"232\" height=\"62\" rx=\"6\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"276\" y=\"72\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">Bikes out of service</text><text x=\"276\" y=\"100\" text-anchor=\"start\" font-size=\"22\" font-weight=\"700\" fill=\"#22272b\">14%</text><rect x=\"512\" y=\"50\" width=\"232\" height=\"62\" rx=\"6\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"524\" y=\"72\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">Average rider rating</text><text x=\"524\" y=\"100\" text-anchor=\"start\" font-size=\"22\" font-weight=\"700\" fill=\"#22272b\">3.9 / 5</text><rect x=\"16\" y=\"124\" width=\"372\" height=\"214\" rx=\"6\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"28\" y=\"144\" text-anchor=\"start\" font-size=\"13\" font-weight=\"700\" fill=\"#22272b\">Monthly trips by suburb (thousands)</text><line x1=\"50\" y1=\"302\" x2=\"370\" y2=\"302\" stroke=\"#22272b\" stroke-width=\"1.6\"/><line x1=\"50\" y1=\"302\" x2=\"50\" y2=\"166\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"42\" y=\"306\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">0</text><line x1=\"50\" y1=\"302\" x2=\"370\" y2=\"302\" stroke=\"#d9dce0\" stroke-width=\"1\"/><text x=\"42\" y=\"272\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">1</text><line x1=\"50\" y1=\"268\" x2=\"370\" y2=\"268\" stroke=\"#d9dce0\" stroke-width=\"1\"/><text x=\"42\" y=\"238\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">2</text><line x1=\"50\" y1=\"234\" x2=\"370\" y2=\"234\" stroke=\"#d9dce0\" stroke-width=\"1\"/><text x=\"42\" y=\"204\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">3</text><line x1=\"50\" y1=\"200\" x2=\"370\" y2=\"200\" stroke=\"#d9dce0\" stroke-width=\"1\"/><text x=\"42\" y=\"170\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">4</text><line x1=\"50\" y1=\"166\" x2=\"370\" y2=\"166\" stroke=\"#d9dce0\" stroke-width=\"1\"/><text x=\"70\" y=\"318\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Jan</text><text x=\"126\" y=\"318\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Feb</text><text x=\"182\" y=\"318\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Mar</text><text x=\"238\" y=\"318\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Apr</text><text x=\"294\" y=\"318\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">May</text><text x=\"350\" y=\"318\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Jun</text><polyline points=\"70,230.6 126,223.8 182,234 238,220.4 294,213.6 350,203.4\" fill=\"none\" stroke=\"#002664\" stroke-width=\"2.4\"/><circle cx=\"70\" cy=\"230.6\" r=\"3\" fill=\"#002664\"/><circle cx=\"126\" cy=\"223.8\" r=\"3\" fill=\"#002664\"/><circle cx=\"182\" cy=\"234\" r=\"3\" fill=\"#002664\"/><circle cx=\"238\" cy=\"220.4\" r=\"3\" fill=\"#002664\"/><circle cx=\"294\" cy=\"213.6\" r=\"3\" fill=\"#002664\"/><circle cx=\"350\" cy=\"203.4\" r=\"3\" fill=\"#002664\"/><rect x=\"60\" y=\"326\" width=\"10\" height=\"10\" fill=\"#002664\"/><text x=\"74\" y=\"335\" text-anchor=\"start\" font-size=\"11\" fill=\"#22272b\">Manly</text><polyline points=\"70,261.2 126,251 182,237.4 238,223.8 294,206.8 350,186.4\" fill=\"none\" stroke=\"#d7153a\" stroke-width=\"2.4\"/><circle cx=\"70\" cy=\"261.2\" r=\"3\" fill=\"#d7153a\"/><circle cx=\"126\" cy=\"251\" r=\"3\" fill=\"#d7153a\"/><circle cx=\"182\" cy=\"237.4\" r=\"3\" fill=\"#d7153a\"/><circle cx=\"238\" cy=\"223.8\" r=\"3\" fill=\"#d7153a\"/><circle cx=\"294\" cy=\"206.8\" r=\"3\" fill=\"#d7153a\"/><circle cx=\"350\" cy=\"186.4\" r=\"3\" fill=\"#d7153a\"/><rect x=\"160\" y=\"326\" width=\"10\" height=\"10\" fill=\"#d7153a\"/><text x=\"174\" y=\"335\" text-anchor=\"start\" font-size=\"11\" fill=\"#22272b\">Parramatta</text><polyline points=\"70,179.6 126,183 182,189.8 238,200 294,206.8 350,213.6\" fill=\"none\" stroke=\"#2e808e\" stroke-width=\"2.4\"/><circle cx=\"70\" cy=\"179.6\" r=\"3\" fill=\"#2e808e\"/><circle cx=\"126\" cy=\"183\" r=\"3\" fill=\"#2e808e\"/><circle cx=\"182\" cy=\"189.8\" r=\"3\" fill=\"#2e808e\"/><circle cx=\"238\" cy=\"200\" r=\"3\" fill=\"#2e808e\"/><circle cx=\"294\" cy=\"206.8\" r=\"3\" fill=\"#2e808e\"/><circle cx=\"350\" cy=\"213.6\" r=\"3\" fill=\"#2e808e\"/><rect x=\"260\" y=\"326\" width=\"10\" height=\"10\" fill=\"#2e808e\"/><text x=\"274\" y=\"335\" text-anchor=\"start\" font-size=\"11\" fill=\"#22272b\">Bondi</text><rect x=\"400\" y=\"124\" width=\"344\" height=\"214\" rx=\"6\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"412\" y=\"144\" text-anchor=\"start\" font-size=\"13\" font-weight=\"700\" fill=\"#22272b\">Average trip length</text><line x1=\"450\" y1=\"312\" x2=\"720\" y2=\"312\" stroke=\"#22272b\" stroke-width=\"1.6\"/><line x1=\"450\" y1=\"312\" x2=\"450\" y2=\"162\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"442\" y=\"316\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">10</text><text x=\"442\" y=\"266\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">15</text><text x=\"442\" y=\"216\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">20</text><text x=\"442\" y=\"166\" text-anchor=\"end\" font-size=\"11\" fill=\"#22272b\">25</text><rect x=\"475\" y=\"232\" width=\"50\" height=\"80\" fill=\"#002664\"/><text x=\"500\" y=\"328\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Manly</text><rect x=\"560\" y=\"302\" width=\"50\" height=\"10\" fill=\"#d7153a\"/><text x=\"585\" y=\"328\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Parramatta</text><rect x=\"645\" y=\"172\" width=\"50\" height=\"140\" fill=\"#2e808e\"/><text x=\"670\" y=\"328\" text-anchor=\"middle\" font-size=\"11\" fill=\"#22272b\">Bondi</text><rect x=\"16\" y=\"350\" width=\"728\" height=\"138\" rx=\"6\" fill=\"#ffffff\" stroke=\"#22272b\" stroke-width=\"1.6\"/><text x=\"28\" y=\"370\" text-anchor=\"start\" font-size=\"13\" font-weight=\"700\" fill=\"#22272b\">Trips by time of day</text><path d=\"M120,425 L120,373 A52,52 0 0 1 171.079,415.256 z\" fill=\"#0b3d91\" stroke=\"#ffffff\" stroke-width=\"1\"/><path d=\"M120,425 L171.079,415.256 A52,52 0 0 1 160.067,458.146 z\" fill=\"#1a4d9e\" stroke=\"#ffffff\" stroke-width=\"1\"/><path d=\"M120,425 L160.067,458.146 A52,52 0 0 1 126.517,476.59 z\" fill=\"#2a5daa\" stroke=\"#ffffff\" stroke-width=\"1\"/><path d=\"M120,425 L126.517,476.59 A52,52 0 0 1 68.1026,428.265 z\" fill=\"#3a6db6\" stroke=\"#ffffff\" stroke-width=\"1\"/><path d=\"M120,425 L68.1026,428.265 A52,52 0 0 1 94.9488,379.432 z\" fill=\"#4a7dc2\" stroke=\"#ffffff\" stroke-width=\"1\"/><path d=\"M120,425 L94.9488,379.432 A52,52 0 0 1 120,373 z\" fill=\"#5a8dce\" stroke=\"#ffffff\" stroke-width=\"1\"/><rect x=\"210\" y=\"400\" width=\"12\" height=\"12\" fill=\"#0b3d91\"/><text x=\"228\" y=\"411\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">6–9 am  22%</text><rect x=\"380\" y=\"400\" width=\"12\" height=\"12\" fill=\"#1a4d9e\"/><text x=\"398\" y=\"411\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">9–12  14%</text><rect x=\"550\" y=\"400\" width=\"12\" height=\"12\" fill=\"#2a5daa\"/><text x=\"568\" y=\"411\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">12–3 pm  12%</text><rect x=\"210\" y=\"434\" width=\"12\" height=\"12\" fill=\"#3a6db6\"/><text x=\"228\" y=\"445\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">3–6 pm  26%</text><rect x=\"380\" y=\"434\" width=\"12\" height=\"12\" fill=\"#4a7dc2\"/><text x=\"398\" y=\"445\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">6–9 pm  18%</text><rect x=\"550\" y=\"434\" width=\"12\" height=\"12\" fill=\"#5a8dce\"/><text x=\"568\" y=\"445\" text-anchor=\"start\" font-size=\"12\" fill=\"#22272b\">9 pm–6 am  8%</text></svg></div>"
@@ -3033,7 +3493,26 @@ window.EC_PRACTICE = [{
      "syllabus": "DV3.2",
      "question": "Explain how replacing monthly PDF tables with an interactive dashboard would affect the managers’ experience and understanding of the data.",
      "words": 120,
-     "markingGuide": "4 marks: explains effects with reasons, e.g. filters and drill-down let each manager see their own region instead of searching tables; charts make trends and outliers visible at a glance; live or more frequent data supports quicker decisions; but managers need some training, and a cluttered dashboard can mislead. 3 marks: several effects with some explanation. 2 marks: describes features. 1 mark: a relevant point."
+     "markingGuide": "4 marks: explains effects with reasons, e.g. filters and drill-down let each manager see their own region instead of searching tables; charts make trends and outliers visible at a glance; live or more frequent data supports quicker decisions; but managers need some training, and a cluttered dashboard can mislead. 3 marks: several effects with some explanation. 2 marks: describes features. 1 mark: a relevant point.",
+     "criteria": [
+      [
+       "4",
+       "Explains several effects on the managers’ experience and understanding, with reasons, including at least one limitation"
+      ],
+      [
+       "3",
+       "Several effects with some explanation"
+      ],
+      [
+       "2",
+       "Describes dashboard features without explaining effects"
+      ],
+      [
+       "1",
+       "A relevant point"
+      ]
+     ],
+     "sample": "<p>An interactive dashboard would let each regional manager filter to their own region and drill down, instead of searching 20 pages for their figures, saving time. Charts make trends and outliers visible at a glance, so managers understand performance faster than reading tables. If the dashboard is connected to live or daily data, managers can act during the month rather than waiting for the report.</p><p>However, managers would need some training to use the filters, and a cluttered or poorly designed dashboard could mislead them, so it should show a few key measures clearly.</p>"
     }
    ],
    "stimulus": "<p>A retail chain currently emails each regional manager a 20-page PDF of sales tables at the end of every month.</p>"
@@ -3066,7 +3545,18 @@ window.EC_PRACTICE = [{
       "Velocity"
      ],
      "answer": 3,
-     "markingGuide": "D. Velocity is the speed at which data arrives. Volume is the amount, variety the range of types."
+     "markingGuide": "D. Velocity is the speed at which data arrives. Volume is the amount, variety the range of types.",
+     "criteria": [
+      [
+       "1",
+       "Correct option selected"
+      ],
+      [
+       "0",
+       "Any other option, or more than one"
+      ]
+     ],
+     "sample": "<p><b>D) Velocity</b></p><p>Velocity is the speed at which data arrives. Volume is the amount, variety the range of types.</p>"
     }
    ]
   },
@@ -3085,7 +3575,18 @@ window.EC_PRACTICE = [{
       "A warehouse holds only current data; a lake holds only past data"
      ],
      "answer": 1,
-     "markingGuide": "B. Warehouses store cleaned, structured, historical data ready for analysis; lakes store raw data of any type for later use. Either can be cloud or on premises."
+     "markingGuide": "B. Warehouses store cleaned, structured, historical data ready for analysis; lakes store raw data of any type for later use. Either can be cloud or on premises.",
+     "criteria": [
+      [
+       "1",
+       "Correct option selected"
+      ],
+      [
+       "0",
+       "Any other option, or more than one"
+      ]
+     ],
+     "sample": "<p><b>B) A warehouse holds cleaned, structured data; a lake holds raw data</b></p><p>Warehouses store cleaned, structured, historical data ready for analysis; lakes store raw data of any type for later use. Either can be cloud or on premises.</p>"
     }
    ]
   },
@@ -3104,7 +3605,18 @@ window.EC_PRACTICE = [{
       "Australian Bureau of Statistics (ABS)"
      ],
      "answer": 1,
-     "markingGuide": "B. The OAIC enforces the Privacy Act and the Australian Privacy Principles, including data breach notifications. The ACSC gives cyber security advice."
+     "markingGuide": "B. The OAIC enforces the Privacy Act and the Australian Privacy Principles, including data breach notifications. The ACSC gives cyber security advice.",
+     "criteria": [
+      [
+       "1",
+       "Correct option selected"
+      ],
+      [
+       "0",
+       "Any other option, or more than one"
+      ]
+     ],
+     "sample": "<p><b>B) Office of the Australian Information Commissioner (OAIC)</b></p><p>The OAIC enforces the Privacy Act and the Australian Privacy Principles, including data breach notifications. The ACSC gives cyber security advice.</p>"
     }
    ]
   },
@@ -3171,7 +3683,22 @@ window.EC_PRACTICE = [{
        1
       ]
      ],
-     "markingGuide": "1 consent and privacy, 2 bias, 3 copyright, 4 ICIP, 5 accuracy. 2 marks all five, 1 mark four."
+     "markingGuide": "1 consent and privacy, 2 bias, 3 copyright, 4 ICIP, 5 accuracy. 2 marks all five, 1 mark four.",
+     "criteria": [
+      [
+       "2",
+       "All 5 correct"
+      ],
+      [
+       "1",
+       "At least 4 of 5 correct"
+      ],
+      [
+       "0",
+       "Fewer correct"
+      ]
+     ],
+     "sample": "<ul><li>A fitness app shares users’ heart rate data with insurers without asking → <b>Consent and privacy</b></li><li>A hiring algorithm trained on past hires rates women lower → <b>Bias</b></li><li>A report reuses a photographer’s images without credit → <b>Copyright</b></li><li>A museum publishes sacred stories without the community’s agreement → <b>ICIP and Indigenous data sovereignty</b></li><li>Survey answers are typed in wrongly, so results are misleading → <b>Accuracy</b></li></ul><p>1 consent and privacy, 2 bias, 3 copyright, 4 ICIP, 5 accuracy. 2 marks all five, 1 mark four.</p>"
     }
    ]
   },
@@ -3184,7 +3711,26 @@ window.EC_PRACTICE = [{
      "syllabus": "DS2.1",
      "question": "Evaluate the social, ethical and legal issues of this loyalty app.",
      "words": 360,
-     "markingGuide": "8 marks: a judgement supported by several issues, each linked to stimulus details. Privacy and consent: in-store location tracking and purchase history are personal information under the Privacy Act; consent is buried in the terms, so it is not informed; the APPs require purpose limitation. Security: a large store of purchase and location data is a breach target; encryption and access controls are needed. Ethics: personalised prices could charge loyal customers more; inferences (pregnancy, health, finances) from purchases are sensitive; sharing with partner companies widens risk. Social: data-driven offers can be convenient and save money, but heavy discounting nudges spending and excludes people without smartphones. Legal: selling or sharing data needs disclosure; the OAIC handles complaints. 7–8: balanced evaluation with a clear judgement and at least three stimulus details. 5–6: several issues explained with some links. 3–4: describes issues generally. 1–2: lists issues."
+     "markingGuide": "8 marks: a judgement supported by several issues, each linked to stimulus details. Privacy and consent: in-store location tracking and purchase history are personal information under the Privacy Act; consent is buried in the terms, so it is not informed; the APPs require purpose limitation. Security: a large store of purchase and location data is a breach target; encryption and access controls are needed. Ethics: personalised prices could charge loyal customers more; inferences (pregnancy, health, finances) from purchases are sensitive; sharing with partner companies widens risk. Social: data-driven offers can be convenient and save money, but heavy discounting nudges spending and excludes people without smartphones. Legal: selling or sharing data needs disclosure; the OAIC handles complaints. 7–8: balanced evaluation with a clear judgement and at least three stimulus details. 5–6: several issues explained with some links. 3–4: describes issues generally. 1–2: lists issues.",
+     "criteria": [
+      [
+       "7–8",
+       "Balanced evaluation of social, ethical and legal issues, each linked to stimulus details, with a clear and supported judgement"
+      ],
+      [
+       "5–6",
+       "Explains several issues with some links to the stimulus; judgement may be implied"
+      ],
+      [
+       "3–4",
+       "Describes issues in general terms"
+      ],
+      [
+       "1–2",
+       "Lists or identifies some issues"
+      ]
+     ],
+     "sample": "<p>Legally, the app collects personal information (purchase history and in-store location) that is covered by the Privacy Act and the Australian Privacy Principles. Consent buried in the terms of agreement at installation is unlikely to be informed consent, and sharing data with unnamed “partner companies” must be clearly disclosed. Customers can complain to the OAIC.</p><p>Ethically, Bluetooth tracking of where people walk goes beyond what shoppers would expect, and purchase data can reveal sensitive information such as health or pregnancy. Personalised discounts could also become personalised prices, charging loyal customers more. A large store of location and purchase data is a target for hackers, so strong security is needed.</p><p>Socially, the app benefits customers through savings and convenience, but it encourages extra spending and excludes people without smartphones.</p><p>Overall, the benefits do not justify the current design. The app is only acceptable if location tracking is opt-in, partners are named, and consent is clear and separate from the terms of agreement.</p>"
     }
    ],
    "stimulus": "<p>A supermarket’s loyalty app records every purchase and uses Bluetooth beacons to track where shoppers walk in the store. It sends personalised discounts and shares data with “partner companies”. Consent is given by accepting the terms of agreement when the app is installed.</p>"
@@ -3192,6 +3738,10 @@ window.EC_PRACTICE = [{
  ]
 }
 ];
+
+;
+/* 2025 HSC answer sheet for the shared site (no NESA question text). */
+window.EC_PRACTICE = (window.EC_PRACTICE || []).concat([{"id": "hsc2025-sheet", "format": "ec-practice-set", "version": 1, "title": "2025 HSC answer sheet", "notice": "<p>Sit the real 2025 HSC Enterprise Computing exam with your answers saved and marked here. NESA’s online exam does not save your work, so:</p><ol><li>Open the official exam in another tab or window: <a href=\"https://fam.hsconline.nesa.nsw.edu.au/\" target=\"_blank\" rel=\"noopener\">fam.hsconline.nesa.nsw.edu.au</a> → 2025 HSC Enterprise Computing → START.</li><li>Read each question there, and answer it here under the same number. Options are listed here by position (first, second…), in the same order as the official exam.</li><li>Finish here to get the objective questions marked, then use the marking criteria and sample answers, or any AI, for the written ones.</li></ol><p>The questions belong to NESA and are not copied here. Criteria and sample answers are summaries written for practice, not the official marking guidelines. 80 marks, 2 hours.</p>", "timing": {"reading": 10, "working": 120}, "questions": [{"number": 1, "parts": [{"type": "mcq", "marks": 1, "syllabus": "DV1.1", "question": "<p>Question 1: the main purpose of data visualisation in enterprise systems.</p><p class=\"muted\">Choose the option in the same position as in the official exam (first, second, third or fourth).</p>", "options": ["First option", "Second option", "Third option", "Fourth option"], "answer": 0, "criteria": [["1", "Correct answer"], ["0", "Any other answer"]], "sample": "<p><b>To simplify complex data and highlight results</b> (option 1)</p><p>Visualisation turns large, complex datasets into a form people can read quickly and draws attention to significant results. It does not collect data, change storage or remove the need for analysis.</p>", "markingGuide": "Answer: option 1. Visualisation turns large, complex datasets into a form people can read quickly and draws attention to significant results. It does not collect data, change storage or remove the need for analysis."}]}, {"number": 2, "parts": [{"type": "mcq", "marks": 1, "syllabus": "DV1.12", "question": "<p>Question 2: which action introduces bias into a visualisation.</p><p class=\"muted\">Choose the option in the same position as in the official exam (first, second, third or fourth).</p>", "options": ["First option", "Second option", "Third option", "Fourth option"], "answer": 2, "criteria": [["1", "Correct answer"], ["0", "Any other answer"]], "sample": "<p><b>Using data points to support a specific viewpoint</b> (option 3)</p><p>Choosing data points to back a viewpoint you already hold (cherry-picking) skews what the audience sees. The other three are good practice that reduces bias.</p>", "markingGuide": "Answer: option 3. Choosing data points to back a viewpoint you already hold (cherry-picking) skews what the audience sees. The other three are good practice that reduces bias."}]}, {"number": 3, "parts": [{"type": "mcq", "marks": 1, "syllabus": "DS1.2", "question": "<p>Question 3: an example of ordinal data.</p><p class=\"muted\">Choose the option in the same position as in the official exam (first, second, third or fourth).</p>", "options": ["First option", "Second option", "Third option", "Fourth option"], "answer": 1, "criteria": [["1", "Correct answer"], ["0", "Any other answer"]], "sample": "<p><b>Movie ratings</b> (option 2)</p><p>Ordinal data has categories with a meaningful order but no fixed gap between them, such as star ratings. Eye colour is nominal; population and temperature are numeric.</p>", "markingGuide": "Answer: option 2. Ordinal data has categories with a meaningful order but no fixed gap between them, such as star ratings. Eye colour is nominal; population and temperature are numeric."}]}, {"number": 4, "parts": [{"type": "mcq", "marks": 1, "syllabus": "DS1.1", "question": "<p>Question 4: passive data collection about customer purchases.</p><p class=\"muted\">Choose the option in the same position as in the official exam (first, second, third or fourth).</p>", "options": ["First option", "Second option", "Third option", "Fourth option"], "answer": 3, "criteria": [["1", "Correct answer"], ["0", "Any other answer"]], "sample": "<p><b>Analysing customer purchase history</b> (option 4)</p><p>Passive collection gathers data as people go about their activity, without asking them anything, such as purchase records. Surveys, interviews and review requests are active.</p>", "markingGuide": "Answer: option 4. Passive collection gathers data as people go about their activity, without asking them anything, such as purchase records. Surveys, interviews and review requests are active."}]}, {"number": 5, "parts": [{"type": "mcq", "marks": 1, "syllabus": "DV1.9", "question": "<p>Question 5: maintaining data integrity in visualisations.</p><p class=\"muted\">Choose the option in the same position as in the official exam (first, second, third or fourth).</p>", "options": ["First option", "Second option", "Third option", "Fourth option"], "answer": 2, "criteria": [["1", "Correct answer"], ["0", "Any other answer"]], "sample": "<p><b>Validating ownership and source data</b> (option 3)</p><p>Integrity depends on data being accurate and trustworthy, so checking who owns it and where it came from protects it. Using graphs is not an integrity measure, unchecked outliers can mislead, and manipulation destroys integrity.</p>", "markingGuide": "Answer: option 3. Integrity depends on data being accurate and trustworthy, so checking who owns it and where it came from protects it. Using graphs is not an integrity measure, unchecked outliers can mislead, and manipulation destroys integrity."}]}, {"number": 6, "parts": [{"type": "mcq", "marks": 1, "syllabus": "DS2.1", "question": "<p>Question 6: an ethical issue when implementing a system that manages employee and customer data.</p><p class=\"muted\">Choose the option in the same position as in the official exam (first, second, third or fourth).</p>", "options": ["First option", "Second option", "Third option", "Fourth option"], "answer": 2, "criteria": [["1", "Correct answer"], ["0", "Any other answer"]], "sample": "<p><b>The effect of automated decisions on employees or customers</b> (option 3)</p><p>Ethical issues concern the effect on people, such as fairness of automated decisions. Cost, performance and compatibility are technical or financial issues.</p>", "markingGuide": "Answer: option 3. Ethical issues concern the effect on people, such as fairness of automated decisions. Cost, performance and compatibility are technical or financial issues."}]}, {"number": 7, "parts": [{"type": "mcq", "marks": 1, "syllabus": "EP4.5", "question": "<p>Question 7: testing by a large group of external testers before full release.</p><p class=\"muted\">Choose the option in the same position as in the official exam (first, second, third or fourth).</p>", "options": ["First option", "Second option", "Third option", "Fourth option"], "answer": 0, "criteria": [["1", "Correct answer"], ["0", "Any other answer"]], "sample": "<p><b>Beta</b> (option 1)</p><p>Beta testing releases a near-final version to a large group of external users before full release. Functional testing checks features against requirements, usually internally.</p>", "markingGuide": "Answer: option 1. Beta testing releases a near-final version to a large group of external users before full release. Functional testing checks features against requirements, usually internally."}]}, {"number": 8, "parts": [{"type": "mcq", "marks": 1, "syllabus": "IS1.42", "question": "<p>Question 8: how expert systems add efficiency in autonomous vehicles.</p><p class=\"muted\">Choose the option in the same position as in the official exam (first, second, third or fourth).</p>", "options": ["First option", "Second option", "Third option", "Fourth option"], "answer": 3, "criteria": [["1", "Correct answer"], ["0", "Any other answer"]], "sample": "<p><b>By providing pre-programmed responses to dynamic driving scenarios based on rules and logic</b> (option 4)</p><p>An expert system applies a knowledge base of rules through an inference engine, giving fast, consistent responses to driving situations. It does not store raw data or drive the motors directly.</p>", "markingGuide": "Answer: option 4. An expert system applies a knowledge base of rules through an inference engine, giving fast, consistent responses to driving situations. It does not store raw data or drive the motors directly."}]}, {"number": 9, "parts": [{"type": "mcq", "marks": 1, "syllabus": "IS2.5", "question": "<p>Question 9: the relationship between business analytic systems and expert systems.</p><p class=\"muted\">Choose the option in the same position as in the official exam (first, second, third or fourth).</p>", "options": ["First option", "Second option", "Third option", "Fourth option"], "answer": 3, "criteria": [["1", "Correct answer"], ["0", "Any other answer"]], "sample": "<p><b>Expert systems can be integrated into business analytic systems to provide personalised recommendations and problem-solving assistance.</b> (option 4)</p><p>Expert systems add rule-based reasoning to analytics, turning analysed data into recommendations. The two are not interchangeable, and the roles in the third option are reversed.</p>", "markingGuide": "Answer: option 4. Expert systems add rule-based reasoning to analytics, turning analysed data into recommendations. The two are not interchangeable, and the roles in the third option are reversed."}]}, {"number": 10, "parts": [{"type": "matrix", "marks": 1, "syllabus": "EP3.2", "question": "<p>Question 10: choose survey or interview for each of the three situations, in the order listed in the official exam.</p>", "rows": ["Situation 1", "Situation 2", "Situation 3"], "cols": ["Survey", "Interview"], "answer": [0, 0, 1], "criteria": [["1", "All three situations matched correctly"], ["0", "Otherwise"]], "sample": "<ul><li>Situation 1 (anonymous) → <b>Survey</b></li><li>Situation 2 (400 people) → <b>Survey</b></li><li>Situation 3 (one-on-one) → <b>Interview</b></li></ul><p>Surveys suit anonymous responses and large groups answering the same standardised questions; interviews suit in-depth one-on-one discussion.</p>", "markingGuide": "Surveys suit anonymous responses and large groups answering the same standardised questions; interviews suit in-depth one-on-one discussion."}]}, {"number": 11, "parts": [{"type": "multi", "marks": 2, "syllabus": "IS1.22", "question": "<p>Question 11: which statements about forward chaining are true.</p><p><b>Select all that apply</b>, using the statements in the order listed in the official exam.</p>", "options": ["Statement 1", "Statement 2", "Statement 3", "Statement 4", "Statement 5"], "answerSet": [0, 1, 3], "scoreBands": [[5, 2], [4, 1]], "criteria": [["2", "All 5 boxes correct (ticked or left blank)"], ["1", "4 of the 5 correct"], ["0", "Fewer correct"]], "sample": "<ul><li>Statement 1: true, tick it</li><li>Statement 2: true, tick it</li><li>Statement 3: false</li><li>Statement 4: true, tick it</li><li>Statement 5: false</li></ul><p>Forward chaining is data-driven: the inference engine starts from known facts and works forward. A system can use both forward and backward chaining. Backward chaining is the goal-driven method and suits a small number of possible conclusions; forward chaining is not the method chosen for many possible outcomes.</p>", "markingGuide": "Forward chaining is data-driven: the inference engine starts from known facts and works forward. A system can use both forward and backward chaining. Backward chaining is the goal-driven method and suits a small number of possible conclusions; forward chaining is not the method chosen for many possible outcomes."}]}, {"number": 12, "parts": [{"type": "multi", "marks": 2, "syllabus": "EP2.6", "question": "<p>Question 12: which statements about the subject selection system flowchart are true.</p><p><b>Select all that apply</b>, using the statements in the order listed in the official exam.</p>", "options": ["Statement 1", "Statement 2", "Statement 3", "Statement 4", "Statement 5"], "answerSet": [0, 4], "scoreBands": [[5, 2], [4, 1]], "criteria": [["2", "All 5 boxes correct (ticked or left blank)"], ["1", "4 of the 5 correct"], ["0", "Fewer correct"]], "sample": "<ul><li>Statement 1: true, tick it</li><li>Statement 2: false</li><li>Statement 3: false</li><li>Statement 4: false</li><li>Statement 5: true, tick it</li></ul><p>The flowchart has a Validate login process. Subject information uses the cloud symbol (online storage, not local), class lists are a printed document rather than a display, nothing updates login details, and student data is held in both the student database and the cloud subject information.</p>", "markingGuide": "The flowchart has a Validate login process. Subject information uses the cloud symbol (online storage, not local), class lists are a printed document rather than a display, nothing updates login details, and student data is held in both the student database and the cloud subject information."}]}, {"number": 13, "parts": [{"type": "dropdown", "marks": 3, "syllabus": "DS3.10", "body": "<table><tr><th>Field name</th><th>Data type</th><th>Data format</th><th>Field size</th><th>Description</th><th>Example</th></tr><tr><td>ProductID</td><td>[[0]]</td><td>[[1]]</td><td>6</td><td>Unique field of letters and digits</td><td>ABC123</td></tr><tr><td>Name</td><td>[[2]]</td><td>[[3]]</td><td>25</td><td>Name of product</td><td>Bitez Sweets</td></tr><tr><td>UnitPrice</td><td>[[4]]</td><td>$##.##</td><td>6</td><td>Single unit price</td><td>$11.98</td></tr><tr><td>StockQuantity</td><td>[[5]]</td><td>[[6]]</td><td>3</td><td>Quantity of product in stock</td><td>121</td></tr><tr><td>StockedItem</td><td>[[7]]</td><td></td><td>1</td><td>Item is sold in store (Y or N)</td><td>Y</td></tr></table>", "blanks": [["Boolean", "Currency", "Integer", "Text"], ["NNN", "XXX", "NNNXXX", "XXXNNN", "NNN...XXX", "XXX...XXX"], ["Boolean", "Currency", "Integer", "Text"], ["NNN", "XXX", "NNNXXX", "XXXNNN", "NNN...XXX", "XXX...XXX"], ["Boolean", "Currency", "Integer", "Text"], ["Boolean", "Currency", "Integer", "Text"], ["NNN", "XXX", "NNNXXX", "XXXNNN", "NNN...XXX", "XXX...XXX"], ["Boolean", "Currency", "Integer", "Text"]], "answer": [3, 3, 3, 5, 1, 2, 0, 0], "scoreBands": [[8, 3], [6, 2], [3, 1]], "criteria": [["3", "All eight drop-downs correct"], ["2", "At least six correct"], ["1", "At least three correct"], ["0", "Fewer than three"]], "sample": "<ul><li>ProductID: <b>Text</b>, <b>XXXNNN</b></li><li>Name: <b>Text</b>, <b>XXX...XXX</b></li><li>UnitPrice: <b>Currency</b></li><li>StockQuantity: <b>Integer</b>, <b>NNN</b></li><li>StockedItem: <b>Boolean</b></li></ul><p>ProductID is Text in the format XXXNNN (three letters then three digits, as in ABC123); Name is Text of any characters (XXX...XXX); UnitPrice is Currency; StockQuantity is an Integer of up to three digits (NNN); StockedItem is Boolean (Y or N).</p>", "markingGuide": "ProductID is Text in the format XXXNNN (three letters then three digits, as in ABC123); Name is Text of any characters (XXX...XXX); UnitPrice is Currency; StockQuantity is an Integer of up to three digits (NNN); StockedItem is Boolean (Y or N).", "question": "<p>Question 13: complete the data dictionary for the Products table (data type and format for each field).</p>"}]}, {"number": 14, "parts": [{"type": "short", "marks": 3, "syllabus": "DS1.4", "words": 45, "criteria": [["3", "Describes how memes can be analysed (e.g. counting and tracking their spread, analysing their sentiment) to give insight into the campaign’s effectiveness"], ["2", "Outlines how memes can be analysed"], ["1", "Some relevant information"]], "sample": "<p>The company can count how often memes about the campaign are shared, liked and remixed, and track how quickly they spread, using data mining or social listening tools. High, fast-growing engagement shows the campaign has reached people.</p><p>It can also analyse the content qualitatively, using sentiment analysis of the images, captions and comments, to see whether people are responding positively or mocking the brand.</p>", "markingGuide": "3: Describes how memes can be analysed (e.g. counting and tracking their spread, analysing their sentiment) to give insight into the campaign’s effectiveness | 2: Outlines how memes can be analysed | 1: Some relevant information", "question": "<p>Question 14: describe how memes on social media can be analysed to give insights into how effective an advertising campaign is. (3 marks)</p>"}]}, {"number": 15, "parts": [{"type": "dropdown", "marks": 2, "syllabus": "DS3.11", "part": "a", "body": "<table><tr><th>Item</th><th>Answer</th></tr><tr><td>Customers end of the Customers–Sales relationship</td><td>[[0]]</td></tr><tr><td>Sales end of the Customers–Sales relationship</td><td>[[1]]</td></tr><tr><td>Sales end of the Sales–Products relationship</td><td>[[2]]</td></tr><tr><td>Products end of the Sales–Products relationship</td><td>[[3]]</td></tr><tr><td>Customers.CustID</td><td>[[4]]</td></tr><tr><td>Sales.SaleID</td><td>[[5]]</td></tr><tr><td>Sales.CustID</td><td>[[6]]</td></tr><tr><td>Sales.ProdID</td><td>[[7]]</td></tr><tr><td>Products.ProdID</td><td>[[8]]</td></tr></table>", "blanks": [["1", "∞"], ["1", "∞"], ["1", "∞"], ["1", "∞"], ["PK", "FK"], ["PK", "FK"], ["PK", "FK"], ["PK", "FK"], ["PK", "FK"]], "answer": [0, 1, 1, 0, 0, 0, 1, 1, 0], "scoreBands": [[9, 2], [4, 1]], "criteria": [["2", "All drop-downs correct"], ["1", "At least four correct"], ["0", "Fewer"]], "sample": "<ul><li>Customers 1 — ∞ Sales</li><li>Sales ∞ — 1 Products</li><li>Customers.CustID <b>PK</b>, Sales.SaleID <b>PK</b>, Products.ProdID <b>PK</b></li><li>Sales.CustID <b>FK</b>, Sales.ProdID <b>FK</b></li></ul><p>One customer makes many sales and one product appears in many sales, so both relationships are one-to-many with ∞ at the Sales end. CustID, SaleID and ProdID are the primary keys of their own tables; CustID and ProdID in Sales are foreign keys.</p>", "markingGuide": "One customer makes many sales and one product appears in many sales, so both relationships are one-to-many with ∞ at the Sales end. CustID, SaleID and ProdID are the primary keys of their own tables; CustID and ProdID in Sales are foreign keys.", "question": "<p>Question 15 (a): identify the relationship type at each end of the two relationships, and whether each key field is a primary key (PK) or foreign key (FK). (2 marks)</p>"}, {"type": "sql", "marks": 4, "syllabus": "DS3.12", "part": "b", "sql": {"setup": "CREATE TABLE Customers (CustID TEXT, FirstN TEXT, LastN TEXT, Email TEXT, Phone TEXT);INSERT INTO Customers VALUES ('001','Abraham','Li','a.li@example.com','555-0101');INSERT INTO Customers VALUES ('002','Sophia','Smith','s.smith@example.com','555-0102');INSERT INTO Customers VALUES ('003','Priya','Singh','p.singh@example.com','555-0103');CREATE TABLE Products (ProdID TEXT, ProdN TEXT, Category TEXT, Price INTEGER, Quantity INTEGER);INSERT INTO Products VALUES ('LP1','Laptop','Electronics',1200,30);INSERT INTO Products VALUES ('OC31','Office Chair','Furniture',200,20);INSERT INTO Products VALUES ('HP43','Headphones','Electronics',150,100);INSERT INTO Products VALUES ('SP5','Smartphone','Electronics',800,50);CREATE TABLE Sales (SaleID INTEGER, CustID TEXT, ProdID TEXT, SaleDate TEXT, Quantity INTEGER, TotalCost INTEGER);INSERT INTO Sales VALUES (1,'001','LP1','17-01-2025',1,1200);INSERT INTO Sales VALUES (2,'002','SP5','16-01-2025',2,1600);INSERT INTO Sales VALUES (3,'001','HP43','15-01-2025',3,450);INSERT INTO Sales VALUES (4,'003','OC31','18-01-2025',1,200);INSERT INTO Sales VALUES (5,'003','OC31','14-01-2025',2,400);INSERT INTO Sales VALUES (6,'002','SP5','18-01-2025',1,800);", "tables": [], "solution": "SELECT Customers.LastN, Products.ProdN, Sales.SaleDate, Sales.TotalCost FROM Customers, Products, Sales WHERE Customers.CustID = Sales.CustID AND Products.ProdID = Sales.ProdID AND Products.Category = 'Electronics' AND Sales.SaleDate < '17-01-2025' ORDER BY Sales.SaleDate ASC;"}, "criteria": [["4", "A correct query: the four columns, both join conditions, the Electronics and date filters, sorted by date ascending"], ["3", "Addresses most of the requirements"], ["2", "Some understanding of the problem or of SQL"], ["1", "Some relevant information"]], "sample": "<pre>SELECT Customers.LastN, Products.ProdN, Sales.SaleDate, Sales.TotalCost\nFROM Customers, Products, Sales\nWHERE Customers.CustID = Sales.CustID\n  AND Products.ProdID = Sales.ProdID\n  AND Products.Category = 'Electronics'\n  AND Sales.SaleDate &lt; '17-01-2025'\nORDER BY Sales.SaleDate ASC;</pre><p>Output: Li, Headphones, 15-01-2025, 450; Smith, Smartphone, 16-01-2025, 1600. The 17 January laptop sale is not “prior to” the date, and the 14 January sale is Furniture.</p>", "markingGuide": "Join all three tables, filter Category = Electronics and SaleDate before 17-01-2025, ORDER BY SaleDate ASC.", "question": "<p>Question 15 (b): write an SQL query listing LastN, ProdN, SaleDate and TotalCost for Electronics sales before 17-01-2025, earliest first. (4 marks)</p>"}], "stimulus": "<p>The three tables from the official exam, so your query can run here.</p><p><b>Customers</b></p><table><tr><th>CustID</th><th>FirstN</th><th>LastN</th><th>Email</th><th>Phone</th></tr><tr><td>001</td><td>Abraham</td><td>Li</td><td>a.li@example.com</td><td>555-0101</td></tr><tr><td>002</td><td>Sophia</td><td>Smith</td><td>s.smith@example.com</td><td>555-0102</td></tr><tr><td>003</td><td>Priya</td><td>Singh</td><td>p.singh@example.com</td><td>555-0103</td></tr></table><p><b>Products</b></p><table><tr><th>ProdID</th><th>ProdN</th><th>Category</th><th>Price</th><th>Quantity</th></tr><tr><td>LP1</td><td>Laptop</td><td>Electronics</td><td>1200</td><td>30</td></tr><tr><td>OC31</td><td>Office Chair</td><td>Furniture</td><td>200</td><td>20</td></tr><tr><td>HP43</td><td>Headphones</td><td>Electronics</td><td>150</td><td>100</td></tr><tr><td>SP5</td><td>Smartphone</td><td>Electronics</td><td>800</td><td>50</td></tr></table><p><b>Sales</b></p><table><tr><th>SaleID</th><th>CustID</th><th>ProdID</th><th>SaleDate</th><th>Quantity</th><th>TotalCost</th></tr><tr><td>1</td><td>001</td><td>LP1</td><td>17-01-2025</td><td>1</td><td>1200</td></tr><tr><td>2</td><td>002</td><td>SP5</td><td>16-01-2025</td><td>2</td><td>1600</td></tr><tr><td>3</td><td>001</td><td>HP43</td><td>15-01-2025</td><td>3</td><td>450</td></tr><tr><td>4</td><td>003</td><td>OC31</td><td>18-01-2025</td><td>1</td><td>200</td></tr><tr><td>5</td><td>003</td><td>OC31</td><td>14-01-2025</td><td>2</td><td>400</td></tr><tr><td>6</td><td>002</td><td>SP5</td><td>18-01-2025</td><td>1</td><td>800</td></tr></table>"}, {"number": 16, "parts": [{"type": "short", "marks": 4, "syllabus": "IS1.32", "words": 100, "criteria": [["4", "Describes the hardware needed, including specific types of sensors"], ["3", "Outlines relevant hardware, including at least one sensor"], ["2", "Outlines one relevant device, or identifies relevant devices"], ["1", "Some relevant information"]], "sample": "<p>Cameras on the line capture images of each screen so defects can be found, and light sensors measure screen brightness during testing. Pressure sensors check that the LCD panel is attached to the motherboard with the right force, while vibration, proximity and temperature sensors on the machines detect problems before a breakdown.</p><p>Microcontrollers on each station read the sensors, and actuators such as robotic arms and conveyor motors act on the results. The data is sent over networking hardware (switches, routers, Wi-Fi and Ethernet cabling) to the server that processes it.</p>", "markingGuide": "4: Describes the hardware needed, including specific types of sensors | 3: Outlines relevant hardware, including at least one sensor | 2: Outlines one relevant device, or identifies relevant devices | 1: Some relevant information", "part": "a", "question": "<p>Question 16 (a): describe the hardware needed for an intelligent system on a TV manufacturing line, with specific types of sensors. (4 marks)</p>"}, {"type": "short", "marks": 4, "syllabus": "IS1.15", "words": 110, "criteria": [["4", "Explains benefits of an expert system in the manufacturing process, with reference to Industry 4.0"], ["3", "Outlines benefits of an expert system"], ["2", "Outlines one benefit or one feature of Industry 4.0"], ["1", "Identifies benefits or features of Industry 4.0, or some relevant information"]], "sample": "<p>Industry 4.0 connects machines, sensors and data so that production can monitor and adjust itself. An expert system fits this by applying rules from experienced engineers to the live sensor data. It can predict when a machine needs maintenance from vibration and temperature patterns, so repairs are scheduled before a breakdown, which reduces downtime.</p><p>It also improves quality control: the system checks every screen’s brightness and alignment against its rules and rejects faulty units consistently, without relying on manual inspection. This reduces waste and gives managers data to keep improving the process.</p>", "markingGuide": "4: Explains benefits of an expert system in the manufacturing process, with reference to Industry 4.0 | 3: Outlines benefits of an expert system | 2: Outlines one benefit or one feature of Industry 4.0 | 1: Identifies benefits or features of Industry 4.0, or some relevant information", "part": "b", "question": "<p>Question 16 (b): explain the potential benefits of introducing an expert system into the manufacturing process, with reference to Industry 4.0. (4 marks)</p>"}]}, {"number": 17, "parts": [{"type": "short", "marks": 3, "syllabus": "DV1.14", "words": 80, "criteria": [["3", "Explains how data warehousing could benefit the chain"], ["2", "Outlines a benefit, or identifies features of data warehousing"], ["1", "Identifies a feature of data warehousing"]], "sample": "<p>A cloud data warehouse brings the sales, geographic and demographic data from every branch into one cleaned, consistent store that can grow as the chain grows. Because all the history is in one place, the chain can compare branches and cities and see seasonal trends, for example which products sell best in winter in each region. This lets managers target marketing and stock decisions using evidence rather than guesswork.</p>", "markingGuide": "3: Explains how data warehousing could benefit the chain | 2: Outlines a benefit, or identifies features of data warehousing | 1: Identifies a feature of data warehousing", "part": "a", "question": "<p>Question 17 (a): explain how data warehousing could benefit a national coffee shop chain that collects sales, geographic and demographic data. (3 marks)</p>"}, {"type": "short", "marks": 3, "syllabus": "DV1.7", "words": 80, "criteria": [["3", "Explains how hardware advances affect processing of the warehouse data for the chain"], ["2", "Outlines how, or identifies relevant hardware advances"], ["1", "Some relevant information"]], "sample": "<p>Faster multi-core CPUs and GPUs in the warehouse servers can process millions of sales records quickly, so reports that once took hours are ready in minutes. More RAM and solid-state drives speed up reading and writing the large datasets. Fibre and faster networks let each branch send its data continuously, so managers can analyse near real-time sales and react quickly.</p>", "markingGuide": "3: Explains how hardware advances affect processing of the warehouse data for the chain | 2: Outlines how, or identifies relevant hardware advances | 1: Some relevant information", "part": "b", "question": "<p>Question 17 (b): explain how advances in hardware affect the processing of the chain’s data warehouse data. (3 marks)</p>"}]}, {"number": 18, "parts": [{"type": "spreadsheet", "marks": 4, "syllabus": "DS3.1", "spreadsheet": {"cells": {"A1": {"v": "Vehicle bookings", "bold": true}, "A2": {"v": "Vehicle", "bold": true, "align": "center"}, "B2": {"v": "Driver", "bold": true, "align": "center"}, "C2": {"v": "Vehicle size", "bold": true, "align": "center"}, "D2": {"v": "Daily rate", "bold": true, "align": "center"}, "E2": {"v": "No. of days", "bold": true, "align": "center"}, "F2": {"v": "Discount", "bold": true, "align": "center"}, "G2": {"v": "Rental cost", "bold": true, "align": "center"}, "A3": {"v": "1", "align": "center"}, "A4": {"v": "2", "align": "center"}, "A5": {"v": "3", "align": "center"}, "A6": {"v": "4", "align": "center"}, "A7": {"v": "5", "align": "center"}}, "colWidths": {"A": 80, "B": 120, "C": 110, "D": 100, "E": 100, "F": 100, "G": 110}, "tests": [{"name": "Medium for 8 days gets the discount", "set": {"B3": "Ava", "C3": "medium", "E3": "8"}, "expect": {"D3": 250, "G3": 1600}}, {"name": "Small for 3 days, no discount", "set": {"B4": "Ben", "C4": "small", "E4": "3"}, "expect": {"D4": 200, "G4": 600}}, {"name": "Large for exactly 7 days", "set": {"B5": "Cho", "C5": "large", "E5": "7"}, "expect": {"D5": 300, "G5": 1680}}]}, "criteria": [["4", "Completes the spreadsheet so the driver, vehicle size and days can be entered (or the size selected) and the daily rate, discount and rental cost are calculated automatically for every row"], ["3", "Addresses most of the requirements"], ["2", "Some correct information and an appropriate formula"], ["1", "Some relevant information"]], "sample": "<p>In row 3, then filled down to row 7:</p><pre>D3  =IF(C3=\"small\",200,IF(C3=\"medium\",250,IF(C3=\"large\",300,\"\")))\nF3  =IF(E3>=7,20%,0)\nG3  =D3*E3*(1-F3)</pre><p>B, C and E are left for the staff member to type in (C can be a drop-down list of small, medium and large). A rate table with VLOOKUP also works. “At least 7 days” needs &gt;=, not &gt;.</p>", "markingGuide": "Daily rate from size, 20% discount when days >= 7, cost = rate × days less discount, all automatic.", "question": "<p>Question 18: complete the car rental bookings sheet so the daily rate (small $200, medium $250, large $300), a 20% discount for bookings of at least 7 days, and the rental cost are worked out automatically. (4 marks)</p>"}]}, {"number": 19, "parts": [{"type": "draw", "marks": 3, "syllabus": "EP3.8", "criteria": [["3", "A suitable registration interface with every feature labelled"], ["2", "An interface with some relevant features"], ["1", "Some relevant information"]], "sample": "<p>A screen titled “Create your account” with:</p><ul><li>Text boxes for first name, last name and email address, each with a label</li><li>A date picker (or day, month, year drop-downs) for date of birth, so the format is always valid</li><li>Radio buttons for Teacher / Student, because exactly one must be chosen</li><li>A “Register” button, plus a “Cancel” link</li><li>Annotations naming each control and why it was chosen; required fields marked with *</li></ul>", "markingGuide": "3: A suitable registration interface with every feature labelled | 2: An interface with some relevant features | 1: Some relevant information", "question": "<p>Question 19: design a labelled user interface for registering a subscription account (name, email, date of birth, teacher or student). (3 marks)</p>"}]}, {"number": 20, "parts": [{"type": "short", "marks": 3, "syllabus": "DV2.1", "words": 70, "criteria": [["3", "Describes spreadsheet features that help the biologist understand the datasets visually"], ["2", "Outlines one feature, or identifies several"], ["1", "Some relevant information"]], "sample": "<p>Line charts of water temperature and pollution over time let the biologist see trends at a glance, and a trendline can project them forward to predict fish numbers. A scatter chart of temperature against population shows whether the two are related.</p><p>Conditional formatting colours cells, such as red where pollution passes a safe level or a colour scale for food availability, so problem periods stand out without reading every number.</p>", "markingGuide": "3: Describes spreadsheet features that help the biologist understand the datasets visually | 2: Outlines one feature, or identifies several | 1: Some relevant information", "question": "<p>Question 20: describe spreadsheet features that help a marine biologist understand data on water temperature, pollution and food availability visually, to predict fish population trends. (3 marks)</p>"}]}, {"number": 21, "parts": [{"type": "draw", "marks": 5, "syllabus": "EP2.6", "criteria": [["5", "A substantially correct DFD with all relevant external entities, processes, data store and labelled data flows"], ["4", "Addresses most aspects of the system"], ["3", "Includes some aspects of the system"], ["2", "Shows some understanding, or identifies the components of a DFD"], ["1", "Some relevant information"]], "sample": "<p>A level 1 DFD with two external entities (Customer, Bank), one data store (Seat bookings) and these processes, each flow labelled:</p><ol><li><b>Select seats</b>: number of tickets in from Customer; available seats read from Seat bookings and shown to Customer; seat selection back from Customer</li><li><b>Hold seats</b>: held seats written to Seat bookings for five minutes</li><li><b>Process payment</b>: total cost to Customer; card details in from Customer; payment request to Bank; payment confirmation back from Bank</li><li><b>Issue ticket</b>: booking confirmed written to Seat bookings; digital ticket sent to Customer</li></ol><p>Entities never connect straight to the data store, every flow is labelled with the data it carries, and the arrows show direction.</p>", "markingGuide": "5: A substantially correct DFD with all relevant external entities, processes, data store and labelled data flows | 4: Addresses most aspects of the system | 3: Includes some aspects of the system | 2: Shows some understanding, or identifies the components of a DFD | 1: Some relevant information", "question": "<p>Question 21: construct a data flow diagram for an online concert ticket booking system (seat selection, five-minute hold, card payment through the bank, digital ticket, seat booking database). (5 marks)</p>"}]}, {"number": 22, "parts": [{"type": "short", "marks": 2, "syllabus": "EP2.2", "words": 25, "criteria": [["2", "Outlines a suitable project management tool and how it helps"], ["1", "Identifies a suitable tool or a feature of project management"]], "sample": "<p>A Gantt chart shows each task as a bar on a timeline, with dependencies and who is responsible, so the team can track progress against deadlines.</p>", "markingGuide": "2: Outlines a suitable project management tool and how it helps | 1: Identifies a suitable tool or a feature of project management", "part": "a", "question": "<p>Question 22 (a): outline a tool the project team can use to manage the project. (2 marks)</p>"}, {"type": "short", "marks": 3, "syllabus": "DV4.3", "words": 100, "criteria": [["3", "Justifies two methods of maintaining the security of the data"], ["2", "Outlines two methods"], ["1", "Identifies one method"]], "sample": "<p>Role-based access control gives each staff member access only to the data their job needs: a claims officer sees the claims they handle, while only supervisors can see employee records and finalise claims. This limits the damage if an account is misused.</p><p>Encryption of the data in transit and at rest means that if the cloud server is breached, or traffic between staff and the server is intercepted, the personal and claims information cannot be read without the key.</p>", "markingGuide": "3: Justifies two methods of maintaining the security of the data | 2: Outlines two methods | 1: Identifies one method", "part": "b", "question": "<p>Question 22 (b): justify two methods an insurance company can use to keep personal, claims and contract data secure on a cloud server with local backups. (3 marks)</p>"}]}, {"number": 23, "parts": [{"type": "short", "marks": 3, "syllabus": "DV1.13", "words": 80, "criteria": [["3", "Describes how software advances have empowered data analytics, referring to the scenario"], ["2", "Outlines one software advance"], ["1", "Identifies advances or gives some relevant information"]], "sample": "<p>Modern dashboard software connects directly to live data, so the company’s performance figures update in real time instead of being copied into static spreadsheets. It processes large datasets quickly and turns them into charts, heat maps and tables automatically, so managers can filter by department or month and drill down without programming. Patterns, such as the mid-year peak in productivity, become visible that would have been missed in rows of numbers.</p>", "markingGuide": "3: Describes how software advances have empowered data analytics, referring to the scenario | 2: Outlines one software advance | 1: Identifies advances or gives some relevant information", "part": "a", "question": "<p>Question 23 (a): describe how advances in software have empowered data analytics, referring to the company that moved employee performance data from spreadsheets to a real-time dashboard. (3 marks)</p>"}, {"type": "short", "marks": 4, "syllabus": "DV3.2", "words": 100, "criteria": [["4", "Explains how the dashboard’s visualisations affect user experience and understanding of productivity"], ["3", "Describes how they could affect user experience and understanding"], ["2", "Outlines how one feature affects user experience or understanding"], ["1", "Some relevant information"]], "sample": "<p>The bar chart lets managers compare departments at a glance, showing that IT and Finance score highest and HR lowest. The line graph shows productivity rising to a peak in July and falling after, so managers can investigate the decline. The heat map uses shading to make attendance problems stand out by department and month without reading every figure.</p><p>Because the dashboard updates in real time, managers act on current data rather than old reports. However, the blue shades are similar and some charts lack units or a clear scale, which could make values harder to read and lead to misinterpretation.</p>", "markingGuide": "4: Explains how the dashboard’s visualisations affect user experience and understanding of productivity | 3: Describes how they could affect user experience and understanding | 2: Outlines how one feature affects user experience or understanding | 1: Some relevant information", "part": "b", "question": "<p>Question 23 (b): explain how the dashboard’s visualisations (department bar chart, monthly productivity line graph, attendance heat map and top-employees table) could affect the managers’ user experience and understanding of productivity. (4 marks)</p>"}], "stimulus": "<p>Look at the data dashboard in the official exam while you answer.</p>"}, {"number": 24, "parts": [{"type": "short", "marks": 5, "syllabus": "EP1.6", "words": 120, "criteria": [["5", "Explains advantages and disadvantages of both freelance work and offshore development for packaging design"], ["4", "Outlines advantages and disadvantages of both"], ["3", "Outlines some features of freelance work and/or offshore development"], ["2", "Identifies some features"], ["1", "Some relevant information"]], "sample": "<p>Freelancers give the company flexibility: it can hire a specialist packaging designer just for a product launch and pay only for that work, avoiding the cost of permanent staff. However, freelancers may not understand the brand or follow the company’s processes, so designs can be inconsistent and need more review.</p><p>Offshore development gives access to a global pool of designers and lower labour costs, and work can continue around the clock across time zones. The disadvantages are communication delays from time zones and language, less direct control over quality, and the risk to intellectual property when designs are shared overseas.</p><p>Overall, both lower costs and add expertise, but the company needs clear briefs and contracts to manage quality and protect its designs.</p>", "markingGuide": "5: Explains advantages and disadvantages of both freelance work and offshore development for packaging design | 4: Outlines advantages and disadvantages of both | 3: Outlines some features of freelance work and/or offshore development | 2: Identifies some features | 1: Some relevant information", "question": "<p>Question 24: explain the advantages and disadvantages for a food company of using freelance work and offshore development for its packaging design. (5 marks)</p>"}]}, {"number": 25, "parts": [{"type": "short", "marks": 8, "syllabus": "IS1.2", "words": 200, "criteria": [["8", "Explains how intelligent systems assist each category of decision-making (structured, semi-structured, unstructured), supported by relevant examples from the stimulus"], ["6–7", "Describes how they assist the categories, with some examples"], ["4–5", "Shows understanding of how intelligent systems assist decisions, referring to one or more examples"], ["2–3", "Identifies features of decision support or intelligent systems"], ["1", "Some relevant information"]], "sample": "<p>Intelligent systems speed up and improve decisions at every level, but how much they decide depends on how structured the decision is.</p><p>Structured decisions follow fixed rules, so the system can make them itself. In finance, a loan application system checks income, employment and credit score against set criteria and recommends approval instantly and consistently. Transport route optimisation is similar: the system calculates the fastest route from live traffic data.</p><p>Semi-structured decisions combine analysis with human judgement. Fraud prevention systems analyse transaction data, flag unusual patterns and rank them by risk, but an analyst decides whether each case is fraud. In HR recruitment, the system screens applications and recommends candidates, while managers interview and choose.</p><p>Unstructured decisions have no set procedure and rely on expert judgement. In healthcare diagnosis of complex cases, the system compares patient data with medical knowledge and similar cases to suggest possible diagnoses, but the doctor makes the final call. Workforce planning and transport demand forecasting are similar: the system predicts future needs, and leaders decide what to do about them.</p><p>So intelligent systems can automate structured decisions, support semi-structured ones, and inform unstructured ones, while people remain responsible where judgement is required.</p>", "markingGuide": "8: Explains how intelligent systems assist each category of decision-making (structured, semi-structured, unstructured), supported by relevant examples from the stimulus | 6–7: Describes how they assist the categories, with some examples | 4–5: Shows understanding of how intelligent systems assist decisions, referring to one or more examples | 2–3: Identifies features of decision support or intelligent systems | 1: Some relevant information", "question": "<p>Question 25: explain how intelligent systems can assist the different categories of decision-making, with examples from the slideshow on decision support system applications (finance, healthcare, human resources, transportation). (8 marks)</p>"}], "stimulus": "<p>View the slideshow in the official exam while you answer.</p>"}]}]);
 
 ;
 /* Shared helpers. Everything lives inside one closure; build.py wraps the files. */
@@ -4939,7 +5489,8 @@ var RTE = (function () {
   }
   function textToHtml(s) {
     s = String(s || '');
-    if (/^\s*</.test(s)) return s;
+    // saved answers are HTML; the light editor can save text before its first <p> ("abc<p></p>"), which is still HTML
+    if (/^\s*</.test(s) || /<\/?(p|br|div|ul|ol|li|b|strong|i|em|u|table|tr|td|sub|sup|span)\b[^>]*>/i.test(s)) return s;
     return s.split(/\n{2,}|\r\n\r\n/).map(function (p) { return '<p>' + U.esc(p).replace(/\n/g, '<br>') + '</p>'; }).join('') || '<p></p>';
   }
   // Light editor used when CKEditor can't load (offline, or inside a Notion page): the same toolbar and skin, run by the browser's own editing commands.
@@ -4954,7 +5505,7 @@ var RTE = (function () {
   function fallback(host, opts) {
     var h = U.h, ro = !!opts.readOnly, spell = false, saved = null;
     var ed = h('div', { class: 'cke_wysiwyg_div cke_reset cke_editable cke_editable_themed cke_contents_ltr cke_show_borders', contenteditable: ro ? 'false' : 'true', role: 'textbox', 'aria-multiline': 'true', 'aria-label': 'Your answer', spellcheck: 'false', tabindex: '0' });
-    ed.innerHTML = textToHtml(opts.value) || '<p><br></p>';
+    ed.innerHTML = String(opts.value || '').trim() ? textToHtml(opts.value) : '<p><br></p>';
     var btns = [], note = h('div', { class: 'cke-lite-note', 'aria-live': 'polite' });
     var group = h('span', { class: 'cke_toolgroup', role: 'presentation' });
     LITE.forEach(function (b) {
@@ -6199,6 +6750,7 @@ var Shell = (function () {
         var ctl = Items.render(it, ctx);
         wrap.appendChild(ctl.el);
         var mb = markBox(it); if (mb) wrap.appendChild(mb);
+        if (at.phase >= 4 && set.kind !== 'paper') { var gb = guideBox(it); if (gb) wrap.appendChild(gb); }
         itemsBox.appendChild(wrap);
         itemCtls.push(ctl);
       });
@@ -6222,6 +6774,21 @@ var Shell = (function () {
       U.$$('.item-group-column-inner, .item-group-one-col', content).forEach(function (c) { c.scrollTop = 0; });
     }
     function markNav() { renderNav(); }
+    // review only: the marking criteria and sample answer under the student's answer (practice sets and blocks, never trial papers)
+    function guideBox(it) {
+      if (!it.criteria && !it.sample && !it.markingGuide) return null;
+      var box = h('div', { class: 'guidebox' }, h('p', { class: 'gb-lab', text: 'Marking criteria' }));
+      if (it.criteria) {
+        var tb = h('tbody'); it.criteria.forEach(function (c) { var td = h('td'); td.innerHTML = c[1]; tb.appendChild(h('tr', null, h('td', { class: 'gb-m', text: c[0] }), td)); });
+        box.appendChild(h('table', { class: 'gb-crit' }, h('thead', null, h('tr', null, h('th', { text: 'Marks' }), h('th', { text: 'Criteria' }))), tb));
+      } else box.appendChild(h('p', { text: U.plain(it.markingGuide) }));
+      if (it.sample) {
+        var objective = ['mcq', 'dropdown', 'order', 'label', 'multi', 'matrix', 'match'].indexOf(it.type) >= 0;
+        var sb = h('div', { class: 'gb-sample' }); sb.innerHTML = it.sample;
+        box.appendChild(h('p', { class: 'gb-lab', text: objective ? 'Answer' : 'Sample answer' })); box.appendChild(sb);
+      }
+      return box;
+    }
     function markBox(it) {
       var m = marks && marks.questions && (marks.questions[it.id]);
       if (!m) return null;
@@ -6623,6 +7190,8 @@ var Kit = (function () {
         if (it.type === 'sql' && it.sql && it.sql.setup) lines.push('Database: ' + it.sql.setup.replace(/\s+/g, ' ').slice(0, 1500));
         if (it.type === 'sheet' && it.sheet && it.sheet.cells) lines.push('Starting sheet: ' + Object.keys(it.sheet.cells).slice(0, 80).map(function (k) { var c = it.sheet.cells[k]; return k + '=' + (c && c.v != null ? c.v : ''); }).join(', '));
         if (it.markingGuide) lines.push('Marking guide: ' + U.plain(it.markingGuide));
+        if (it.criteria) lines.push('Marking criteria: ' + it.criteria.map(function (c) { return c[0] + ' marks: ' + U.plain(c[1]); }).join(' | '));
+        if (it.sample && ['text', 'sql', 'draw'].indexOf(it.type) >= 0) lines.push('Sample answer: ' + U.plain(it.sample));
         var a = at.answers[it.id];
         lines.push('My answer: ' + answerText(it, a));
       });
@@ -6701,12 +7270,20 @@ var Kit = (function () {
           it.type = type; it.tokens = (p.tokens || []).map(cleanHtml); it.zones = p.zones || it.tokens.length; it.reuse = !!p.reuse;
           if (type === 'label') it.diagram = cleanHtml(p.diagram || '');
           if (Array.isArray(p.answer)) it.answerZones = p.answer;
+        } else if (type === 'multi' || type === 'select all' || type === 'checkbox') {
+          it.type = 'multi'; it.options = (p.options || []).map(cleanHtml);
+          if (Array.isArray(p.answerSet)) it.answerSet = p.answerSet; else if (Array.isArray(p.answer)) it.answerSet = p.answer.map(Number);
+        } else if (type === 'matrix') {
+          it.type = 'matrix'; it.rows = (p.rows || []).map(cleanHtml); it.cols = (p.cols || []).map(String);
+          if (Array.isArray(p.answer)) it.answerRows = p.answer.map(Number);
         } else if (type === 'diagram' || type === 'draw' || type === 'drawing') {
           it.type = 'draw';
         } else {
           it.type = 'text'; it.wordLimit = Math.max(10, Math.round(+p.words || it.marks * 25));
         }
         if (Array.isArray(p.scoreBands)) it.scoreBands = p.scoreBands;
+        if (Array.isArray(p.criteria)) it.criteria = p.criteria.map(function (c) { return [String(c[0]), cleanHtml(String(c[1]))]; });
+        if (p.sample) it.sample = cleanHtml(String(p.sample));
         marks += it.marks;
         g.items.push(it);
       });
@@ -8515,7 +9092,7 @@ var PAPER_BANDS = {"indep2026":{"1":{"stim":[],"items":[{"stem":[[2,0.2871,0.329
       var label = (String(q.label || '').match(/\d+/) || [String(i + 1)])[0];
       var item = { id: q.id, type: q.type === 'short' ? 'text' : q.type, marks: q.marks || 0, question: q.prompt || q.question || '', wordLimit: q.wordLimit, syllabus: q.syllabus || null, markingGuide: q.markingGuide || '' };
       ['options', 'answer', 'answerSet', 'answerRows', 'answerMap', 'scoreBands', 'rows', 'cols', 'letters', 'optionLayout', 'body', 'blanks', 'answerBlanks', 'tokens', 'zones', 'reuse', 'diagram', 'answerZones'].forEach(function (k) { if (q[k] != null) item[k] = q[k]; });
-      if (q.sheet) item.sheet = q.sheet; if (q.sql) item.sql = q.sql;
+      if (q.sheet) item.sheet = q.sheet; if (q.sql) item.sql = q.sql; if (q.criteria) item.criteria = q.criteria; if (q.sample) item.sample = q.sample;
       var hasTool = item.type === 'sheet' || item.type === 'sql' || item.type === 'draw';
       return { id: 'g-' + q.id, label: label, stimulus: q.stimulus || '', layout: q.stimulus ? (hasTool ? 3 : 1) : 0, items: [item], part: q.part };
     });
@@ -8576,9 +9153,10 @@ var PAPER_BANDS = {"indep2026":{"1":{"stim":[],"items":[{"stem":[[2,0.2871,0.329
     var going = Object.keys(sets).filter(function (id) { var a = loadAttempt(id); return a && a.phase >= 2 && a.phase < 4; });
     if (going.length) main.appendChild(section('Continue where you left off', null, h('div', { class: 'cards' }, going.map(function (id) { return setCard(sets[id], true); }))));
     if (PERSONAL) {
+      if (order.practice.length) main.appendChild(section('Past HSC exam', 'The 2025 HSC paper in the exam layout. Your answers save as you go, and you can come back to it later.', h('div', { class: 'cards' }, order.practice.map(function (id) { return setCard(sets[id]); }))));
       main.appendChild(section('Study blocks', 'Short timed sets from your weak areas. Finish one, then ask Claude in chat to mark it.', order.blocks.length ? h('div', { class: 'cards' }, order.blocks.slice().reverse().map(function (id) { return setCard(sets[id]); })) : h('p', { class: 'empty', text: order.loadError ? 'Study blocks could not be loaded. Reload the page to try again.' : 'No study blocks yet.' })));
     } else {
-      main.appendChild(section('Practice sets', 'A sample set that uses every answer tool in the exam, a peer revision set across all four modules, a set of the newer question types, and the six Enterprise School practice sets, one for each revision lesson (about 20 minutes each). Make more with the AI kit below.', h('div', { class: 'cards' }, order.practice.map(function (id) { return setCard(sets[id]); }))));
+      main.appendChild(section('Practice sets', 'The 2025 HSC answer sheet (sit the real HSC in NESA’s online exam, and save and mark your answers here), a sample set that uses every answer tool, a peer revision set, a set of the newer question types, and the six Enterprise School practice sets, one for each revision lesson. Make more with the AI kit below.', h('div', { class: 'cards' }, order.practice.map(function (id) { return setCard(sets[id]); }))));
     }
     if (order.custom.length) main.appendChild(section('Your AI-made sets', null, h('div', { class: 'cards' }, order.custom.slice().reverse().map(function (id) { return setCard(sets[id]); }))));
     var bundledAll = order.papers.every(function (id) { return window.EC_BUNDLED_PDFS && window.EC_BUNDLED_PDFS[sets[id].paper.id]; });
@@ -8799,6 +9377,23 @@ var PAPER_BANDS = {"indep2026":{"1":{"stim":[],"items":[{"stem":[[2,0.2871,0.329
       set.groups.forEach(function (g) { g.items.forEach(function (it) { var m = mk.questions[it.id]; tb.appendChild(h('tr', null, h('td', { text: g.label + (it.part ? ' (' + it.part + ')' : '') }), h('td', { class: 'num', text: m ? fmtN(m.score) + '/' + fmtN(m.outOf != null ? m.outOf : it.marks) : '– /' + it.marks }), h('td', { class: 'fb', text: m ? (m.feedback || '') : 'Not marked yet' }))); }); });
       tbl.appendChild(tb); main.appendChild(h('div', { class: 'table-wrap' }, tbl));
     }
+    if (at.phase >= 4 && set.kind !== 'paper') main.appendChild(answerGuide(set));
+  }
+  // marking criteria and sample answers, shown once the attempt is finished (never for trial papers)
+  function answerGuide(set) {
+    var any = false, sec = h('section', { class: 'sec ans-guide' }, h('h2', { text: 'Marking criteria and sample answers' }),
+      h('p', { class: 'muted', text: 'Use these to mark your written answers yourself, or to check why an answer was right or wrong.' }));
+    set.groups.forEach(function (g) { g.items.forEach(function (it) {
+      if (!it.criteria && !it.sample && !it.markingGuide) return; any = true;
+      var d = h('details', { class: 'ag-q' }, h('summary', { text: 'Question ' + g.label + (it.part ? ' (' + it.part + ')' : '') + ' · ' + it.marks + ' mark' + (it.marks === 1 ? '' : 's') }));
+      if (it.criteria) {
+        var tb = h('tbody'); it.criteria.forEach(function (c) { var td = h('td'); td.innerHTML = c[1]; tb.appendChild(h('tr', null, h('td', { class: 'num', text: c[0] }), td)); });
+        d.appendChild(h('div', { class: 'table-wrap' }, h('table', { class: 'res-table ag-crit' }, h('thead', null, h('tr', null, h('th', { text: 'Marks' }), h('th', { text: 'Criteria' }))), tb)));
+      } else if (it.markingGuide) d.appendChild(h('p', { text: U.plain(it.markingGuide) }));
+      if (it.sample) { var sb = h('div', { class: 'ag-sample' }); sb.innerHTML = it.sample; d.appendChild(h('p', { class: 'ag-lab', text: ['mcq', 'dropdown', 'order', 'label', 'multi', 'matrix', 'match'].indexOf(it.type) >= 0 ? 'Answer' : 'Sample answer' })); d.appendChild(sb); }
+      sec.appendChild(d);
+    }); });
+    return any ? sec : h('span');
   }
   function markingPanel(set, at, mk) {
     var box = h('section', { class: 'sec mark-panel' });
