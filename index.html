@@ -6391,7 +6391,7 @@ var RTE = (function () {
   }
   function create(host, opts) {
     var area = U.h('textarea', { id: U.uid('answer'), name: 'answer', class: 'answer', placeholder: 'Write your response here', spellcheck: 'false' });
-    area.value = textToHtml(opts.value);
+    area.value = String(opts.value || '').trim() ? textToHtml(opts.value) : '';
     host.appendChild(area);
     var api = { editor: null, pendingRO: !!opts.readOnly, spell: false };
     var ctl = {
@@ -7975,10 +7975,13 @@ var Kit = (function () {
     lines.push('');
     lines.push('Reply with ONE JSON object in a ```json code block, after any explanation, in this shape:');
     lines.push('{ "format": "ec-marks", "version": 1, "setId": "' + set.id + '", "questions": { "<id>": { "score": number, "outOf": number, "feedback": "dot points as plain text" } }, "summary": "2-3 sentences", "weakAreas": [ { "area": string, "status": "improving" | "still weak", "next": string } ] }');
-    lines.push('Use exactly the ids in square brackets below.');
+    var groups = o.groups || set.groups, idList = [];
+    groups.forEach(function (g) { g.items.forEach(function (it) { idList.push(it.id); }); });
+    if (o.part) lines.push('This is part ' + o.part[0] + ' of ' + o.part[1] + ' of the set: mark only the questions below (questions ' + groups[0].label + ' to ' + groups[groups.length - 1].label + ').');
+    lines.push('Use exactly the ids in square brackets below. Mark every one of these ' + idList.length + ' ids, all the way to [' + idList[idList.length - 1] + ']: ' + idList.join(', ') + '. Keep the feedback short so you reach the end.');
     lines.push('');
     lines.push('=== QUESTIONS AND MY ANSWERS ===');
-    set.groups.forEach(function (g) {
+    groups.forEach(function (g) {
       if (g.stimulus) { lines.push(''); lines.push('Stimulus for question ' + g.label + ':'); lines.push(U.plain(g.stimulus)); }
       if (pt && pt.groups && pt.groups[g.id]) { lines.push(''); lines.push('Stimulus for question ' + g.label + ' (from the paper):'); lines.push(pt.groups[g.id]); }
       g.items.forEach(function (it) {
@@ -10251,24 +10254,39 @@ var PAPER_BANDS = {"indep2026":{"1":{"stim":[],"items":[{"stem":[[2,0.2871,0.329
   }
   function aiMarking(set, at) {
     var w = Kit.weakAreas(allRecords(), 6), weak = w.topics.concat(w.types);
-    var prompt = null, finished = at.phase >= 4;
+    var prompts = null, finished = at.phase >= 4;
     var msg = h('p', { class: 'msg', role: 'status' });
     var note = h('p', { class: 'muted small' });
-    var copyBtn = h('button', { type: 'button', class: 'btn primary', disabled: true, onclick: function () { if (!prompt) return; U.copyText(prompt, function () { msg.textContent = 'Copied (' + Math.round(prompt.length / 1000) + 'k characters). Now paste it into any AI.'; }, function () { showText('Everything for marking', prompt); }); } }, 'Preparing…');
-    var showBtn = h('button', { type: 'button', class: 'btn ghost', disabled: true, onclick: function () { if (prompt) showText('Everything for marking', prompt); } }, 'Show it');
+    // long sets are copied in parts so the AI doesn't run out of room before the last questions
+    var totalMk = 0; set.groups.forEach(function (g) { g.items.forEach(function (it) { totalMk += it.marks || 0; }); });
+    var parts = [set.groups];
+    if (set.groups.length > 14 && totalMk > 40) {
+      var run = 0, cut = set.groups.length - 1;
+      for (var gi = 0; gi < set.groups.length; gi++) { set.groups[gi].items.forEach(function (it) { run += it.marks || 0; }); if (run >= totalMk / 2) { cut = gi + 1; break; } }
+      parts = [set.groups.slice(0, cut), set.groups.slice(cut)];
+    }
+    var btnRow = h('div', { class: 'row' }), copyBtns = [];
+    parts.forEach(function (gs, i) {
+      var label = parts.length > 1 ? 'Copy part ' + (i + 1) + ' (questions ' + gs[0].label + ' to ' + gs[gs.length - 1].label + ')' : 'Copy everything for marking';
+      var b = h('button', { type: 'button', class: 'btn' + (i === 0 ? ' primary' : ''), disabled: true, onclick: function () { if (!prompts) return; var t = prompts[i]; U.copyText(t, function () { msg.textContent = 'Copied ' + (parts.length > 1 ? 'part ' + (i + 1) + ' ' : '') + '(' + Math.round(t.length / 1000) + 'k characters). Now paste it into any AI.'; }, function () { showText('For marking', t); }); } }, 'Preparing…');
+      b.dataset.label = label; copyBtns.push(b); btnRow.appendChild(b);
+    });
+    var showBtn = h('button', { type: 'button', class: 'btn ghost', disabled: true, onclick: function () { if (prompts) showText('Everything for marking', prompts.join('\n\n==========\n\n')); } }, 'Show it');
+    btnRow.appendChild(showBtn);
+    var copyBtn = copyBtns[0];
     var nItems = 0, nGuides = 0; set.groups.forEach(function (g) { g.items.forEach(function (it) { nItems++; if (it.markingGuide) nGuides++; }); });
     var hasGuides = nItems > 0 && nGuides / nItems >= 0.5;
     // the paper's marking guidelines are only read once the attempt is finished, so they can't spoil a trial
     var paperP = set.kind === 'paper' ? Papers.markingText(set, { guidelines: finished }).catch(function () { return null; }) : Promise.resolve(null);
     paperP.then(function (pt) {
-      prompt = Kit.markingPrompt(set, at, { weak: weak, paperText: pt });
-      copyBtn.disabled = false; showBtn.disabled = false; copyBtn.textContent = 'Copy everything for marking';
-      var parts = ['your answers'];
-      if (pt && pt.hasText) parts.push('the questions from your PDF');
-      if (pt && pt.guidelines) parts.push('the paper\'s marking guidelines');
-      else if (hasGuides) parts.push('the marking guide');
-      if (weak.length) parts.push('your weak areas');
-      var txt = 'One copy holds ' + parts.slice(0, -1).join(', ') + (parts.length > 1 ? ' and ' : '') + parts[parts.length - 1] + '.';
+      prompts = parts.map(function (gs, i) { return Kit.markingPrompt(set, at, { weak: weak, paperText: pt, groups: gs, part: parts.length > 1 ? [i + 1, parts.length] : null }); });
+      copyBtns.forEach(function (b) { b.disabled = false; b.textContent = b.dataset.label; }); showBtn.disabled = false;
+      var have = ['your answers'];
+      if (pt && pt.hasText) have.push('the questions from your PDF');
+      if (pt && pt.guidelines) have.push('the paper\'s marking guidelines');
+      else if (hasGuides) have.push('the marking guide');
+      if (weak.length) have.push('your weak areas');
+      var txt = (parts.length > 1 ? 'This set is long, so it is copied in two parts. Send part 1 to the AI and paste its reply below, then do the same with part 2; the marks add together. Each part holds ' : 'One copy holds ') + have.slice(0, -1).join(', ') + (have.length > 1 ? ' and ' : '') + have[have.length - 1] + '.';
       if (set.kind === 'paper' && pt && !pt.hasText) txt += ' Your PDF is a scan, so also attach it in the AI chat so the AI can read the questions.';
       if (set.kind === 'paper' && !(pt && pt.guidelines) && !hasGuides) txt += (set.paper && set.paper.mg && !finished) ? ' Finish the paper first to include its marking guidelines.' : ' Your PDF has no marking guidelines, so the AI marks against HSC standards. If you have them, attach them in the AI chat too.';
       note.textContent = txt;
@@ -10284,7 +10302,7 @@ var PAPER_BANDS = {"indep2026":{"1":{"stim":[],"items":[{"stem":[[2,0.2871,0.329
     ta.addEventListener('paste', function () { setTimeout(function () { if (!apply(true)) err.textContent = 'That reply has no marks this page can read yet. Paste the AI\u2019s whole reply, including the part in the code block.'; }, 0); });
     return h('div', { class: 'ai-steps' },
       h('ol', { class: 'steps' },
-        h('li', null, h('strong', { text: 'Copy everything for marking. ' }), note, h('div', { class: 'row' }, copyBtn, showBtn), msg),
+        h('li', null, h('strong', { text: 'Copy everything for marking. ' }), note, btnRow, msg),
         h('li', null, h('strong', { text: 'Paste it into any AI ' }), '(ChatGPT, Gemini, Claude, Copilot) and send it.'),
         h('li', null, h('strong', { text: 'Paste the AI\u2019s whole reply here. ' }), 'The marks are added as soon as you paste.', ta, h('div', { class: 'row' }, h('button', { type: 'button', class: 'btn', onclick: function () { apply(false); } }, 'Add these marks')), err)));
   }
