@@ -802,6 +802,8 @@ body.in-exam { background: #ffffff; }
 .sec { margin-top: 30px; }
 .sec h2 { font-size: 1.2rem; color: var(--navy); margin: 0 0 4px; }
 .sec-sub { color: var(--ink-2); margin: 0 0 14px; max-width: 68ch; }
+.start-plan { margin: 0; padding-left: 1.4em; max-width: 68ch; line-height: 1.6; }
+.start-plan li { margin-bottom: 4px; }
 .empty { color: var(--ink-3); margin: 0; }
 .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 10px; }
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 14px; }
@@ -9969,10 +9971,26 @@ var PAPER_BANDS = {"indep2026":{"1":{"stim":[],"items":[{"stem":[[2,0.2871,0.329
     var going = Object.keys(sets).filter(function (id) { var a = loadAttempt(id); return a && a.phase >= 2 && a.phase < 4; });
     if (going.length) main.appendChild(section('Continue where you left off', null, h('div', { class: 'cards' }, going.map(function (id) { return setCard(sets[id], true); }))));
     if (PERSONAL) {
-      if (order.practice.length) main.appendChild(section('Past HSC exam', 'The 2025 HSC paper in the exam layout. Your answers save as you go, and you can come back to it later.', h('div', { class: 'cards' }, order.practice.map(function (id) { return setCard(sets[id]); }))));
+      var DR = ['sql-1', 'sheets-1'], past = order.practice.filter(function (id) { return DR.indexOf(id) < 0; }), drills = DR.filter(function (id) { return order.practice.indexOf(id) >= 0; });
+      if (past.length) main.appendChild(section('Past HSC exam', 'The 2025 HSC paper in the exam layout. Your answers save as you go, and you can come back to it later.', h('div', { class: 'cards' }, past.map(function (id) { return setCard(sets[id]); }))));
+      if (drills.length) main.appendChild(section('Practice drills', 'From the peer sets: the SQL drill (do all of it, questions 7 and 8 drill aggregates) and the spreadsheet drill (questions 4 and 5: IF with AND, grade-band VLOOKUP, nested IF and ROUND). Both mark themselves.', h('div', { class: 'cards' }, drills.map(function (id) { return setCard(sets[id]); }))));
       main.appendChild(section('Study blocks', 'Short timed sets from your weak areas. Finish one, then ask Claude in chat to mark it.', order.blocks.length ? h('div', { class: 'cards' }, order.blocks.slice().reverse().map(function (id) { return setCard(sets[id]); })) : h('p', { class: 'empty', text: order.loadError ? 'Study blocks could not be loaded. Reload the page to try again.' : 'No study blocks yet.' })));
     } else {
-      main.appendChild(section('Practice sets', 'A full-length mock HSC (2 hours 20 minutes), short spreadsheet and SQL drills, the peer revision set across all four modules, a sample set with every question type, and the six Enterprise School practice sets, one for each revision lesson. Every set shows marking criteria and sample answers when you finish. Make more with the AI kit below.', h('div', { class: 'cards' }, order.practice.filter(function (id) { return id !== 'hsc2025-sheet'; }).sort(function (a, b) { var P = ['mock-1', 'sheets-1', 'sql-1', 'peer-1', 'sample-1'], i = P.indexOf(a), j = P.indexOf(b); return (i < 0 ? 99 : i) - (j < 0 ? 99 : j); }).map(function (id) { return setCard(sets[id]); }))));
+      var pr = order.practice.filter(function (id) { return id !== 'hsc2025-sheet'; }), used = {};
+      function grab(fn) { return pr.filter(function (id) { if (used[id] || !fn(id)) return false; used[id] = 1; return true; }); }
+      var gMock = grab(function (id) { return id === 'mock-1'; }), gDrill = grab(function (id) { return id === 'sql-1' || id === 'sheets-1'; }).sort(),
+        gSchool = grab(function (id) { return /^Enterprise School/.test(sets[id].title || ''); }).sort(function (a, b) { return (sets[a].title || '').localeCompare(sets[b].title || '', undefined, { numeric: true }); }),
+        gRev = grab(function () { return true; }).sort(function (a, b) { var P = ['peer-1', 'sample-1'], i = P.indexOf(a), j = P.indexOf(b); return (i < 0 ? 99 : i) - (j < 0 ? 99 : j); });
+      function grp(title, sub, ids) { if (ids.length) main.appendChild(section(title, sub, h('div', { class: 'cards' }, ids.map(function (id) { return setCard(sets[id]); })))); }
+      main.appendChild(section('Where to start', 'A suggested order before the exam. Every set marks objective questions itself and shows marking criteria and sample answers when you finish.', h('ol', { class: 'start-plan' },
+        h('li', { text: 'Read the marking criteria in the Enterprise School sets for any topic you are unsure of.' }),
+        h('li', { text: 'Sit the 2025 HSC exam above, using the answer sheet.' }),
+        h('li', { text: 'Do the SQL drill (questions 1 to 6 first) and the spreadsheet drill.' }),
+        h('li', { text: 'Finish with the peer revision set, or the full mock if you have time.' }))));
+      grp('Quick drills', 'Short, focused practice on the two tools that appear in every paper. SQL: questions 1 to 6 are core, 7 and 8 are an extension. Spreadsheet: every function you are likely to need.', gDrill);
+      grp('Revision sets', 'The peer revision set covers all four modules in about an hour. The sample set shows every question type and answer tool in the online exam.', gRev);
+      grp('Full-length mock exam', 'An original exam in the same mix as the 2025 HSC: 80 marks, 10 minutes reading and 2 hours 20 minutes working. Sit it in one go.', gMock);
+      grp('Enterprise School practice sets', 'One set for each revision lesson, in lesson order. Each one has marking criteria and a sample answer for every question, with the key points highlighted.', gSchool);
     }
     if (order.custom.length) main.appendChild(section('Your AI-made sets', null, h('div', { class: 'cards' }, order.custom.slice().reverse().map(function (id) { return setCard(sets[id]); }))));
     var bundledAll = order.papers.every(function (id) { return window.EC_BUNDLED_PDFS && window.EC_BUNDLED_PDFS[sets[id].paper.id]; });
